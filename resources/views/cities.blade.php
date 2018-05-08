@@ -89,7 +89,7 @@
                         <a href="@{{city.cities_img01}}"><img ng-src="@{{city.cities_img01}}" alt="City" weight="75px" height="75px"></a>
                       </div>
                       <div class="col col-12 col-md-2">
-                            <h3> @{{city.cities_name}}</h3>
+                            <a href="../2Sweden/city.html?nr=@{{city.id}}"><h3> @{{city.cities_name}}</h3></a>
                        </div>
                        <div class="col col-12 col-md-6"  >
                         
