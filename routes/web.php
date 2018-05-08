@@ -26,3 +26,6 @@ Route::get('recommended', function () {
 Route::get('schedule', function () {
     return view('schedule');
 });
+Route::get('city', function () {
+    return view('city');
+});
