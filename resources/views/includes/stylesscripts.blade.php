@@ -1,3 +1,6 @@
+         <!-- Fonts -->
+
+         <link href="https://fonts.googleapis.com/css?family=Lato|Raleway" rel="stylesheet" type="text/css">
        <!-- Bootsrap -->
        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
