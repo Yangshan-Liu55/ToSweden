@@ -1,0 +1,39 @@
+body {
+    background-color: #006699;
+    color: white;
+
+}
+
+h1 {
+    font-family: Raleway;
+    font-size: 20px;
+}
+
+p {
+    font-family: Lato;
+    font-size: 14px;
+}
+
+
+.navbar {
+    background: #ffcc00 !important;
+    background-color: #ffcc00 !important;
+}
+
+#homeimage img {
+    position: relative;
+
+}
+
+.highlight {
+    color: #ffcc00;
+}
+
+.modal .thead {
+    background-color: #006699;
+}
+
+.modal-title,
+.modal-body td {
+    color: #006699;
+}
