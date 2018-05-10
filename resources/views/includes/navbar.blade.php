@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-primary">
         <a class="navbar-brand" href="/">
-                <img src="http://steffo.info/toswe-api/logotype.png" height="50" class="d-inline-block align-top" alt="">
+                <img src="http://steffo.info/img/logotyp/logotyp.png" height="70" class="d-inline-block align-top" alt="">
                
               </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

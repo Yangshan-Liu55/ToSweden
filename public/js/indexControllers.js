@@ -13,7 +13,7 @@ var currencyAPIKey = "access_key=8a07f22cf0d5906c37ae53d615974ff6";
 var callBack = "&callback=data";
 
 var app = angular.module("myApp", []);
-
+//Search delen i Home.php
 app.controller("searchCtrl", function ($scope, $http) {
 
     //staden man åker från
@@ -142,4 +142,28 @@ app.controller("searchCtrl", function ($scope, $http) {
         }
 
     };
+});
+
+//Hämtar JSON för Sporter till schema i Home.php.
+app.controller('sportsCtrl', function($scope, $http) {
+  $http.get('http://steffo.info/toswe-api/toswe-sports.php')
+  .then(function(response) {
+      $scope.sports = response.data;
+  });
+});
+
+//Hämtar JSON för Cities till schema i Cities.php.
+app.controller('CitiesCtrl', function($scope, $http) {
+  $http.get('http://steffo.info/toswe-api/toswe-cities.php')
+  .then(function(response) {
+      $scope.cities = response.data;
+  });
+});
+
+//Hämtar JSON för Recommended  i Recommended.php.
+app.controller('allToDo', function($scope, $http) {
+  $http.get('http://steffo.info/toswe-api/toswe-todo.php')
+  .then(function(response) {
+      $scope.allToDo = response.data;
+  });
 });
