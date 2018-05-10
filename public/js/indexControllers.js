@@ -12,9 +12,16 @@ var currencyAPI = "http://data.fixer.io/api/latest?";
 var currencyAPIKey = "access_key=8a07f22cf0d5906c37ae53d615974ff6";
 var callBack = "&callback=data";
 
+//google map API
+var googleAPI = "https://www.google.com/maps/embed/v1/directions?";
+var googleKey = "key=AIzaSyAApIIpuOK_GeeYmYGiSp9DgvnWGRjPhR4";
+var googleFrom = "&origin=";
+var googleTo = "&destination=";
+
 var app = angular.module("myApp", []);
+
 //Search delen i Home.php
-app.controller("searchCtrl", function ($scope, $http) {
+app.controller("searchCtrl", function ($scope, $http, $sce) {
 
     //staden man åker från
     $scope.fromCity = [];
@@ -102,6 +109,10 @@ app.controller("searchCtrl", function ($scope, $http) {
         //hämtar resvägen man vill ha detaljer för
         var route = $scope.info.routes[index];
 
+        var depCity = $scope.info.places[route.depPlace].longName;
+
+        var arrCity = $scope.info.places[route.arrPlace].longName;
+
         //en array att lagra detalj informationen
         $scope.travelInfo = [];
 
@@ -139,31 +150,34 @@ app.controller("searchCtrl", function ($scope, $http) {
                 $scope.travelInfo.push({ 'depName': depName, 'arrName': arrName, 'transferTime': time });
             }
 
+            $scope.googleUrl = googleAPI + googleKey + googleFrom + depCity + googleTo + arrCity;
+            document.getElementById("googleMap").src = $scope.googleUrl;
+
         }
 
     };
 });
 
 //Hämtar JSON för Sporter till schema i Home.php.
-app.controller('sportsCtrl', function($scope, $http) {
-  $http.get('http://steffo.info/toswe-api/toswe-sports.php')
-  .then(function(response) {
-      $scope.sports = response.data;
-  });
+app.controller('sportsCtrl', function ($scope, $http) {
+    $http.get('http://steffo.info/toswe-api/toswe-sports.php')
+        .then(function (response) {
+            $scope.sports = response.data;
+        });
 });
 
 //Hämtar JSON för Cities till schema i Cities.php.
-app.controller('CitiesCtrl', function($scope, $http) {
-  $http.get('http://steffo.info/toswe-api/toswe-cities.php')
-  .then(function(response) {
-      $scope.cities = response.data;
-  });
+app.controller('CitiesCtrl', function ($scope, $http) {
+    $http.get('http://steffo.info/toswe-api/toswe-cities.php')
+        .then(function (response) {
+            $scope.cities = response.data;
+        });
 });
 
 //Hämtar JSON för Recommended  i Recommended.php.
-app.controller('allToDo', function($scope, $http) {
-  $http.get('http://steffo.info/toswe-api/toswe-todo.php')
-  .then(function(response) {
-      $scope.allToDo = response.data;
-  });
+app.controller('allToDo', function ($scope, $http) {
+    $http.get('http://steffo.info/toswe-api/toswe-todo.php')
+        .then(function (response) {
+            $scope.allToDo = response.data;
+        });
 });

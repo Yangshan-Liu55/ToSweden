@@ -10,6 +10,12 @@
     @include('includes.title')
     <!-- Styles and Scripts -->
     @include('includes.stylesscripts')
+    <style>
+        #map {
+            height: 200px;
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body ng-app="myApp">
@@ -63,7 +69,8 @@
                 <tr ng-repeat="route in info.routes | orderBy: propertyName : reverse">
                     <td>@{{route.name}}</td>
                     <td>@{{timeConvert(route.totalDuration)}}</td>
-                    <td>@{{(route.indicativePrices[0].priceLow/currencyInfo.rates.USD) | number: 0}} - @{{(route.indicativePrices[0].priceHigh/currencyInfo.rates.USD) | number: 0}} @{{currencyInfo.base}}</td>
+                    <td>@{{(route.indicativePrices[0].priceLow/currencyInfo.rates.USD) | number: 0}} - @{{(route.indicativePrices[0].priceHigh/currencyInfo.rates.USD)
+                        | number: 0}} @{{currencyInfo.base}}</td>
                     <td>
                         <button class="btn btn-primary" ng-click="getDetails($index)" data-toggle="modal" data-target="#myModal">Detaljer</button>
                     </td>
@@ -92,9 +99,12 @@
                             <tr ng-repeat="infoResa in travelInfo">
                                 <td>@{{infoResa.depName}} - @{{infoResa.arrName}}</td>
                                 <td>@{{timeConvert(infoResa.transferTime)}}</td>
-                                <td>@{{(infoResa.lowPrice/currencyInfo.rates.USD) | number: 0}} - @{{(infoResa.highPrice/currencyInfo.rates.USD) | number: 0}} @{{currencyInfo.base}}</td>
+                                <td>@{{(infoResa.lowPrice/currencyInfo.rates.USD) | number: 0}} - @{{(infoResa.highPrice/currencyInfo.rates.USD)
+                                    | number: 0}} @{{currencyInfo.base}}</td>
                             </tr>
                         </table>
+                        <iframe id="googleMap" width="100%" height="300" frameborder="0" style="border:0" src= "" allowfullscreen>
+                        </iframe>
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
@@ -105,17 +115,17 @@
             </div>
         </div>
     </div>
-    <!-- SLUT på Modal RESULTATET-->
+    <!-- SLUT https://www.google.com/maps/dir/?api=1&origin=berlin+germany&destination=paris+france på Modal RESULTATET-->
 
     <!-- TEST FÖR SCHEMA -->
     <div ng-controller="sportsCtrl" class="container p-5">
-            <div ng-if="sport.id==2" ng-repeat="sport in sports">
-                    <div class="row row-wrap">
-                    <img src="http://steffo.info/img/pictogram/neg/@{{sport.sports_img}}"  weight="40px" height="40px">   
-                    &nbsp;&nbsp;<h6>@{{sport.sports_name_swe}}</h6>
-                </div>
-                     <hr>
-                </div>
+        <div ng-if="sport.id==2" ng-repeat="sport in sports">
+            <div class="row row-wrap">
+                <img src="http://steffo.info/img/pictogram/neg/@{{sport.sports_img}}" weight="40px" height="40px"> &nbsp;&nbsp;
+                <h6>@{{sport.sports_name_swe}}</h6>
+            </div>
+            <hr>
+        </div>
     </div>
 
 
@@ -130,7 +140,6 @@
             till spelen var hämtade från idrottstävlingar som hölls till guden Zeus ära i Grekland under antiken.
         </p>
     </div>
-
-
 </body>
+
 </html>
