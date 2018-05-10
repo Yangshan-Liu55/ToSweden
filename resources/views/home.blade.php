@@ -25,7 +25,7 @@
     </h2>
 
     <!-- SÖK RESA -->
-    <div ng-controller="searchCtrl">
+    <div ng-controller="searchCtrl" ng-init="changeCurrency()">
         <div class="container" id="navbar">
             <form name="searchForm">
                 <div class="form-group">
@@ -63,8 +63,7 @@
                 <tr ng-repeat="route in info.routes | orderBy: propertyName : reverse">
                     <td>@{{route.name}}</td>
                     <td>@{{timeConvert(route.totalDuration)}}</td>
-                    <td>@{{route.indicativePrices[0].priceLow + route.indicativePrices[0].currency}} - @{{route.indicativePrices[0].priceHigh
-                        + route.indicativePrices[0].currency}}</td>
+                    <td>@{{(route.indicativePrices[0].priceLow/currencyInfo.rates.USD) | number: 0}} - @{{(route.indicativePrices[0].priceHigh/currencyInfo.rates.USD) | number: 0}} @{{currencyInfo.base}}</td>
                     <td>
                         <button class="btn btn-primary" ng-click="getDetails($index)" data-toggle="modal" data-target="#myModal">Detaljer</button>
                     </td>
@@ -73,7 +72,6 @@
             <button ng-click="closeResult()" class="btn btn-danger btn-block">Stäng</button>
         </div>
         <!-- SLUT på SÖK RESULTAT -->
-
         <!-- The Modal för att visa DETALJER -->
         <div class="modal" id="myModal">
             <div class="modal-dialog">
@@ -81,7 +79,6 @@
                     <!-- Modal Header -->
                     <div class="modal-header">
                         <h4 class="modal-title">@{{routeName}}</h4>
-                        <h2>@{{segmentLength}}</h2>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <!-- Modal body -->
@@ -95,7 +92,7 @@
                             <tr ng-repeat="infoResa in travelInfo">
                                 <td>@{{infoResa.depName}} - @{{infoResa.arrName}}</td>
                                 <td>@{{timeConvert(infoResa.transferTime)}}</td>
-                                <td>@{{infoResa.lowPrice}} @{{infoResa.currency}} - @{{infoResa.highPrice}} @{{infoResa.currency}}</td>
+                                <td>@{{(infoResa.lowPrice/currencyInfo.rates.USD) | number: 0}} - @{{(infoResa.highPrice/currencyInfo.rates.USD) | number: 0}} @{{currencyInfo.base}}</td>
                             </tr>
                         </table>
                     </div>

@@ -1,9 +1,16 @@
-//Angular-delen 
-var api = "http://free.rome2rio.com/api/1.4/json/Search?";
-var apiKey = "key=S2Q8spaR";
-var specify = "&noSpecial&noBikeshare&noRideshare&noTowncar&noMinorStart&noMinorEnd&noCommuter&oKind=city&dKind=city";
-var from = "&oName=";
-var to = "&dName=";
+//Angular-delen
+
+//Search rome2rio api bas
+var searchAPI = "http://free.rome2rio.com/api/1.4/json/Search?";
+var searchAPIKey = "key=S2Q8spaR";
+var searchSpecify = "&noSpecial&noBikeshare&noRideshare&noTowncar&noMinorStart&noMinorEnd&noCommuter&oKind=city&dKind=city";
+var searchFrom = "&oName=";
+var searchTo = "&dName=";
+
+//valuta api bas
+var currencyAPI = "http://data.fixer.io/api/latest?";
+var currencyAPIKey = "access_key=8a07f22cf0d5906c37ae53d615974ff6";
+var callBack = "&callback=data";
 
 var app = angular.module("myApp", []);
 
@@ -23,10 +30,8 @@ app.controller("searchCtrl", function ($scope, $http) {
 
     //när man söker resa
     $scope.search = function () {
-
-        //skapar jsonUrl
-        var jsonUrl = api + apiKey + specify + from + $scope.fromCity + to + $scope.toCity;
-
+        //skapar jsonUrl för sökningen
+        var jsonUrl = searchAPI + searchAPIKey + searchSpecify + searchFrom + $scope.fromCity + searchTo + $scope.toCity;
         //hämtar json
         $http({
             method: 'GET',
@@ -69,7 +74,29 @@ app.controller("searchCtrl", function ($scope, $http) {
         return result;
     }
 
-    //visar detaljer om resan
+    //hämtar valuta
+    $scope.changeCurrency = function () {
+
+        //url till valuta API
+        var currencyUrl = currencyAPI + currencyAPIKey;
+
+        //vald valuta
+        $scope.choosenCurrency = "EUR";
+
+        //hämtar valuta i json format
+        $.ajax({
+            url: currencyUrl,
+            dataType: 'jsonp',
+            success: function (json) {
+
+                //lagrar valuta datan
+                $scope.currencyInfo = json;
+            }
+        });
+        //document.getElementById("currencyTest").innerHTML = currencyUrl;
+    }
+
+    //visar detaljer om resan, avgångar, ankomster, restid, pris och valuta
     $scope.getDetails = function (index) {
 
         //hämtar resvägen man vill ha detaljer för
@@ -95,7 +122,7 @@ app.controller("searchCtrl", function ($scope, $http) {
 
             $scope.segmentLength = route.segments.length;
 
-            //om fältet inte är tomt
+            //om prices fältet inte är tomt
             if (route.segments[i].indicativePrices != null) {
                 //lägsta pris segment resan
                 var lowPrice = route.segments[i].indicativePrices[0].priceLow;
