@@ -2,6 +2,17 @@
 <html lang="{{ app()->getLocale() }}">
 
 <head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119022172-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-119022172-1');
+</script>
+
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -110,19 +121,58 @@
     </div>
     <!-- SLUT på Modal RESULTATET-->
 
-    <!-- TEST FÖR SCHEMA -->
-    <div ng-controller="sportsCtrl" class="container p-5">
-            <div ng-if="sport.id==2" ng-repeat="sport in sports">
-                    <div class="row row-wrap">
-                    <img src="http://steffo.info/img/pictogram/neg/@{{sport.sports_img}}"  weight="40px" height="40px">   
-                    &nbsp;&nbsp;<h6>@{{sport.sports_name_swe}}</h6>
+    <!-- Modal för OS-SCHEMA -->
+
+<BR><BR>
+<div class="container">
+        <button class="btn btn-warning btn-block"  data-toggle="modal" data-target="#eventsModal">OS-schema</button>
+</div>
+  
+    <div class="modal" id="eventsModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">OS-schema</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-                     <hr>
+                 <!-- Modal body -->
+                 <div class="modal-body">
+                <!-- Filter för att plocka ut rätt sporter till rätt städer -->
+                    <!-- Loopar igenom alla Städer -->
+                    <div ng-controller="CitiesCtrl" >
+                        <div ng-repeat="city in cities" >
+                            <div class="thead p-3"><h5>@{{city.cities_name}}</h5></div>
+                            <div ng-controller="sportsCtrl" >
+                                <!-- Loopar igenom alla Sporter -->
+                                <div class="eventsHeader bg-info p-2" ng-if="sport.sports_cities_id==city.id" ng-repeat="sport in sports">
+                                    <img  src="/img/pictogram/neg/@{{sport.sports_img}}"  weight="40px" height="40px">  <h6 >@{{sport.sports_name_swe}}</h6>
+                                    <!-- Loopar igenom Sportschema -->
+                                    <div class="eventsBody bg-light" ng-controller="allEvents" >
+                                        <div ng-if="event.events_sports_id==sport.id" ng-repeat="event in allEvents">
+                                            <div class="row row-wrap p-3">
+                                                <!-- Kontrollerar medaljstatus -->
+                                                <div ng-if="event.events_status==1"><img src="/img/pictogram/pos/day.png"></div>
+                                                <div ng-if="event.events_status==2"><img src="/img/pictogram/pos/medal.png"></div>                        
+                                                &nbsp;&nbsp;<h6 class="toS-blue">Dag: @{{event.events_date}}</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                <!-- SLUT Filter för schema -->
+                 </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Stäng</button>
                 </div>
+            </div>
+        </div>
     </div>
+    <!-- SLUT Modal för OS-schema -->
 
-
-    <!-- SLUT TEST FÖR SCHEMA -->
 
     <!-- TEXT OM OSS -->
     <h1 class="text-center mt-5">OM OSS</h1>
@@ -134,6 +184,15 @@
         </p>
     </div>
 
+<script>
+   
+
+
+
+
+
+
+</script>
 
 </body>
 </html>

@@ -140,3 +140,11 @@ app.controller('allToDo', function($scope, $http) {
       $scope.allToDo = response.data;
   });
 });
+
+//Hämtar JSON för Recommended  i Recommended.php.
+app.controller('allEvents', function($scope, $http) {
+    $http.get('http://steffo.info/toswe-api/toswe-events.php')
+    .then(function(response) {
+        $scope.allEvents = response.data;
+    });
+  });

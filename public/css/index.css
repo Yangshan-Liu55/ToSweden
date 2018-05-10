@@ -34,6 +34,11 @@ p {
 }
 
 .modal-title,
-.modal-body td {
+.modal-body td,
+.toS-blue
+{
     color: #006699;
 }
+
+/* Hide all class events in Modal on home.php */
+.eventsBody{display:none;}
