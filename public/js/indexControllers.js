@@ -21,7 +21,7 @@ var googleTo = "&destination=";
 var app = angular.module("myApp", []);
 
 //Search delen i Home.php
-app.controller("searchCtrl", function ($scope, $http, $sce) {
+app.controller("searchCtrl", function ($scope, $http) {
 
     //staden man åker från
     $scope.fromCity = [];
