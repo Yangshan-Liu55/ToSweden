@@ -7,7 +7,7 @@
 
     <!-- Title -->
     @include('includes.title')
-    
+
     <!-- Styles and Scripts -->
     @include('includes.stylesscripts')
 
@@ -40,15 +40,6 @@
             </div>
         </div>
 
-<script>
-//Angular-delen 
-var app = angular.module('myApp', []);
-app.controller('allToDo', function($scope, $http) {
-  $http.get('http://steffo.info/toswe-api/toswe-todo.php')
-  .then(function(response) {
-      $scope.allToDo = response.data;
-  });
-});
-</script>
+
     </body>
 </html>

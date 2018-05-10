@@ -112,7 +112,7 @@
 
     <!-- TEST FÖR SCHEMA -->
     <div ng-controller="sportsCtrl" class="container p-5">
-            <div ng-repeat="sport in sports">
+            <div ng-if="sport.id==2" ng-repeat="sport in sports">
                     <div class="row row-wrap">
                     <img src="http://steffo.info/img/pictogram/neg/@{{sport.sports_img}}"  weight="40px" height="40px">   
                     &nbsp;&nbsp;<h6>@{{sport.sports_name_swe}}</h6>
@@ -134,14 +134,6 @@
         </p>
     </div>
 
-    <script>
-            //
-            app.controller('sportsCtrl', function($scope, $http) {
-              $http.get('http://steffo.info/toswe-api/toswe-sports.php')
-              .then(function(response) {
-                  $scope.sports = response.data;
-              });
-            });
-            </script>
+
 </body>
 </html>
