@@ -131,7 +131,9 @@
     <!-- Modal för OS-SCHEMA -->
 
 <BR><BR>
-<div class="container">
+    <img src="/img/travel/pos/bus.png"><img src="/img/travel/pos/air.png"><img src="/img/travel/pos/train.png"><img src="/img/travel/pos/walk.png"><BR><BR>
+        <img src="/img/travel/neg/bus.png"><img src="/img/travel/neg/air.png"><img src="/img/travel/neg/train.png"><img src="/img/travel/neg/walk.png"><BR><BR>
+        <div class="container">
         <button class="btn btn-warning btn-block"  data-toggle="modal" data-target="#eventsModal">OS-schema</button>
 </div>
   
