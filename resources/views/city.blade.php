@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
-
+   
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119022172-1"></script>
 <script>
@@ -27,8 +27,6 @@
 
             
         <div class="content">
-                
-            <h1>City</h1>
 
             <!-- City -->
             <div style="padding: 5px" ng-repeat="c in cities | filter: {id:citynr}">
@@ -59,8 +57,12 @@
                 </a>
             </div>
             <!-- End of Slides -->
-            <h1>@{{c.cities_name}}</h1>
-            <p>@{{c.cities_text}}</p>
+
+            <div style="background:#ffcc00; padding:10px; min-height:330px; margin-left:5px; margin-right:5px; margin-bottom:30px;">
+                <h1 style="font-size:50px; text-align:center;">@{{c.cities_name}}</h1>
+                <p style="color:black">@{{c.cities_text}}</p>
+            </div>
+            
             </div><!-- End of City -->
 
         </div>

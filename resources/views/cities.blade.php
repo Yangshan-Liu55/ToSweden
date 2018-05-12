@@ -22,29 +22,24 @@
 
     </head>
     <body ng-app="myApp" ng-controller="CitiesCtrl">
-            @include('includes.navbar')
+        @include('includes.navbar')
 
             
-            <div class="content">
-                
-                <h1>Cities</h1>
+        <div class="content">
 
-                <div ng-repeat="city in cities">
-                    <div class="row row-wrap">
-                    <div class="col col-12 col-md-4">
-                        <a href="@{{city.cities_img01}}"><img ng-src="@{{city.cities_img01}}" alt="City" weight="75px" height="75px"></a>
-                      </div>
-                      <div class="col col-12 col-md-2">
-                            <a href="city?nr=@{{city.id}}"><h3> @{{city.cities_name}}</h3></a>
-                       </div>
-                       <div class="col col-12 col-md-6"  >
-                        
-                        <span>@{{city.cities_text|limitTo:100}}...</span>
+            <div style="padding: 5px" ng-repeat="city in cities">
+                <div class="row row-wrap">
+                    <div class="col col-12 col-md-6" style="position:relative;">
+                        <a href="city?nr=@{{city.id}}"><img ng-src="@{{city.cities_img01}}" alt="City" class="d-block w-100 h-60">
+                        <span style="position:absolute; z-indent:2; left:15%; top:30%; font-size:70px; color:white;">@{{city.cities_name}}</span></a>
                     </div>
-                  </div>
-                     <hr>
+                    <div class="col col-12 col-md-6">                       
+                        <span>@{{city.cities_text|limitTo:300}}...</span>
+                    </div>
                 </div>
+                
             </div>
+        </div>
 
 
 
