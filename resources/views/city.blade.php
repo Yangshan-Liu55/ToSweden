@@ -80,27 +80,5 @@
 
         </div>
 
-
-<script>
-    //Angular-delen 
-    var app = angular.module('myApp', []);
-    app.controller('CitiesCtrl', function($scope, $http, $location) {
-
-        $http.get('http://steffo.info/toswe-api/toswe-cities.php')
-            .then(function(response) {
-                $scope.cities = response.data;
-        });
-
-        //local url
-        var locurl = $location.absUrl();
-        $scope.citynr = locurl.substring(locurl.lastIndexOf('nr') + 3, locurl.lastIndexOf('nr') + 4);
-
-        $http.get('http://steffo.info/toswe-api/toswe-todo.php')
-            .then(function(response) {
-                $scope.todo = response.data;
-        });
-
-    });
-</script>
     </body>
 </html>
