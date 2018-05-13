@@ -24,25 +24,23 @@
     @include('includes.stylesscripts')
 
     </head>
-    <body ng-app="myApp" ng-controller="allToDo">
+    <body ng-app="myApp" ng-controller="HotelsCtrl">
             @include('includes.navbar')
         <div class="position-ref full-height">
             
             <div class="content">
-                
-                <h1>Recommended</h1>
 
-                <div ng-repeat="todo in allToDo">
-                    <a href="../2Sweden/city.html?nr=@{{city.id}}">
+                <div ng-repeat="h in hotels">
+                    <a href="">
                     <div class="row row-wrap">
                       <div class="col col-12 col-md-4">
-                        <img ng-src="@{{todo.todo_img01}}" alt="City" weight="75px" height="75px">
+                        <img ng-src="@{{h.hotels_img01}}" alt="City" weight="75px" height="75px">
                       </div>
                       <div class="col col-12 col-md-2">
-                           <h3> @{{todo.todo_cities_name}}</h3>
+                           <h3> @{{h.hotels_name}}</h3>
                       </div>
                       <div class="col col-12 col-md-6"  >
-                        <span>@{{todo.todo_text|limitTo:100}}...</span>
+                        <span>@{{h.hotels_text|limitTo:100}}...</span>
                     </div>
                   </div>
                 </a>

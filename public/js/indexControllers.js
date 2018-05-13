@@ -198,3 +198,11 @@ app.controller('allEvents', function($scope, $http) {
         $scope.allEvents = response.data;
     });
   });
+
+//Hämtar JSON för Recommended  i Recommended.php.
+app.controller('HotelsCtrl', function($scope, $http) {
+    $http.get('http://steffo.info/toswe-api/toswe-hotels.php')
+    .then(function(response) {
+        $scope.hotels = response.data;
+    });
+  });
