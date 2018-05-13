@@ -58,12 +58,25 @@
             </div>
             <!-- End of Slides -->
 
-            <div style="background:#ffcc00; padding:10px; min-height:330px; margin-left:5px; margin-right:5px; margin-bottom:30px;">
-                <h1 style="font-size:50px; text-align:center;">@{{c.cities_name}}</h1>
-                <p style="color:black">@{{c.cities_text}}</p>
+            <h1 style="font-size:50px; text-align:center;">@{{c.cities_name}}</h1>
+            <div style="background:#ffcc00; padding:10px; margin:10px">               
+                <p style="color:white">@{{c.cities_text}}</p>
             </div>
-            
+            <h2 style="text-align:center;">Att Göra I @{{c.cities_name}}</h2>           
             </div><!-- End of City -->
+
+            <!-- To do -->
+            <div style="background:#ffcc00; padding:10px; margin:10px" ng-repeat="t in todo | filter: {todo_cities_id:citynr}">                
+                <div class="row row-wrap">
+                    <div class="col col-12 col-md-6">
+                        <a href="@{{t.todo_img01}}"><img ng-src="@{{t.todo_img01}}" alt="ToDo Image 1" class="d-block w-100 h-60"></a>
+                    </div>
+                    <div class="col col-12 col-md-6">
+                        <h3 style="color:#006699;text-align:center; padding-top:15px">@{{t.todo_name}}</h3>
+                        <p>@{{t.todo_text}}</p>
+                    </div>
+                </div>
+            </div><!-- End of To do -->
 
         </div>
 
@@ -81,6 +94,11 @@
         //local url
         var locurl = $location.absUrl();
         $scope.citynr = locurl.substring(locurl.lastIndexOf('nr') + 3, locurl.lastIndexOf('nr') + 4);
+
+        $http.get('http://steffo.info/toswe-api/toswe-todo.php')
+            .then(function(response) {
+                $scope.todo = response.data;
+        });
 
     });
 </script>
