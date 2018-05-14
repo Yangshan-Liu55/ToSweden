@@ -27,8 +27,7 @@
 
             
         <div class="content">
-
-            <!-- City -->
+        <!-- City -->
             <div style="padding: 5px" ng-repeat="c in cities | filter: {id:citynr}">
             <!-- Slides -->
             <div id="cCity" class="carousel slide" data-ride="carousel">
@@ -66,7 +65,7 @@
             </div><!-- End of City -->
 
             <!-- To do -->
-            <div style="background:#ffcc00; padding:10px; margin:10px" ng-repeat="t in todo | filter: {todo_cities_id:citynr}">                
+            <div class="yellowCard" ng-repeat="t in todo | filter: {todo_cities_id:citynr}">                
                 <div class="row row-wrap">
                     <div class="col col-12 col-md-6">
                         <a href="@{{t.todo_img01}}"><img ng-src="@{{t.todo_img01}}" alt="ToDo Image 1" class="d-block w-100 h-60"></a>
