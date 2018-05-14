@@ -24,7 +24,18 @@
 </head>
 <body>
         @include('includes.navbar')
-    <h1>About</h1>
+
+
+    <!-- TEXT OM OSS -->
+    <h1 class="text-center mt-5">OM OSS</h1>
+    <div class="container-fluid navbar">
+        <div class="container">
+        <p class="text-center">Den franske baronen och filosofen Pierre de Coubertin grundade de olympiska spelen 1894. Han var övertygad om att
+            man kan göra världen bättre med hjälp av idrott. De första olympiska spelen arrangerades i Aten 1896. Inspirationen
+            till spelen var hämtade från idrottstävlingar som hölls till guden Zeus ära i Grekland under antiken.
+        </p>
+        </div>
+    </div>
    
 </body>
 </html>

@@ -4,5 +4,8 @@ $(document).ready(function()    {
     $(document).on('click','.eventsHeader',function() {  
         $('.eventsBody').hide();
         $(this).children().slideDown();
+        $(this).trigger('focus')
     });
 });
+
+
