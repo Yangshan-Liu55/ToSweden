@@ -34,7 +34,7 @@
                     <a href="">
                     <div class="row row-wrap">
                       <div class="col col-12 col-md-4">
-                        <img ng-src="@{{h.hotels_img01}}" alt="City" weight="75px" height="75px">
+                        <img ng-src="img/hotels/@{{h.hotels_img01}}" alt="City" weight="75px" height="75px">
                       </div>
                       <div class="col col-12 col-md-2">
                            <h3> @{{h.hotels_name}}</h3>

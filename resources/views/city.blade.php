@@ -40,10 +40,10 @@
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <a href="@{{c.cities_img01}}"><img class="d-block w-100 h-60" ng-src="@{{c.cities_img01}}" alt="City image 1"></a> 
+                <img class="d-block w-100 h-60" ng-src="img/foto/@{{c.cities_img01}}" alt="City image 1">
                 </div>     
                 <div class="carousel-item">
-                    <a href="@{{c.cities_img02}}"><img class="d-block w-100 h-60" ng-src="@{{c.cities_img02}}" alt="City image 2"></a> 
+                <img class="d-block w-100 h-60" ng-src="img/foto/@{{c.cities_img02}}" alt="City image 2"> 
                 </div>                
                 </div>     
                 <!-- Left and right controls -->
