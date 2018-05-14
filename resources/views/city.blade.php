@@ -27,8 +27,7 @@
 
             
         <div class="content">
-
-            <!-- City -->
+        <!-- City -->
             <div style="padding: 5px" ng-repeat="c in cities | filter: {id:citynr}">
             <!-- Slides -->
             <div id="cCity" class="carousel slide" data-ride="carousel">
@@ -59,14 +58,14 @@
             <!-- End of Slides -->
 
             <h1 style="font-size:50px; text-align:center;">@{{c.cities_name}}</h1>
-            <div style="background:#ffcc00; padding:10px; margin:10px">               
-                <p  style="color:white">@{{c.cities_text}}</p>
+            <div class="yellowCard">               
+                <p style="color:white">@{{c.cities_text}}</p>
             </div>
             <h2 style="text-align:center;">Att göra i @{{c.cities_name}}</h2>           
             </div><!-- End of City -->
 
             <!-- To do -->
-            <div style="background:#ffcc00; padding:10px; margin:10px" ng-repeat="t in todo | filter: {todo_cities_id:citynr}">                
+            <div class="yellowCard" ng-repeat="t in todo | filter: {todo_cities_id:citynr}">                
                 <div class="row row-wrap">
                     <div class="col col-12 col-md-6">
                         <a href="@{{t.todo_img01}}"><img ng-src="img/todo/@{{t.todo_img01}}" alt="@{{t.todo_name}}" class="d-block w-100 h-60"></a>

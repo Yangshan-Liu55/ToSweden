@@ -23,6 +23,9 @@ var app = angular.module("myApp", []);
 //Search delen i Home.php
 app.controller("searchCtrl", function ($scope, $http) {
 
+    //vald valuta
+    $scope.choosenCurrency = "EUR";
+
     //staden man åker från
     $scope.fromCity = [];
 
@@ -37,6 +40,7 @@ app.controller("searchCtrl", function ($scope, $http) {
 
     //när man söker resa
     $scope.search = function () {
+
         //skapar jsonUrl för sökningen
         var jsonUrl = searchAPI + searchAPIKey + searchSpecify + searchFrom + $scope.fromCity + searchTo + $scope.toCity;
         //hämtar json
@@ -87,9 +91,6 @@ app.controller("searchCtrl", function ($scope, $http) {
         //url till valuta API
         var currencyUrl = currencyAPI + currencyAPIKey;
 
-        //vald valuta
-        $scope.choosenCurrency = "EUR";
-
         //hämtar valuta i json format
         $.ajax({
             url: currencyUrl,
@@ -100,7 +101,45 @@ app.controller("searchCtrl", function ($scope, $http) {
                 $scope.currencyInfo = json;
             }
         });
-        //document.getElementById("currencyTest").innerHTML = currencyUrl;
+    }
+
+    //konverterar till vald valuta
+    $scope.convertMoney = function (moneyToConvert) {
+
+        //konverterar bas valutan 'USD' till EUR
+        var convertedAmount = Math.round(moneyToConvert / $scope.currencyInfo.rates.USD);
+
+        //lagra resultatet
+        var resultAmount;
+
+        //vilken valuta man väljer
+        var currencyToConvert;
+
+        if ($scope.choosenCurrency == "SEK") {
+
+            //om man väljer SEK som valuta
+            currencyToConvert = Math.round(convertedAmount * $scope.currencyInfo.rates.SEK);
+            resultAmount = currencyToConvert + " " + $scope.choosenCurrency;
+
+        } else if ($scope.choosenCurrency == "USD") {
+
+            //om man väljer USD som valuta
+            currencyToConvert = Math.round(convertedAmount * $scope.currencyInfo.rates.USD);
+            resultAmount = currencyToConvert + " " + $scope.choosenCurrency;
+
+        } else {
+
+            //om man väljer EUR som valuta
+            resultAmount = convertedAmount + " " + $scope.choosenCurrency;
+
+        }
+
+        //om pris fältet är tomt
+        if (moneyToConvert == null) {
+            resultAmount = "";
+        }
+
+        return resultAmount;
     }
 
     //visar detaljer om resan, avgångar, ankomster, restid, pris och valuta
@@ -117,7 +156,7 @@ app.controller("searchCtrl", function ($scope, $http) {
         $scope.travelInfo = [];
 
         //för varje segment i resvägen
-        for (var i = 0; i <= route.segments.length; i++) {
+        for (var i = 0; i < route.segments.length; i++) {
 
             //hämtar avgångstationen
             var depName = $scope.info.places[route.segments[i].depPlace].shortName;
@@ -171,38 +210,38 @@ app.controller('CitiesCtrl', function ($scope, $http, $location) {
     $http.get('http://steffo.info/toswe-api/toswe-cities.php')
         .then(function (response) {
             $scope.cities = response.data;
-    });
-    
+        });
+
     //local url
     var locurl = $location.absUrl();
     $scope.citynr = locurl.substring(locurl.lastIndexOf('nr') + 3, locurl.lastIndexOf('nr') + 4);
 
     $http.get('http://steffo.info/toswe-api/toswe-todo.php')
-        .then(function(response) {
+        .then(function (response) {
             $scope.todo = response.data;
-    });
+        });
 });
 
 //Hämtar JSON för Recommended  i Recommended.php.
-app.controller('allToDo', function($scope, $http) {
-  $http.get('http://steffo.info/toswe-api/toswe-todo.php')
-  .then(function(response) {
-      $scope.allToDo = response.data;
-  });
+app.controller('allToDo', function ($scope, $http) {
+    $http.get('http://steffo.info/toswe-api/toswe-todo.php')
+        .then(function (response) {
+            $scope.allToDo = response.data;
+        });
 });
 
 //Hämtar JSON för Recommended  i Recommended.php.
-app.controller('allEvents', function($scope, $http) {
+app.controller('allEvents', function ($scope, $http) {
     $http.get('http://steffo.info/toswe-api/toswe-events.php')
-    .then(function(response) {
-        $scope.allEvents = response.data;
-    });
-  });
+        .then(function (response) {
+            $scope.allEvents = response.data;
+        });
+});
 
 //Hämtar JSON för Recommended  i Recommended.php.
-app.controller('HotelsCtrl', function($scope, $http) {
+app.controller('HotelsCtrl', function ($scope, $http) {
     $http.get('http://steffo.info/toswe-api/toswe-hotels.php')
-    .then(function(response) {
-        $scope.hotels = response.data;
-    });
-  });
+        .then(function (response) {
+            $scope.hotels = response.data;
+        });
+});

@@ -50,3 +50,10 @@ p {
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
     display: none !important;
  }
+/*Background for text*/
+ .yellowCard{
+    background: #ffcc00;
+    padding:3px;
+    margin:10px;
+
+ }
