@@ -21,12 +21,6 @@
     @include('includes.title')
     <!-- Styles and Scripts -->
     @include('includes.stylesscripts')
-    <style>
-        #map {
-            height: 200px;
-            width: 100%;
-        }
-    </style>
 </head>
 
 <body ng-app="myApp">
@@ -75,13 +69,19 @@
                     <th ng-click="sortBy('name')">Färdmedel</th>
                     <th ng-click="sortBy('totalDuration')">Tid</th>
                     <th ng-click="sortBy('indicativePrices[0].priceLow')">Pris</th>
-                    <th></th>
+                    <th>
+                   Valuta
+                    <select ng-model="choosenCurrency">
+                        <option value="EUR">EUR</option>
+                        <option value="SEK">SEK</option>
+                        <option value="USD">USD</option>
+                    </select>
+                    </th>
                 </thead>
                 <tr ng-repeat="route in info.routes | orderBy: propertyName : reverse">
                     <td>@{{route.name}}</td>
                     <td>@{{timeConvert(route.totalDuration)}}</td>
-                    <td>@{{(route.indicativePrices[0].priceLow/currencyInfo.rates.USD) | number: 0}} - @{{(route.indicativePrices[0].priceHigh/currencyInfo.rates.USD)
-                        | number: 0}} @{{currencyInfo.base}}</td>
+                    <td>@{{convertMoney(route.indicativePrices[0].priceLow)}} - @{{convertMoney(route.indicativePrices[0].priceHigh)}}</td>
                     <td>
                         <button class="btn btn-primary" ng-click="getDetails($index)" data-toggle="modal" data-target="#myModal">Detaljer</button>
                     </td>
@@ -110,8 +110,7 @@
                             <tr ng-repeat="infoResa in travelInfo">
                                 <td>@{{infoResa.depName}} - @{{infoResa.arrName}}</td>
                                 <td>@{{timeConvert(infoResa.transferTime)}}</td>
-                                <td>@{{(infoResa.lowPrice/currencyInfo.rates.USD) | number: 0}} - @{{(infoResa.highPrice/currencyInfo.rates.USD)
-                                    | number: 0}} @{{currencyInfo.base}}</td>
+                                <td>@{{convertMoney(infoResa.lowPrice)}} - @{{convertMoney(infoResa.highPrice)}}</td>
                             </tr>
                         </table>
                         <iframe id="googleMap" width="100%" height="300" frameborder="0" style="border:0" src= "" allowfullscreen>
@@ -126,7 +125,7 @@
             </div>
         </div>
     </div>
-    <!-- SLUT https://www.google.com/maps/dir/?api=1&origin=berlin+germany&destination=paris+france på Modal RESULTATET-->
+    <!-- SLUT på Modal RESULTATET-->
 
     <!-- Modal för OS-SCHEMA -->
 
