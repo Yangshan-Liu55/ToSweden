@@ -131,6 +131,8 @@
     <!-- SLUT https://www.google.com/maps/dir/?api=1&origin=berlin+germany&destination=paris+france på Modal RESULTATET-->
 
     <!-- Modal för OS-SCHEMA -->
+ 
+
 
 <BR><BR>
     <img src="/img/travel/pos/bus.png"><img src="/img/travel/pos/air.png"><img src="/img/travel/pos/train.png"><img src="/img/travel/pos/walk.png"><BR><BR>

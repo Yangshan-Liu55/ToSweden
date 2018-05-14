@@ -10,16 +10,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item ">
-              <a class="nav-link" href="/">Home</a>
+              <a class="nav-link" href="/">Hem</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about">About</a>
+              <a class="nav-link" href="about">Om To Sweden</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="cities">Cities</a>
+              <a class="nav-link" href="cities">Städer</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="recommended">Recommended</a>
+                <a class="nav-link" href="recommended">Rekommenderat</a>
             </li>
           </ul>
         </div>
