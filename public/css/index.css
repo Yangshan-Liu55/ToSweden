@@ -22,13 +22,44 @@ p {
     background-color: #ffcc00 !important;
 }
 
-#homeimage img {
-    position: relative;
+#homeimage{
+    background-image: url("../img/foto/sverige01.jpg");
+    
+   min-height: 90vh;
+   max-width: 100% !important;
+    
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
 
+#welcometext{
+    font-size: 2.5rem;
+    padding-top: 20%;
+    color: #006699;
 }
 
 .highlight {
     color: #ffcc00;
+}
+
+.searchField {
+    background-color: #ffcc00;
+    padding: 10px;
+}
+
+.resultBox{
+    background-color: #ffcc00;
+    padding: 10px;
+}
+.table thead th{
+    background-color: #006699;
+    border-bottom: none;
+}
+
+.table td, .table th{
+    border-top: none;
+    border-bottom: 1px solid white;
 }
 
 .modal .thead {
