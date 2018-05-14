@@ -12,6 +12,8 @@ h1 {
 p {
     font-family: Lato;
     font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 1px;
 }
 
 
@@ -42,3 +44,9 @@ p {
 
 /* Hide all class events in Modal on home.php */
 .eventsBody{display:none;}
+
+
+/* Cloak before all data recived */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+ }

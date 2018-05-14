@@ -34,8 +34,8 @@
     <!-- NAVIGATION -->
 
     <div class="" id="homeimage">
-        <img src="https://blogg.svenskakyrkan.se//kennethlandeliusigen/files/2015/02/image14.jpg" class="rounded mx-auto d-block"
-            width="100%" alt="...">
+        <img src="img/foto/sverige01.jpg" class="rounded mx-auto d-block"
+            width="100%" alt="Welcome to Sweden">
     </div>
     <h2 class="text-center" id="welcometext">WELCOME
         <span class="highlight">TO SWEDEN</span>
@@ -163,7 +163,7 @@
                                                 <!-- Kontrollerar medaljstatus -->
                                                 <div ng-if="event.events_status==1"><img src="/img/pictogram/pos/day.png"></div>
                                                 <div ng-if="event.events_status==2"><img src="/img/pictogram/pos/medal.png"></div>                        
-                                                &nbsp;&nbsp;<h6 class="toS-blue">Dag: @{{event.events_date}}</h6>
+                                                &nbsp;&nbsp;<h6 class="toS-blue">Dag: @{{event.events_date}}/2</h6>
                                             </div>
                                         </div>
                                     </div>
