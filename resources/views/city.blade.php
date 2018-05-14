@@ -58,7 +58,7 @@
             <!-- End of Slides -->
 
             <h1 style="font-size:50px; text-align:center;">@{{c.cities_name}}</h1>
-            <div style="background:#ffcc00; padding:10px; margin:10px">               
+            <div class="yellowCard">               
                 <p style="color:white">@{{c.cities_text}}</p>
             </div>
             <h2 style="text-align:center;">Att Göra I @{{c.cities_name}}</h2>           
