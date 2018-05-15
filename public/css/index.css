@@ -48,6 +48,16 @@ p {
     padding: 10px;
 }
 
+.searchField button{
+    background-color: #006699;
+    color: #fff;
+}
+
+.table button{
+    background-color: #006699;
+    color: #fff;
+}
+
 .resultBox{
     background-color: #ffcc00;
     padding: 10px;

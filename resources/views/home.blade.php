@@ -40,12 +40,11 @@
     <div ng-controller="searchCtrl" ng-init="changeCurrency()">
         <div class="searchField">
             <div class="container" id="navbar">
-                <form name="searchForm">
+                <form class="container" name="searchForm">
                     <div class="form-group">
                         <label>FRÅN</label>
                         <input required ng-model="fromCity" type="text" class="form-control mb-2 mr-sm-2 mb-sm-0">
                     </div>
-
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">DESTINATION</label>
                         <select ng-model="toCity" required class="form-control" id="exampleFormControlSelect1">
@@ -54,7 +53,9 @@
                             <option value="Falun">Falun</option>
                         </select>
                     </div>
-                    <button ng-disabled="" ng-click="search()" type="submit" class="btn btn-primary">SÖK</button>
+                    <div align="right">
+                    <button ng-click="search()" type="submit" class="btn btn-lg">SÖK</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -66,14 +67,14 @@
     -->
         <!-- START, visa RESULTATET vid respons från server -->
         <div ng-show="isResultOpen" class="container mt-3 table-responsive-sm resultBox">
-            <table class="table table-hover">
-                <thead class="thead">
+            <table class="container table table-hover">
+                <thead class="">
                     <th ng-click="sortBy('name')">Färdmedel</th>
                     <th ng-click="sortBy('totalDuration')">Tid</th>
                     <th ng-click="sortBy('indicativePrices[0].priceLow')">Pris</th>
-                    <th align="center">
+                    <th>
                         Valuta
-                        <select ng-model="choosenCurrency">
+                        <select class="form-control" ng-model="choosenCurrency">
                             <option value="EUR">EUR</option>
                             <option value="SEK">SEK</option>
                             <option value="USD">USD</option>
@@ -85,7 +86,7 @@
                     <td>@{{timeConvert(route.totalDuration)}}</td>
                     <td>@{{convertMoney(route.indicativePrices[0].priceLow)}} - @{{convertMoney(route.indicativePrices[0].priceHigh)}}</td>
                     <td align="center">
-                        <button class="btn btn-primary" ng-click="getDetails($index)" data-toggle="modal" data-target="#myModal">Detaljer</button>
+                        <button class="btn" ng-click="getDetails($index)" data-toggle="modal" data-target="#myModal">Detaljer</button>
                     </td>
                 </tr>
             </table>
