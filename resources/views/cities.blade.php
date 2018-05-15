@@ -34,7 +34,10 @@
                         <span id="city-hero" ><img  src="img/skrivstil/@{{city.cities_head_img}}"></span></a>
                     </div>
                     <div class="col col-12 col-md-6 px-5 py-4">                       
-                        <span><p>@{{city.cities_text|limitTo:200}}...</p></span>
+                        <!-- <span><p>@{{city.cities_text|limitTo:200}}...</p></span> -->
+                        <div ng-repeat="s in breakStr((city.cities_text|limitTo:200)+'...')">
+                            <p>@{{s}}</p>
+                        </div>
                     </div>
                 </div>
                 

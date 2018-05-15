@@ -220,6 +220,10 @@ app.controller('CitiesCtrl', function ($scope, $http, $location) {
         .then(function (response) {
             $scope.todo = response.data;
         });
+
+    $scope.breakStr = function (str){
+        return str.split("/n");
+    }
 });
 
 //Hämtar JSON för Recommended  i Recommended.php.
