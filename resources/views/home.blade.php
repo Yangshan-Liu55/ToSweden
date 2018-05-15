@@ -29,10 +29,10 @@
     @include('includes.navbar')
     <!-- NAVIGATION -->
     <div id="homeimage">
-        <div class="container">
-            <h1 class="text-center" id="welcometext">WELCOME
-                <span class="highlight">TO SWEDEN</span>
-            </h1>
+        <div id="home-welcome">
+            <div id="home-welcome-center">
+                <img  src="img/skrivstil/welcome.png"> 
+            </div>  
         </div>
     </div>
 
@@ -133,6 +133,8 @@
     <!-- SLUT på Modal RESULTATET-->
 
     <!-- Modal för OS-SCHEMA -->
+ 
+
 
     <BR>
     <BR>
@@ -149,7 +151,7 @@
     <BR>
     <BR>
     <div class="container">
-        <button class="btn btn-warning btn-block" data-toggle="modal" data-target="#eventsModal">OS-schema</button>
+        <button class="btn darkblue-bg btn-block pointer" data-toggle="modal" data-target="#eventsModal"><h2 class="white-col"><i class="far fa-calendar-alt yellow-col"></i> &nbsp;&nbsp;OS-schema</h2></button>
     </div>
 
     <div class="modal" id="eventsModal">
@@ -161,32 +163,45 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <!-- Modal body -->
-                <div class="modal-body">
+                <div  class="modal-body">
                     <!-- Filter för att plocka ut rätt sporter till rätt städer -->
                     <!-- Loopar igenom alla Städer -->
                     <div ng-controller="CitiesCtrl">
                         <div ng-repeat="city in cities">
-                            <div class="thead p-3">
+                            <div id="schedule-thead" class="thead p-3">
                                 <h5>@{{city.cities_name}}</h5>
                             </div>
                             <div ng-controller="sportsCtrl">
                                 <!-- Loopar igenom alla Sporter -->
-                                <div class="eventsHeader bg-info p-2" ng-if="sport.sports_cities_id==city.id" ng-repeat="sport in sports">
-                                    <img src="/img/pictogram/neg/@{{sport.sports_img}}" weight="40px" height="40px">
-                                    <h6>@{{sport.sports_name_swe}}</h6>
+                                <div class="eventsHeader schedule-sports-bg " ng-if="sport.sports_cities_id==city.id" ng-repeat="sport in sports">
+                                    <div id="schedule-row" class="row p-1">
+                                        <div class="col">
+                                            <div class="p-2">
+                                                <img class="schedule-picto" src="/img/pictogram/neg/@{{sport.sports_img}}" >
+                                            </div>
+                                        </div>
+                                        <div id="schedule-sports-name" class="col-9">
+                                            <h6>@{{sport.sports_name_swe}}</h6>
+                                        </div>
+                                    </div>
+                                    
                                     <!-- Loopar igenom Sportschema -->
-                                    <div class="eventsBody bg-light" ng-controller="allEvents">
-                                        <div ng-if="event.events_sports_id==sport.id" ng-repeat="event in allEvents">
-                                            <div class="row row-wrap p-3">
+                                    <div class="eventsBody schedule-days-bg " ng-controller="allEvents">
+                                        <div class="schedule-days-border" ng-if="event.events_sports_id==sport.id" ng-repeat="event in allEvents">
+                                            <div class="row  p-3">
+                                                
                                                 <!-- Kontrollerar medaljstatus -->
-                                                <div ng-if="event.events_status==1">
-                                                    <img src="/img/pictogram/pos/day.png">
+                                                <div class="col" ng-if="event.events_status==1">
+                                                    <img class="schedule-picto" src="/img/pictogram/pos/day.png">
                                                 </div>
-                                                <div ng-if="event.events_status==2">
-                                                    <img src="/img/pictogram/pos/medal.png">
+                                                <div class="col" ng-if="event.events_status==2">
+                                                    <img class="schedule-picto" src="/img/pictogram/pos/medal.png">
                                                 </div>
-                                                &nbsp;&nbsp;
-                                                <h6 class="toS-blue">Dag: @{{event.events_date}}/2</h6>
+                                                <div class="col-9">
+                                                    <div class="schedule-sports-name py-2">
+                                                        <h6 >@{{event.events_cities_day_swe}} @{{event.events_date}}/2</h6>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -205,17 +220,7 @@
     </div>
     <!-- SLUT Modal för OS-schema -->
 
-
-    <!-- TEXT OM OSS -->
-    <h1 class="text-center mt-5">OM OSS</h1>
-    <div class="container-fluid navbar">
-        <div class="container">
-        <p class="text-center">Den franske baronen och filosofen Pierre de Coubertin grundade de olympiska spelen 1894. Han var övertygad om att
-            man kan göra världen bättre med hjälp av idrott. De första olympiska spelen arrangerades i Aten 1896. Inspirationen
-            till spelen var hämtade från idrottstävlingar som hölls till guden Zeus ära i Grekland under antiken.
-        </p>
-        </div>
-    </div>
+<div class="footer p-5"></footer>
 </body>
 
 </html>

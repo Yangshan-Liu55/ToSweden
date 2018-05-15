@@ -21,8 +21,10 @@
     <!-- Styles and Scripts -->
     @include('includes.stylesscripts')
 
+
+
     </head>
-    <body ng-app="myApp" ng-controller="CitiesCtrl">
+    <body ng-app="myApp" ng-controller="CitiesCtrl" >
         @include('includes.navbar')
 
             
@@ -58,26 +60,35 @@
             <!-- End of Slides -->
 
             <h1 style="font-size:50px; text-align:center;">@{{c.cities_name}}</h1>
-            <div class="yellowCard">               
-                <p style="color:white">@{{c.cities_text}}</p>
+            <div class="yellowCard" id="headline-game">               
+                <p   style="color:white">@{{c.cities_text}}</p>
+                <?= $hej = "{{c.cities_text}}"; //STEFFO TESTAR ?>
+                
             </div>
-            <h2 style="text-align:center;">Att Göra I @{{c.cities_name}}</h2>           
+            <h2 style="text-align:center;">Att göra i @{{c.cities_name}}</h2>           
             </div><!-- End of City -->
 
             <!-- To do -->
             <div class="yellowCard" ng-repeat="t in todo | filter: {todo_cities_id:citynr}">                
                 <div class="row row-wrap">
                     <div class="col col-12 col-md-6">
-                        <a href="@{{t.todo_img01}}"><img ng-src="@{{t.todo_img01}}" alt="ToDo Image 1" class="d-block w-100 h-60"></a>
+                        <a href="@{{t.todo_img01}}"><img ng-src="img/todo/@{{t.todo_img01}}" alt="@{{t.todo_name}}" class="d-block w-100 h-60"></a>
                     </div>
                     <div class="col col-12 col-md-6">
                         <h3 style="color:#006699;text-align:center; padding-top:15px">@{{t.todo_name}}</h3>
-                        <p>@{{t.todo_text}}</p>
+                        <p >@{{t.todo_text}}</p>
                     </div>
                 </div>
             </div><!-- End of To do -->
 
         </div>
+        <script>
+                $(function () {
+                
+                
+          
 
+                });
+                </script>
     </body>
 </html>
