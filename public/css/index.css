@@ -55,6 +55,32 @@ p {
     color: #ffcc00;
 }
 
+#home-welcome {
+    position:relative;
+    width:100%;
+    height:100%;
+}
+
+/*Welocome to Sweden Logotype */
+#home-welcome img{
+    width:70%;  
+    position:relative;
+    margin-top:100px;
+    margin-left:10%;
+}
+
+
+
+@media only screen and (max-width: 1000px) {
+    #home-welcome img{
+        width:90%;  
+        margin-left:20px;
+    }
+}
+
+
+
+
 .searchField {
     background-color: #ffcc00;
     padding: 10px;

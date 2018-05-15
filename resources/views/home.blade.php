@@ -29,10 +29,10 @@
     @include('includes.navbar')
     <!-- NAVIGATION -->
     <div id="homeimage">
-        <div class="container">
-            <h1 class="text-center" id="welcometext">WELCOME
-                <span class="highlight">TO SWEDEN</span>
-            </h1>
+        <div id="home-welcome">
+            <div id="home-welcome-center">
+                <img  src="img/skrivstil/welcome.png"> 
+            </div>  
         </div>
     </div>
 
