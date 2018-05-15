@@ -21,6 +21,8 @@
     <!-- Styles and Scripts -->
     @include('includes.stylesscripts')
 
+
+
     </head>
     <body ng-app="myApp" ng-controller="CitiesCtrl" >
         @include('includes.navbar')
@@ -58,8 +60,10 @@
             <!-- End of Slides -->
 
             <h1 style="font-size:50px; text-align:center;">@{{c.cities_name}}</h1>
-            <div class="yellowCard">               
-                <p style="color:white">@{{c.cities_text}}</p>
+            <div class="yellowCard" id="headline-game">               
+                <p   style="color:white">@{{c.cities_text}}</p>
+                <?= $hej = "{{c.cities_text}}"; //STEFFO TESTAR ?>
+                
             </div>
             <h2 style="text-align:center;">Att göra i @{{c.cities_name}}</h2>           
             </div><!-- End of City -->
@@ -78,6 +82,13 @@
             </div><!-- End of To do -->
 
         </div>
- 
+        <script>
+                $(function () {
+                
+                
+          
+
+                });
+                </script>
     </body>
 </html>
