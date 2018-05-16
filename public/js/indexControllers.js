@@ -206,7 +206,7 @@ app.controller('sportsCtrl', function ($scope, $http) {
 });
 
 //Hämtar JSON för Cities till schema i Cities.php.
-app.controller('CitiesCtrl', function ($scope, $http, $location) {
+app.controller('CitiesCtrl', function ($scope, $http, $location, $sce) {
     $http.get('http://steffo.info/toswe-api/toswe-cities.php')
         .then(function (response) {
             $scope.cities = response.data;
@@ -223,6 +223,10 @@ app.controller('CitiesCtrl', function ($scope, $http, $location) {
 
     $scope.breakStr = function (str){
         return str.split("/n");
+    }
+
+    $scope.disBR = function (str1){
+        return $sce.trustAsHtml(str1);
     }
 });
 
