@@ -1,6 +1,6 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand" href="home">
                 <img src="http://steffo.info/img/logotyp/logotyp.png" height="70" class="d-inline-block align-top" alt="">
                
               </a>
@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item ">
-              <a class="nav-link" href="/">Hem</a>
+              <a class="nav-link" href="home">Hem</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="about">Om To Sweden</a>
