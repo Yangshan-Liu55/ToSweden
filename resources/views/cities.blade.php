@@ -36,7 +36,7 @@
                     <div class="col col-12 col-md-6 px-5 py-4">                       
                         <!-- <span><p>@{{city.cities_text|limitTo:200}}...</p></span> -->
                         <div ng-repeat="s in breakStr((city.cities_text|limitTo:200)+'...')">
-                            <p>@{{s}}</p>
+                            <p ng-bind-html="disBR(s)"></p>
                         </div>
                     </div>
                 </div>
