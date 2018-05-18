@@ -30,18 +30,16 @@
             
             <div class="content">
 
-                <div ng-repeat="h in hotels">
+                <div ng-repeat="h in hotels" class="m-3">
                     <a href="">
-                    <div class="row row-wrap">
-                      <div class="col col-12 col-md-4">
+                    <div class="row row-wrap bg-info p-2">
+                      <div class="col col-4">
                         <img ng-src="img/hotels/@{{h.hotels_img01}}" alt="City" weight="75px" height="75px">
                       </div>
-                      <div class="col col-12 col-md-2">
+                      <div class="col col-8" style="padding-left:40px; color:black">
                            <h3> @{{h.hotels_name}}</h3>
+                           <span>@{{h.hotels_text|limitTo:100}}...</span>
                       </div>
-                      <div class="col col-12 col-md-6"  >
-                        <span>@{{h.hotels_text|limitTo:100}}...</span>
-                    </div>
                   </div>
                 </a>
                      <hr>

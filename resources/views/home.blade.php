@@ -192,7 +192,7 @@
                                     <div id="schedule-row" class="row p-1">
                                         <div class="col">
                                             <div class="p-2">
-                                                <img class="schedule-picto" src="/img/pictogram/neg/@{{sport.sports_img}}">
+                                                <img class="schedule-picto" ng-src="/img/pictogram/neg/@{{sport.sports_img}}">
                                             </div>
                                         </div>
                                         <div id="schedule-sports-name" class="col-9">
