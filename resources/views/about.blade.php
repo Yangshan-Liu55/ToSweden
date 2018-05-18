@@ -1,6 +1,6 @@
 @php session_start(); @endphp
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="{{ app()->getLocale() }}">
 <head>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
