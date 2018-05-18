@@ -7,6 +7,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Session;
 
+use Illuminate\Http\Response;
+
 
 class toSwedenControllers extends Controller{
 
@@ -25,6 +27,25 @@ class toSwedenControllers extends Controller{
            echo $request->session()->get('my_name');
         else
            echo 'No data in the session';
+     }
+
+
+     // COOKIE
+     public function setCookie(Request $request){
+        $minutes = 5;
+        $response = new Response('Hello Worlds');
+        $response->withCookie(cookie('name', 'test', $minutes));
+        return $response;
+     }
+     public function getCookie(Request $request){
+        $value = $request->cookie('name');
+        echo $value;
+     }
+
+     public function sample2($id)
+     {
+         Cookie::queue('name', $id, 60);
+         return response('Set cookie');
      }
     
 }

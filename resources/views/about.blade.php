@@ -1,3 +1,4 @@
+@php session_start(); @endphp
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +25,7 @@
 </head>
 <body>
         @include('includes.navbar')
-
+        @php echo $_SESSION['category']; @endphp
 
     <!-- TEXT OM OSS -->
     <h1 class="text-center mt-5">OM OSS</h1>
