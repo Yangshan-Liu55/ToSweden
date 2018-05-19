@@ -13,7 +13,7 @@
               <a class="nav-link" href="/home">Hem</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/about/1">Om To Sweden</a>
+              <a class="nav-link" href="/about">Om To Sweden</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/cities">Städer</a>
