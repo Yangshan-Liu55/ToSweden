@@ -9,6 +9,7 @@ var searchTo = "&dName=";
 
 //valuta api bas
 var currencyAPI = "http://data.fixer.io/api/latest?";
+//ny API nyckel till valuta 69b996c0142c261c2378e5656d182eb7
 var currencyAPIKey = "access_key=8a07f22cf0d5906c37ae53d615974ff6";
 var callBack = "&callback=data";
 
