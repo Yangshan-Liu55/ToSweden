@@ -27,7 +27,7 @@
     <body ng-app="myApp" ng-controller="HotelsCtrl">
             @include('includes.navbar')
         <div class="position-ref full-height">
-            
+              
             <div class="content">
 
                 <div ng-repeat="h in hotels">
