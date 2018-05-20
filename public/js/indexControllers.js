@@ -252,6 +252,100 @@ app.controller('HotelsCtrl', function ($scope, $http) {
     $http.get('http://steffo.info/toswe-api/toswe-hotels.php')
         .then(function (response) {
             $scope.hotels = response.data;
-        });
+    });
+
+    $scope.bgColor1 = "#ffcc00";
+    $scope.bgColor2 = "#ffcc00";
+    $scope.bgColor3 = "#ffcc00";
+    var cSelected = [];
+
+    var addRes = function(n){
+        if(cSelected.indexOf(n)<0){
+            cSelected.push(n);
+        }
+    }
+    var removeRes  = function(n){
+        var indexid = cSelected.indexOf(n);
+        if(indexid>=0){
+            cSelected.splice(indexid, 1);
+        }
+    }
+
+    $scope.changeColor = function (n){
+        switch (n) {
+            case 1:
+            if($scope.bgColor1 == "#ffcc00"){
+                $scope.bgColor1 = "#B18904";
+                addRes(1);               
+                break;
+            }
+            else {
+                $scope.bgColor1 = "#ffcc00";
+                removeRes(1);
+                break;
+            }
+
+            case 2:
+            if($scope.bgColor2 == "#ffcc00"){               
+                $scope.bgColor2 = "#B18904";
+                addRes(2);
+                break;
+            }
+            else {
+                $scope.bgColor2 = "#ffcc00";
+                removeRes(2);
+                break;
+            }
+
+            case 3:
+            if($scope.bgColor3 == "#ffcc00"){
+                $scope.bgColor3 = "#B18904";
+                addRes(3);
+                break;
+            }
+            else {
+                $scope.bgColor3 = "#ffcc00";
+                removeRes(3);
+                break;
+            }
+
+            default:
+                break;
+        }
+    }
+
+    $scope.filterFunction = function(e){
+        switch (cSelected.length) {
+            case 0:
+                return e.hotels_cities_id>0;
+                break;
+
+            case 1:
+                return e.hotels_cities_id == cSelected[0];
+                break;
+
+            case 2:
+                if (cSelected.indexOf(1)<0){
+                    return e.hotels_cities_id != 1;
+                    break;
+                }
+                else if (cSelected.indexOf(2)<0){
+                    return e.hotels_cities_id != 2;
+                    break;
+                }
+                else if (cSelected.indexOf(3)<0){
+                    return e.hotels_cities_id != 3;
+                    break;
+                }               
+            
+            case 3:
+                return e.hotels_cities_id>0;
+                break;
+
+            default:
+                break;
+        }
+    }
+
 });
 
