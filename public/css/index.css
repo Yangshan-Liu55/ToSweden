@@ -227,6 +227,8 @@ p {
     float:right;
 }
 
+
+
 /* Formating Google Translate */
 
 .goog-te-banner-frame.skiptranslate {
@@ -235,3 +237,10 @@ p {
 body {
     top: 0px !important; 
     }
+    .goog-logo-link {
+        display:none !important;
+     } 
+     
+     .goog-te-gadget{
+        color: transparent !important;
+     }
