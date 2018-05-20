@@ -76,23 +76,21 @@
             <div class="yellowCard" ng-repeat="t in todo | filter: {todo_cities_id:citynr}">                
                 <div class="row row-wrap">
                     <div class="col col-12 col-md-6">
-                        <a href="@{{t.todo_img01}}"><img ng-src="img/todo/@{{t.todo_img01}}" alt="@{{t.todo_name}}" class="d-block w-100 h-60"></a>
+                        <img ng-src="img/todo/@{{t.todo_img01}}" alt="@{{t.todo_name}}" class="d-block w-100 h-60">
                     </div>
                     <div class="col col-12 col-md-6">
-                        <h3 style="color:#006699;text-align:center; padding-top:15px">@{{t.todo_name}}</h3>
+                            
+                                <!-- Avgör om rubriken ska översättas eller inte -->  
+                                <div ng-switch="@{{t.todo_translate_header}}">
+                                    <h3 ng-switch-when=1><span>@{{t.todo_name}}</span> </h3>
+                                    <h3 ng-switch-default><span class="notranslate";>@{{t.todo_name}}</span> </h3>
+                                </div>
+                            
                         <p >@{{t.todo_text}}</p>
                     </div>
                 </div>
             </div><!-- End of To do -->
 
         </div>
-        <script>
-                $(function () {
-                
-                
-          
-
-                });
-                </script>
     </body>
 </html>

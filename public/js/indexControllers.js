@@ -254,3 +254,4 @@ app.controller('HotelsCtrl', function ($scope, $http) {
             $scope.hotels = response.data;
         });
 });
+
