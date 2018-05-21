@@ -254,14 +254,14 @@ app.controller('HotelsCtrl', function ($scope, $http) {
             $scope.hotels = response.data;
     });
 
-let buttonOff = "#ffcc00";
-let buttonOn = "#B18904";
+let buttonOn = "#ffcc00";
+let buttonOff = "#B18904";
 
     $scope.bgColor0 = buttonOn; // har ingen function
 
-    $scope.bgColor1 = buttonOn;
-    $scope.bgColor2 = buttonOn;
-    $scope.bgColor3 = buttonOn;
+    $scope.bgColor1 = buttonOff;
+    $scope.bgColor2 = buttonOff;
+    $scope.bgColor3 = buttonOff;
     var cSelected = [];
 
     var addRes = function(n){
@@ -279,37 +279,37 @@ let buttonOn = "#B18904";
     $scope.changeColor = function (n){
         switch (n) {
             case 1:
-            if($scope.bgColor1 == buttonOn){
-                $scope.bgColor1 = buttonOff;
+            if($scope.bgColor1 == buttonOff){
+                $scope.bgColor1 = buttonOn;
                 addRes(1);               
                 break;
             }
             else {
-                $scope.bgColor1 = buttonOn;
+                $scope.bgColor1 = buttonOff;
                 removeRes(1);
                 break;
             }
 
             case 2:
-            if($scope.bgColor2 == buttonOn){               
-                $scope.bgColor2 = buttonOff;
+            if($scope.bgColor2 == buttonOff){               
+                $scope.bgColor2 = buttonOn;
                 addRes(2);
                 break;
             }
             else {
-                $scope.bgColor2 = buttonOn;
+                $scope.bgColor2 = buttonOff;
                 removeRes(2);
                 break;
             }
 
             case 3:
-            if($scope.bgColor3 == buttonOn){
-                $scope.bgColor3 = buttonOff;
+            if($scope.bgColor3 == buttonOff){
+                $scope.bgColor3 = buttonOn;
                 addRes(3);
                 break;
             }
             else {
-                $scope.bgColor3 = buttonOn;
+                $scope.bgColor3 = buttonOff;
                 removeRes(3);
                 break;
             }
