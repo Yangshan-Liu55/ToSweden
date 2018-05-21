@@ -92,5 +92,7 @@
             </div><!-- End of To do -->
 
         </div>
+    <!-- Footer -->
+    @include('includes.footer')
     </body>
 </html>

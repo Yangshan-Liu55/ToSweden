@@ -32,8 +32,8 @@
    
   <!-- OS Schema -->
   @include('includes.scheduele-table')   
-    <div class="footer p-5">
-        </footer>
+    <!-- Footer -->
+    @include('includes.footer')
 </body>
 
 </html>

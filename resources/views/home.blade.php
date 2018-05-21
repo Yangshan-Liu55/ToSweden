@@ -173,9 +173,8 @@
         </div>
     </div>
     <!-- SLUT Modal för OS-schema -->
-
-    <div class="footer p-5">
-        </footer>
+    
+    <!-- Footer -->
+    @include('includes.footer')
 </body>
-
 </html>
