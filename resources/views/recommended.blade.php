@@ -1,4 +1,4 @@
-@php session_start(); @endphp
+
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
@@ -31,6 +31,8 @@
               
             <div class="content">
 
+                <!-- City tabs -->
+
                 <div class="row row-wrap mb-2 mt-5" align="center">
                     <div class="col col-4">
                         <div class="p-2 m-0" style="background: @{{bgColor1}};" ng-click="changeColor(1)">
@@ -47,6 +49,22 @@
                             <span>ÅRE</span>
                         </div>
                     </div>
+                </div>
+                   
+                <!-- Aktivitets tabs -->
+
+                      <div class="row row-wrap mb-2 mt-5" align="center">
+                    <div class="col col-6">
+                        <div class="p-2 m-0" style="background: @{{bgColor0}};" ng-click="">
+                            <span>Hotel/resturang</span>
+                        </div>
+                    </div>
+                    <div class="col col-6">
+                        <div class="p-2 m-0" style="background: @{{bgColor0}};" ng-click="changeColor()">
+                            <span>Aktiviteter</span>
+                        </div>
+                    </div>
+
                 </div>
 
                 <div ng-repeat="h in hotels | filter: filterFunction" class="mb-3">

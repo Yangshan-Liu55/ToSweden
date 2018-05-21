@@ -1,4 +1,4 @@
-@php session_start(); @endphp
+
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
 <head>
@@ -25,7 +25,6 @@
 </head>
 <body>
         @include('includes.navbar')
-        @php echo $_SESSION['category']; @endphp
 
     <!-- TEXT OM OSS -->
     <h1 class="text-center mt-5">OM OSS</h1>
@@ -37,12 +36,17 @@
             till spelen var hämtade från idrottstävlingar som hölls till guden Zeus ära i Grekland under antiken.
         </p>
      
-        <div align="center">
+        <div class="row " align="center">
+        
+        <div class="col col-1 m-0 p-0">
             <p><img  src="img/Paint/squer.png" alt="">
-                <img  align="center" src="img/Paint/abute.png" alt="">
-                <img  align="center" src="img/Paint/abute.png" alt="">
-                <img  align="center" src="img/Paint/abute.png" alt="">
+        </div>
+
+        <div class="col "> <hr class="yellow-bg" size="5"> </div>
+        
+        <div class="col col-1 m-0 p-0">
             <img  src="img/Paint/squer.png" alt=""></p>
+        </div>
         </div>
     </div>
 </div>
