@@ -254,9 +254,14 @@ app.controller('HotelsCtrl', function ($scope, $http) {
             $scope.hotels = response.data;
     });
 
-    $scope.bgColor1 = "#ffcc00";
-    $scope.bgColor2 = "#ffcc00";
-    $scope.bgColor3 = "#ffcc00";
+let buttonOff = "#ffcc00";
+let buttonOn = "#B18904";
+
+    $scope.bgColor0 = buttonOn; // har ingen function
+
+    $scope.bgColor1 = buttonOn;
+    $scope.bgColor2 = buttonOn;
+    $scope.bgColor3 = buttonOn;
     var cSelected = [];
 
     var addRes = function(n){
@@ -274,37 +279,37 @@ app.controller('HotelsCtrl', function ($scope, $http) {
     $scope.changeColor = function (n){
         switch (n) {
             case 1:
-            if($scope.bgColor1 == "#ffcc00"){
-                $scope.bgColor1 = "#B18904";
+            if($scope.bgColor1 == buttonOn){
+                $scope.bgColor1 = buttonOff;
                 addRes(1);               
                 break;
             }
             else {
-                $scope.bgColor1 = "#ffcc00";
+                $scope.bgColor1 = buttonOn;
                 removeRes(1);
                 break;
             }
 
             case 2:
-            if($scope.bgColor2 == "#ffcc00"){               
-                $scope.bgColor2 = "#B18904";
+            if($scope.bgColor2 == buttonOn){               
+                $scope.bgColor2 = buttonOff;
                 addRes(2);
                 break;
             }
             else {
-                $scope.bgColor2 = "#ffcc00";
+                $scope.bgColor2 = buttonOn;
                 removeRes(2);
                 break;
             }
 
             case 3:
-            if($scope.bgColor3 == "#ffcc00"){
-                $scope.bgColor3 = "#B18904";
+            if($scope.bgColor3 == buttonOn){
+                $scope.bgColor3 = buttonOff;
                 addRes(3);
                 break;
             }
             else {
-                $scope.bgColor3 = "#ffcc00";
+                $scope.bgColor3 = buttonOn;
                 removeRes(3);
                 break;
             }

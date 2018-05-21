@@ -37,12 +37,17 @@
             till spelen var hämtade från idrottstävlingar som hölls till guden Zeus ära i Grekland under antiken.
         </p>
      
-        <div align="center">
+        <div class="row " align="center">
+        
+        <div class="col col-1 m-0 p-0">
             <p><img  src="img/Paint/squer.png" alt="">
-                <img  align="center" src="img/Paint/abute.png" alt="">
-                <img  align="center" src="img/Paint/abute.png" alt="">
-                <img  align="center" src="img/Paint/abute.png" alt="">
+        </div>
+
+        <div class="col "> <hr class="yellow-bg" size="5"> </div>
+        
+        <div class="col col-1 m-0 p-0">
             <img  src="img/Paint/squer.png" alt=""></p>
+        </div>
         </div>
     </div>
 </div>

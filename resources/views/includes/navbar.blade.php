@@ -19,7 +19,7 @@
               <a class="nav-link" href="/cities">Städer</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/recommended">Rekommenderat</a>
+                <a class="nav-link" href="/recommended">Aktiviteter/Hotel</a>
             </li>
             <li>
                 <div id="google_translate_element"></div>
