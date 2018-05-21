@@ -31,24 +31,40 @@
               
             <div class="content">
 
-                <div ng-repeat="h in hotels" class="m-3">
+                <div class="row row-wrap mb-2 mt-5" align="center">
+                    <div class="col col-4">
+                        <div class="p-2 m-0" style="background: @{{bgColor1}};" ng-click="changeColor(1)">
+                            <span>STOCKHOM</span>
+                        </div>
+                    </div>
+                    <div class="col col-4">
+                        <div class="p-2 m-0" style="background: @{{bgColor2}};" ng-click="changeColor(2)">
+                            <span>FALUN</span>
+                        </div>
+                    </div>
+                    <div class="col col-4">
+                        <div class="p-2 m-0" style="background: @{{bgColor3}};" ng-click="changeColor(3)">
+                            <span>ÅRE</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-repeat="h in hotels | filter: filterFunction" class="mb-3">
                     <a href="">
                     <div class="row row-wrap bg-info p-2">
-                      <div class="col col-4">
-                        <img ng-src="img/hotels/@{{h.hotels_img01}}" alt="City" weight="75px" height="75px">
-                      </div>
-                      <div class="col col-8" style="padding-left:40px; color:black">
-                           <h3> @{{h.hotels_name}}</h3>
-                           <span>@{{h.hotels_text|limitTo:100}}...</span>
-                      </div>
-                  </div>
-                </a>
-                     <hr>
-                </div>
+                        <div class="col col-4">
+                            <img ng-src="img/hotels/@{{h.hotels_img01}}" alt="City" weight="75px" height="75px">
+                        </div>
+                        <div class="col col-8" style="padding-left:40px; color:black">
+                            <h3> @{{h.hotels_name}}</h3>
+                            <span>@{{h.hotels_text|limitTo:100}}...</span>
+                        </div>
+                    </div>
+                    </a>
+                </div>                
 
             </div>
         </div>
-
 
     </body>
 </html>
