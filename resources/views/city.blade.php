@@ -69,7 +69,7 @@
                 <?= $hej = "{{c.cities_text}}"; //STEFFO TESTAR ?>
                 
             </div>
-            <h2 style="text-align:center;">Att göra i @{{c.cities_name}}</h2>           
+            <h2 style="text-align:center;">Att göra i @{{c.cities_name}}</h2>   <!-- flyta till recomend -->        
             </div><!-- End of City -->
 
             <!-- To do -->

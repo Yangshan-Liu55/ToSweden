@@ -9,9 +9,7 @@ var searchTo = "&dName=";
 
 //valuta api bas
 var currencyAPI = "http://data.fixer.io/api/latest?";
-//ny API nyckel till valuta 69b996c0142c261c2378e5656d182eb7
-var currencyAPIKey = "access_key=8a07f22cf0d5906c37ae53d615974ff6";
-var callBack = "&callback=data";
+var currencyAPIKey = "access_key=69b996c0142c261c2378e5656d182eb7";
 
 //google map API
 var googleAPI = "https://www.google.com/maps/embed/v1/directions?";
@@ -28,10 +26,10 @@ app.controller("searchCtrl", function ($scope, $http) {
     $scope.choosenCurrency = "EUR";
 
     //staden man åker från
-    $scope.fromCity = [];
+    $scope.fromCity = document.getElementById("inputCity").value;
 
     //staden man ska till
-    $scope.toCity = "Stockholm";
+    $scope.toCity = document.getElementById("selectCity").value;
 
     //sorterar listan på det man valt
     $scope.sortBy = function (propertyName) {
@@ -233,11 +231,11 @@ app.controller('CitiesCtrl', function ($scope, $http, $location, $sce) {
             $scope.todo = response.data;
         });
 
-    $scope.breakStr = function (str){
+    $scope.breakStr = function (str) {
         return str.split("/n");
     }
 
-    $scope.disBR = function (str1){
+    $scope.disBR = function (str1) {
         return $sce.trustAsHtml(str1);
     }
 });
@@ -263,72 +261,72 @@ app.controller('HotelsCtrl', function ($scope, $http) {
     $http.get('http://steffo.info/toswe-api/toswe-hotels.php')
         .then(function (response) {
             $scope.hotels = response.data;
-    });
+        });
 
     $scope.bgColor1 = "#ffcc00";
     $scope.bgColor2 = "#ffcc00";
     $scope.bgColor3 = "#ffcc00";
     var cSelected = [];
 
-    var addRes = function(n){
-        if(cSelected.indexOf(n)<0){
+    var addRes = function (n) {
+        if (cSelected.indexOf(n) < 0) {
             cSelected.push(n);
         }
     }
-    var removeRes  = function(n){
+    var removeRes = function (n) {
         var indexid = cSelected.indexOf(n);
-        if(indexid>=0){
+        if (indexid >= 0) {
             cSelected.splice(indexid, 1);
         }
     }
 
-    $scope.changeColor = function (n){
+    $scope.changeColor = function (n) {
         switch (n) {
             case 1:
-            if($scope.bgColor1 == "#ffcc00"){
-                $scope.bgColor1 = "#B18904";
-                addRes(1);               
-                break;
-            }
-            else {
-                $scope.bgColor1 = "#ffcc00";
-                removeRes(1);
-                break;
-            }
+                if ($scope.bgColor1 == "#ffcc00") {
+                    $scope.bgColor1 = "#B18904";
+                    addRes(1);
+                    break;
+                }
+                else {
+                    $scope.bgColor1 = "#ffcc00";
+                    removeRes(1);
+                    break;
+                }
 
             case 2:
-            if($scope.bgColor2 == "#ffcc00"){               
-                $scope.bgColor2 = "#B18904";
-                addRes(2);
-                break;
-            }
-            else {
-                $scope.bgColor2 = "#ffcc00";
-                removeRes(2);
-                break;
-            }
+                if ($scope.bgColor2 == "#ffcc00") {
+                    $scope.bgColor2 = "#B18904";
+                    addRes(2);
+                    break;
+                }
+                else {
+                    $scope.bgColor2 = "#ffcc00";
+                    removeRes(2);
+                    break;
+                }
 
             case 3:
-            if($scope.bgColor3 == "#ffcc00"){
-                $scope.bgColor3 = "#B18904";
-                addRes(3);
-                break;
-            }
-            else {
-                $scope.bgColor3 = "#ffcc00";
-                removeRes(3);
-                break;
-            }
+                if ($scope.bgColor3 == "#ffcc00") {
+                    $scope.bgColor3 = "#B18904";
+                    addRes(3);
+                    break;
+                }
+                else {
+                    $scope.bgColor3 = "#ffcc00";
+                    removeRes(3);
+                    break;
+                }
 
             default:
                 break;
         }
     }
 
-    $scope.filterFunction = function(e){
+    $scope.filterFunction = function (e) {
         switch (cSelected.length) {
             case 0:
-                return e.hotels_cities_id>0;
+                return e.hotels_cities_id > 0;
                 break;
 
             case 1:
@@ -336,21 +334,21 @@ app.controller('HotelsCtrl', function ($scope, $http) {
                 break;
 
             case 2:
-                if (cSelected.indexOf(1)<0){
+                if (cSelected.indexOf(1) < 0) {
                     return e.hotels_cities_id != 1;
                     break;
                 }
-                else if (cSelected.indexOf(2)<0){
+                else if (cSelected.indexOf(2) < 0) {
                     return e.hotels_cities_id != 2;
                     break;
                 }
-                else if (cSelected.indexOf(3)<0){
+                else if (cSelected.indexOf(3) < 0) {
                     return e.hotels_cities_id != 3;
                     break;
-                }               
-            
+                }
+
             case 3:
-                return e.hotels_cities_id>0;
+                return e.hotels_cities_id > 0;
                 break;
 
             default:
@@ -359,4 +357,30 @@ app.controller('HotelsCtrl', function ($scope, $http) {
     }
 
 });
+
+var myCookies = {};
+
+function saveCookies() {
+    myCookies["city"] = document.getElementById("inputCity").value;
+    var selectMenu = document.getElementById("selectCity");
+    myCookies["select"] = selectMenu.options[selectMenu.selectedIndex].value;
+    var expires = new Date(Date.now() + 60 * 1000).toString();
+    var cookieString = "";
+    for (var key in myCookies) {
+        cookieString = key + "=" + myCookies[key] + ";" + expires + ";";
+        document.cookie = cookieString;
+    }
+}
+
+function loadCookies() {
+    myCookies = {};
+    var kv = document.cookie.split(";");
+    for (var id in kv) {
+        var cookie = kv[id].split("=");
+        myCookies[cookie[0].trim()] = cookie[1];
+    }
+    document.getElementById("inputCity").value = myCookies["city"];
+    var selectMenu = document.getElementById("selectCity");
+    selectMenu.value = myCookies["select"];
+}
 

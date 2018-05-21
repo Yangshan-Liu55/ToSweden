@@ -1,4 +1,4 @@
-
+@php session_start(); @endphp
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
 
@@ -28,6 +28,9 @@
 
 <body ng-app="myApp">
     @include('includes.navbar')
+    
+    {{$_SESSION['category']= "Test av Sessionss"}}
+
 
     <!-- NAVIGATION -->
     <div id="homeimage">
@@ -51,17 +54,18 @@
                   <div class="col-sm-12" align="center">
                     <div class="form-group col-md-6 col-sm-12" align="left">
                         <label>FRÅN</label>
-                        <input required ng-model="fromCity" type="text" class="form-control">
+                        <input id="inputCity" required ng-model="fromCity" type="text" class="form-control">
                     </div>
                     <div class="form-group col-md-6 col-sm-12" align="left">
                         <label for="exampleFormControlSelect1">DESTINATION</label>
-                        <select ng-model="toCity" required class="form-control" id="exampleFormControlSelect1">
-                            <option value="Stockholm" selected>Stockholm</option>
+                        <select ng-model="toCity" required class="form-control" id="selectCity">
+                            <option value="Stockholm">Stockholm</option>
                             <option value="Åre">Åre</option>
                             <option value="Falun">Falun</option>
                         </select>
                       <div align="right">
-                        <button ng-click="search()" type="submit" class="btn btn-lg mt-3">SÖK</button>
+                        <button onclick="saveCookies()" ng-click="search()" type="submit" class="btn btn-lg mt-3">SÖK</button>
+                        <button class="btn btn-lg mt-3" onclick="loadCookies()">Ladda</button>
                       </div>
                     </div>
                   </div>
@@ -69,7 +73,6 @@
             </div>
         </div>
         <!-- SLUT på SÖK RESA -->
-
         <!-- 
     visar URL eller FEL meddelande 
     <p id="apiUrl"></p>

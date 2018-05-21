@@ -19,7 +19,7 @@
               <a class="nav-link" href="/cities">Städer</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/recommended">Rekommenderat</a>
+                <a class="nav-link" href="/recommended">Aktiviteter/Hotel</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/scheduele">OS-schema</a>
