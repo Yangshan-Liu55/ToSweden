@@ -1,4 +1,4 @@
-@php session_start(); @endphp
+
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>

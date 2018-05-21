@@ -1,4 +1,4 @@
-@php session_start(); @endphp
+
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
 
@@ -28,9 +28,6 @@
 
 <body ng-app="myApp">
     @include('includes.navbar')
-    
-    {{$_SESSION['category']= "Test av Sessionss"}}
-
 
     <!-- NAVIGATION -->
     <div id="homeimage">
