@@ -21,6 +21,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="/recommended">Rekommenderat</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/scheduele">OS-schema</a>
+            </li>            
             <li>
                 <div id="google_translate_element"></div>
 

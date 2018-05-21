@@ -345,3 +345,11 @@ body {
      .goog-te-gadget{
         color: transparent !important;
      }
+
+
+/* Set own Button Group. Makes it possible to select multipel buttons. */
+.selectButtons{padding-bottom: 1em;}
+.leftBtn, .middleBtn, .rightBtn  {width:33.3333333333333%;}
+.leftBtn {border-radius: 5px 0px 0px 5px;}
+.middleBtn {border-radius: 0;}
+.rightBtn {border-radius: 0px 5px 5px 0px;}

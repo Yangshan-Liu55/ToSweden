@@ -6,6 +6,15 @@ $(document).ready(function()    {
         $(this).children().slideDown();
         $(this).trigger('focus')
     });
+
+
+    $('#menuSselect').toggle(function() {   
+       console.log("State One")
+    },
+    function() {
+        console.log("State Two")
+    });
+
 });
 
 
