@@ -10,7 +10,6 @@ var searchTo = "&dName=";
 //valuta api bas
 var currencyAPI = "http://data.fixer.io/api/latest?";
 var currencyAPIKey = "access_key=69b996c0142c261c2378e5656d182eb7";
-var callBack = "&callback=data";
 
 //google map API
 var googleAPI = "https://www.google.com/maps/embed/v1/directions?";
@@ -253,14 +252,9 @@ app.controller('HotelsCtrl', function ($scope, $http) {
             $scope.hotels = response.data;
         });
 
-let buttonOn = "#ffcc00";
-let buttonOff = "#B18904";
-
-    $scope.bgColor0 = buttonOn; // har ingen function
-
-    $scope.bgColor1 = buttonOff;
-    $scope.bgColor2 = buttonOff;
-    $scope.bgColor3 = buttonOff;
+    $scope.bgColor1 = "#ffcc00";
+    $scope.bgColor2 = "#ffcc00";
+    $scope.bgColor3 = "#ffcc00";
     var cSelected = [];
 
     var addRes = function (n) {
@@ -278,7 +272,6 @@ let buttonOff = "#B18904";
     $scope.changeColor = function (n) {
         switch (n) {
             case 1:
-<<<<<<< HEAD
                 if ($scope.bgColor1 == "#ffcc00") {
                     $scope.bgColor1 = "#B18904";
                     addRes(1);
@@ -313,42 +306,6 @@ let buttonOff = "#B18904";
                     removeRes(3);
                     break;
                 }
-=======
-            if($scope.bgColor1 == buttonOff){
-                $scope.bgColor1 = buttonOn;
-                addRes(1);               
-                break;
-            }
-            else {
-                $scope.bgColor1 = buttonOff;
-                removeRes(1);
-                break;
-            }
-
-            case 2:
-            if($scope.bgColor2 == buttonOff){               
-                $scope.bgColor2 = buttonOn;
-                addRes(2);
-                break;
-            }
-            else {
-                $scope.bgColor2 = buttonOff;
-                removeRes(2);
-                break;
-            }
-
-            case 3:
-            if($scope.bgColor3 == buttonOff){
-                $scope.bgColor3 = buttonOn;
-                addRes(3);
-                break;
-            }
-            else {
-                $scope.bgColor3 = buttonOff;
-                removeRes(3);
-                break;
-            }
->>>>>>> 2b1a7ec52744110f97934736a0f7973a71ba695e
 
             default:
                 break;
