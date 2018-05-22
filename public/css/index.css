@@ -281,6 +281,10 @@ p {
 
 /* End of mouse hover */
 
+
+/* OS-Schema Knapp */
+#osschema-knapp:hover{background: #007cba;}
+
  /* OS-Schema Modal */
  #schedule-thead.thead{ background: #007cba; }
 
