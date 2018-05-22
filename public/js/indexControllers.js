@@ -204,12 +204,23 @@ app.controller('sportsCtrl', function ($scope, $http) {
         });
 });
 
+
+
+app.controller('selectTabs', function($scope){
+    $scope.click = function(itemNmb){
+        $scope.tabOut = itemNmb;
+        console.log(itemNmb)
+    };
+});
+
+
+
 //Hämtar JSON för Cities till schema i Cities.php.
 app.controller('CitiesCtrl', function ($scope, $http, $location, $sce) {
     $http.get('http://steffo.info/toswe-api/toswe-cities.php')
         .then(function (response) {
             $scope.cities = response.data;
-        });
+    });
 
     //local url
     var locurl = $location.absUrl();

@@ -40,6 +40,7 @@ p {
 .white-col{color: #fff;}
 .darkblue-bg{background: #00496d;}
 .darkblue-col{color: #00496d;}
+.lightblue-bg{ background: #007cba;}
 
 
 .navbar {
@@ -345,3 +346,11 @@ body {
      .goog-te-gadget{
         color: transparent !important;
      }
+
+
+/* Set own Button Group. Makes it possible to select multipel buttons. */
+.selectButtons{padding-bottom: 1em;}
+.leftBtn, .middleBtn, .rightBtn  {width:33.3333333333333%;}
+.leftBtn {border-radius: 5px 0px 0px 5px;}
+.middleBtn {border-radius: 0;}
+.rightBtn {border-radius: 0px 5px 5px 0px;}
