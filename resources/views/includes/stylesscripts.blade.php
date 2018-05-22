@@ -8,6 +8,11 @@
        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+       
+       <!-- Social Media Knappar -->
+       <script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5b0324dc4919d900111786a3&product=inline-share-buttons' async='async'></script>
+
+       <!-- Egna script och styles -->
        <script src="/js/indexControllers.js"></script>
        <script src="/js/jqueryFunctions.js"></script>
        <link rel="stylesheet" type="text/css" href="/css/index.css">
