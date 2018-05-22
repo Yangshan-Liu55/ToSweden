@@ -36,15 +36,21 @@ p {
 
 .yellow-bg{background: #ffcc00;}
 .yellow-col{color: #ffcc00;}
+.yellow-border {border: 1px solid #ffcc00; }
 .white-bg{background: #fff;}
 .white-col{color: #fff;}
 .darkblue-bg{background: #00496d;}
 .darkblue-col{color: #00496d;}
+.middleblue-bg{ background: #006699;} /*Sverigeblå*/
+.middleblue-col{ color: #006699;} /*Sverigeblå*/
 .lightblue-bg{ background: #007cba;}
-
+.lightblue-col{ color: #007cba;}
+.lightblue-border{border: 1px solid #007cba;}
+.navbar-black{color: rgba(0,0,0,.5);}
+.white-col{color: #fff;}
+.light-grey-bg{background: #f3f2f2}
 
 .navbar {
-    
     background-color: #ffcc00 !important;
 }
 
@@ -276,29 +282,22 @@ p {
 /* End of mouse hover */
 
  /* OS-Schema Modal */
- #schedule-thead.thead{ 
-     background: #006699;
-    }
+ #schedule-thead.thead{ background: #007cba; }
 
-.schedule-sports-bg{ 
-    background: #00496d;
-   }
-
-.schedule-days-bg{ 
-    background: #007cba;
+.schedule-sports-bg{   
+    background: #dfdfdf ;      
    }
 
 .schedule-days-border
 {
     border-bottom: 1px #006699  solid;
-    border-top: 1px #006699  solid;
+
 }
 
 #schedule-thead.thead h5,
 #schedule-sports-name h6
 { 
     display: inline;
-    color: white;
 }
 
 #schedule-row,
@@ -307,14 +306,29 @@ p {
     cursor: pointer;
 }
 
+
 #schedule-row.row{
     margin-right: 0 !important;
     margin-left: 0 !important;
 }
 
+
+#schedule-row{
+    -webkit-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -o-transition: all .5s ease-out;
+    -ms-transition: all .5s ease-out;
+    transition: all .5s ease-out;
+}
+
 #schedule-row:hover{ 
-    background: #003955;
+   position: relative;
+   -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background: #ebebeb;
     }
+
 
 .schedule-sports-name,
 #schedule-sports-name
@@ -323,10 +337,15 @@ p {
     vertical-align: middle;
 }
 
+.schedule-sports-name-row{
+    margin-top:.65em;
+}
+
 .schedule-picto{
     height:40px;
     width:40px;
     float:right;
+    vertical-align: baseline;
 }
 
 
@@ -354,3 +373,5 @@ body {
 .leftBtn {border-radius: 5px 0px 0px 5px;}
 .middleBtn {border-radius: 0;}
 .rightBtn {border-radius: 0px 5px 5px 0px;}
+.menuSelect:hover{background: #007cba; border-color: #007cba;}
+

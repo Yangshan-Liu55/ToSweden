@@ -29,11 +29,15 @@
 <body ng-app="myApp">
     @include('includes.navbar')
 
-   
-  <!-- OS Schema -->
-  @include('includes.scheduele-table')   
+    <div class="container py-3">
+        <!-- OS Schema -->
+        @include('includes.scheduele-table')  
+    </div>
+ 
     <!-- Footer -->
+
     @include('includes.footer')
+
 </body>
 
 </html>

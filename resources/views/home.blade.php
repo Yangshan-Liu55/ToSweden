@@ -129,6 +129,7 @@
                         </table>
                         <iframe id="googleMap" width="100%" height="300" frameborder="0" style="border:0" src="" allowfullscreen>
                         </iframe>
+                        <div class="sharethis-inline-share-buttons"></div>
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
@@ -143,7 +144,7 @@
 
     <!-- Modal för OS-SCHEMA -->
 
-    <div class="container">
+    <div class="container p-4">
         <button class="btn darkblue-bg btn-block pointer" data-toggle="modal" data-target="#eventsModal">
             <h2 class="white-col">
                 <i class="far fa-calendar-alt yellow-col"></i> &nbsp;&nbsp;OS-schema</h2>
