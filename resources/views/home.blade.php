@@ -61,7 +61,8 @@
                             <option value="Falun">Falun</option>
                         </select>
                       <div align="right">
-                        <button onclick="saveCookies()" ng-click="search()" type="submit" class="btn btn-lg mt-3">SÖK</button>
+                        <button ng-click="search()" type="submit" class="btn btn-lg mt-3">SÖK</button>
+                        <button class="btn btn-lg mt-3" onclick="saveCookies()">Spara</button>
                         <button class="btn btn-lg mt-3" onclick="loadCookies()">Ladda</button>
                       </div>
                     </div>
