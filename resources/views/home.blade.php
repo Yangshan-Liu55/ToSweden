@@ -55,15 +55,15 @@
                     </div>
                     <div class="form-group col-md-6 col-sm-12" align="left">
                         <label for="exampleFormControlSelect1">DESTINATION</label>
-                        <select ng-model="toCity" required class="form-control" id="selectCity">
+                        <select ng-model="toCity" required class="form-control " id="selectCity">
                             <option value="Stockholm">Stockholm</option>
                             <option value="Åre">Åre</option>
                             <option value="Falun">Falun</option>
                         </select>
                       <div align="right">
-                        <button ng-click="search()" type="submit" class="btn btn-lg mt-3">SÖK</button>
-                        <button class="btn btn-lg mt-3" onclick="saveCookies()">Spara</button>
-                        <button class="btn btn-lg mt-3" onclick="loadCookies()">Ladda</button>
+                        <button ng-click="search()" type="submit" class="btn btn-lg mt-3 pointer">SÖK</button>
+                        <button class="btn btn-lg mt-3 pointer" onclick="saveCookies()">Spara</button>
+                        <button class="btn btn-lg mt-3 pointer" onclick="loadCookies()">Ladda</button>
                       </div>
                     </div>
                   </div>
@@ -76,14 +76,14 @@
     <p id="apiUrl"></p>
     -->
         <!-- START, visa RESULTATET vid respons från server -->
-        <div ng-show="isResultOpen" class="container mt-3 table-responsive-sm resultBox">
-            <table class="container table table-hover">
-                <thead class="">
-                    <th ng-click="sortBy('name')">Färdmedel</th>
-                    <th ng-click="sortBy('totalDuration')">Tid</th>
-                    <th ng-click="sortBy('indicativePrices[0].priceLow')">Pris</th>
+        <div ng-show="isResultOpen" class="container mt-4 table-responsive-sm middle-grey-bg nopadding">
+            <table class="container table ">
+                <thead class="lightblue-bg">
+                    <th ng-click="sortBy('name')"><h5>Färdmedel<h5></th>
+                    <th ng-click="sortBy('totalDuration')"><h5>Tid</h5></th>
+                    <th ng-click="sortBy('indicativePrices[0].priceLow')"><h5>Pris</h5></th>
                     <th>
-                        Valuta
+                        <h5>Valuta</h5>
                         <select class="form-control" ng-model="choosenCurrency">
                             <option value="EUR">EUR</option>
                             <option value="SEK">SEK</option>
@@ -91,20 +91,22 @@
                         </select>
                     </th>
                 </thead>
-                <tr ng-repeat="route in info.routes | orderBy: propertyName : reverse">
+                <tr id="search-row" class="pointer middleblue-col" ng-repeat="route in info.routes | orderBy: propertyName : reverse" ng-click="getDetails($index)" data-toggle="modal" data-target="#myModal">
                     <td>@{{route.name}}</td>
                     <td>@{{timeConvert(route.totalDuration)}}</td>
                     <td>@{{convertMoney(route.indicativePrices[0].priceLow)}} - @{{convertMoney(route.indicativePrices[0].priceHigh)}}</td>
                     <td align="center">
-                        <button class="btn" ng-click="getDetails($index)" data-toggle="modal" data-target="#myModal">Detaljer</button>
+                        <button class="btn pointer" >Detaljer</button>
                     </td>
                 </tr>
             </table>
-            <div align="center">
-                <button ng-click="closeResult()" class="btn btn-danger col-md-6 col-sm-12 btn-block">Stäng</button>
+            <div class="pb-4" align="center">
+                <button ng-click="closeResult()" class="btn btn-danger col-md-6 col-sm-12 btn-block pointer">Stäng</button>
             </div>
         </div>
-        <!-- SLUT på SÖK RESULTAT -->
+        
+        
+
         <!-- The Modal för att visa DETALJER -->
         <div class="modal" id="myModal">
             <div class="modal-dialog">
@@ -130,7 +132,6 @@
                         </table>
                         <iframe id="googleMap" width="100%" height="300" frameborder="0" style="border:0" src="" allowfullscreen>
                         </iframe>
-                        <div class="sharethis-inline-share-buttons"></div>
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
