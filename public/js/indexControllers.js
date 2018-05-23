@@ -147,9 +147,13 @@ app.controller("searchCtrl", function ($scope, $http) {
         //hämtar resvägen man vill ha detaljer för
         var route = $scope.info.routes[index];
 
-        var depCity = $scope.info.places[route.depPlace].longName;
+        $scope.depCity = $scope.info.places[route.depPlace].longName;
 
-        var arrCity = $scope.info.places[route.arrPlace].longName;
+        $scope.arrCity = $scope.info.places[route.arrPlace].longName;
+
+        $scope.cash = $scope.convertMoney(route.indicativePrices[0].priceLow);
+
+        $scope.travelTime = $scope.timeConvert(route.totalDuration);
 
         //en array att lagra detalj informationen
         $scope.travelInfo = [];
@@ -158,10 +162,10 @@ app.controller("searchCtrl", function ($scope, $http) {
         for (var i = 0; i < route.segments.length; i++) {
 
             //hämtar avgångstationen
-            var depName = $scope.info.places[route.segments[i].depPlace].shortName;
+            $scope.depName = $scope.info.places[route.segments[i].depPlace].shortName;
 
             //hämtar ankomststationen
-            var arrName = $scope.info.places[route.segments[i].arrPlace].shortName;
+            $scope.arrName = $scope.info.places[route.segments[i].arrPlace].shortName;
 
             //tiden mellan stationerna
             var time = route.segments[i].transitDuration;
@@ -169,6 +173,7 @@ app.controller("searchCtrl", function ($scope, $http) {
             //resvägens namn
             $scope.routeName = route.name;
 
+            //antal segment
             $scope.segmentLength = route.segments.length;
 
             //om prices fältet inte är tomt
@@ -181,19 +186,44 @@ app.controller("searchCtrl", function ($scope, $http) {
                 var currency = route.segments[i].indicativePrices[0].currency
 
                 //läger till allt i array
-                $scope.travelInfo.push({ 'depName': depName, 'arrName': arrName, 'transferTime': time, 'lowPrice': lowPrice, 'highPrice': highPrice, 'currency': currency });
+                $scope.travelInfo.push({ 'depName': $scope.depName, 'arrName': $scope.arrName, 'transferTime': time, 'lowPrice': lowPrice, 'highPrice': highPrice, 'currency': currency });
             }
             else {
                 //lägg till i array
-                $scope.travelInfo.push({ 'depName': depName, 'arrName': arrName, 'transferTime': time });
+                $scope.travelInfo.push({ 'depName': $scope.depName, 'arrName': $scope.arrName, 'transferTime': time });
             }
-
-            $scope.googleUrl = googleAPI + googleKey + googleFrom + depCity + googleTo + arrCity;
-            document.getElementById("googleMap").src = $scope.googleUrl;
-
         }
+        $scope.googleUrl = googleAPI + googleKey + googleFrom + $scope.depCity + googleTo + $scope.arrCity;
+        document.getElementById("googleMap").src = $scope.googleUrl;
 
     };
+
+    var savedInfo = {};
+    $scope.saveData = function () {
+        savedInfo["routeName"] = $scope.routeName;
+        savedInfo["cities"] = $scope.depCity +" - " + $scope.arrCity;
+        savedInfo["time"] = $scope.travelTime;
+        savedInfo["costLow"] = $scope.cash; 
+        var ending = new Date(Date.now() + 60 * 1000).toString();
+        var cookieString = "";
+        for (var key in savedInfo) {
+            cookieString = key + "=" + savedInfo[key] + ";" + ending + ";";
+            document.cookie = cookieString;
+        }
+    }
+
+    $scope.loadData = function () {
+        savedInfo = {};
+        var kv = document.cookie.split(";");
+        for (var id in kv) {
+            var cookie = kv[id].split("=");
+            savedInfo[cookie[0].trim()] = cookie[1];
+        }
+        document.getElementById("showRoute").innerHTML ="Resnamn: " + savedInfo["routeName"];
+        document.getElementById("showCities").innerHTML = "Resmål: "+savedInfo["cities"];
+        document.getElementById("showTime").innerHTML = "Tid: " + savedInfo["time"];
+        document.getElementById("showCost").innerHTML = "Kostnad: "+savedInfo["costLow"];
+    }
 });
 
 //Hämtar JSON för Sporter till schema i Home.php.
@@ -206,8 +236,8 @@ app.controller('sportsCtrl', function ($scope, $http) {
 
 
 
-app.controller('selectTabs', function($scope){
-    $scope.click = function(itemNmb){
+app.controller('selectTabs', function ($scope) {
+    $scope.click = function (itemNmb) {
         $scope.tabOut = itemNmb;
         console.log(itemNmb)
     };
@@ -220,7 +250,7 @@ app.controller('CitiesCtrl', function ($scope, $http, $location, $sce) {
     $http.get('http://steffo.info/toswe-api/toswe-cities.php')
         .then(function (response) {
             $scope.cities = response.data;
-    });
+        });
 
     //local url
     var locurl = $location.absUrl();
@@ -362,7 +392,7 @@ app.controller('HotelsCtrl', function ($scope, $http) {
 
 });
 
-var myCookies = {};
+/*var myCookies = {};
 
 function saveCookies() {
     myCookies["city"] = document.getElementById("inputCity").value;
@@ -386,5 +416,5 @@ function loadCookies() {
     document.getElementById("inputCity").value = myCookies["city"];
     var selectMenu = document.getElementById("selectCity");
     selectMenu.value = myCookies["select"];
-}
+}*/
 
