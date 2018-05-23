@@ -150,8 +150,8 @@
 
     <!-- Modal för OS-SCHEMA -->
 
-    <div class="container p-4">
-        <button class="btn darkblue-bg btn-block pointer" data-toggle="modal" data-target="#eventsModal">
+    <div class="container p-4  col-md-6 col-sm-12">
+        <button id="osschema-knapp" class="btn darkblue-bg btn-block pointer" data-toggle="modal" data-target="#eventsModal">
             <h2 class="white-col">
                 <i class="far fa-calendar-alt yellow-col"></i> &nbsp;&nbsp;OS-schema</h2>
         </button>
