@@ -34,17 +34,17 @@
                 <!-- City tabs -->
                 <div class="row row-wrap mb-2 mt-5" align="center">
                     <div class="col col-4 pl-0">
-                        <div class="p-2 m-0 tabSelected text-uppercase @{{tabSelect1}}" ng-click="changeColor(1)">
+                        <div class="p-2 m-0 tabBorder tabSelected text-uppercase @{{tabSelect1}}" ng-click="changeColor(1)">
                             <span>STOCKHOM</span>
                         </div>
                     </div>
                     <div class="col col-4 px-1">
-                        <div class="p-2 m-0 tabSelected text-uppercase @{{tabSelect2}}"ng-click="changeColor(2)">
+                        <div class="p-2 m-0 tabBorder tabSelected text-uppercase @{{tabSelect2}}"ng-click="changeColor(2)">
                             <span>FALUN</span>
                         </div>
                     </div>
                     <div class="col col-4 pr-0">
-                        <div class="p-2 m-0 tabSelected text-uppercase @{{tabSelect3}}" ng-click="changeColor(3)">
+                        <div class="p-2 m-0 tabBorder tabSelected text-uppercase @{{tabSelect3}}" ng-click="changeColor(3)">
                             <span>ÅRE</span>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
 
                 <div ng-repeat="h in hotels | filter: filterFunction" class="mb-3">
                     
-                    <div class="row bg-info px-0 py-2 mb-3">
+                    <div class="row bg-info px-0 py-2 mb-3 tabBorder">
                         <div class="col col-5 my-auto">
                             <img ng-src="img/hotels/@{{h.hotels_img01}}" alt="City" class="rounded img-fluid">
                         </div>
