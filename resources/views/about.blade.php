@@ -31,7 +31,7 @@
     <div class="container-fluid ">
         <div class="container">
         <hr class="hr" size=1   color="#ffcc00" style="border:2 solid #ffcc00">
-        <p class="text-center">Den franske baronen och filosofen Pierre de Coubertin grundade de olympiska spelen 1894. Han var övertygad om att
+        <p class="text-center darkblue-bg p-4 m-2 rounded">Den franske baronen och filosofen Pierre de Coubertin grundade de olympiska spelen 1894. Han var övertygad om att
             man kan göra världen bättre med hjälp av idrott. De första olympiska spelen arrangerades i Aten 1896. Inspirationen
             till spelen var hämtade från idrottstävlingar som hölls till guden Zeus ära i Grekland under antiken.
         </p>
@@ -52,7 +52,7 @@
 </div>
 
    <br>
-   <div  align ="center" class=" p-1 m-1">
+   <div  align ="center" class=" p-1 m-1 ">
    <img src="img/logotyp/logotyp.png" alt="2 Sweden">
    </div>
 
