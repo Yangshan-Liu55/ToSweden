@@ -64,9 +64,8 @@
             <div class="yellowCard" id="headline-game">               
                 <!-- <p   style="color:white">@{{c.cities_text}}</p> -->
                 <div ng-repeat="s in breakStr(c.cities_text)">
-                    <p ng-bind-html="disBR(s)"></p>
+                    <p ng-bind-html="disBR(s)"> </p>
                 </div>
-                <?= $hej = "{{c.cities_text}}"; //STEFFO TESTAR ?>
                 
             </div>
             <h2 style="text-align:center;">Att göra i @{{c.cities_name}}</h2>   <!-- flyta till recomend -->        

@@ -254,10 +254,10 @@ app.controller('HotelsCtrl', function ($scope, $http) {
             $scope.hotels = response.data;
     });
 
-let buttonOn = "#ffcc00";
-let buttonOff = "#B18904";
+let buttonOn = "#00496d";
+let buttonOff = "#ffcc00";
 
-    $scope.bgColor0 = buttonOn; // har ingen function
+    $scope.bgColor0 = buttonOff; // har ingen function
 
     $scope.bgColor1 = buttonOff;
     $scope.bgColor2 = buttonOff;
