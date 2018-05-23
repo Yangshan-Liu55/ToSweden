@@ -28,6 +28,7 @@ p {
     letter-spacing: 1px;
 }
 
+.nopadding {padding:0;}
 
 .btn:focus, .btn:active {
     outline: none !important;
