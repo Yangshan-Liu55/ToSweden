@@ -29,31 +29,29 @@
             @include('includes.navbar')
         <div class="position-ref full-height">
               
-            <div class="content">
+            <div class="container">
 
                 <!-- City tabs -->
-
                 <div class="row row-wrap mb-2 mt-5" align="center">
-                    <div class="col col-4">
-                        <div class="p-2 m-0" style="background: @{{bgColor1}};" ng-click="changeColor(1)">
+                    <div class="col col-4 pl-0">
+                        <div class="p-2 m-0 tabBorder tabSelected text-uppercase @{{tabSelect1}}" ng-click="changeColor(1)">
                             <span>STOCKHOM</span>
                         </div>
                     </div>
-                    <div class="col col-4">
-                        <div class="p-2 m-0" style="background: @{{bgColor2}};" ng-click="changeColor(2)">
+                    <div class="col col-4 px-1">
+                        <div class="p-2 m-0 tabBorder tabSelected text-uppercase @{{tabSelect2}}"ng-click="changeColor(2)">
                             <span>FALUN</span>
                         </div>
                     </div>
-                    <div class="col col-4">
-                        <div class="p-2 m-0" style="background: @{{bgColor3}};" ng-click="changeColor(3)">
+                    <div class="col col-4 pr-0">
+                        <div class="p-2 m-0 tabBorder tabSelected text-uppercase @{{tabSelect3}}" ng-click="changeColor(3)">
                             <span>ÅRE</span>
                         </div>
                     </div>
                 </div>
-                   
-                <!-- Aktivitets tabs -->
 
-                      <div class="row row-wrap mb-2 mt-5" align="center">
+                <!-- Aktivitets tabs -->
+                <!-- <div class="row row-wrap mb-2 mt-5" align="center">
                     <div class="col col-6">
                         <div class="p-2 m-0" style="background: @{{bgColor0}};" ng-click="changeColor()">
                             <span>Hotel/resturang</span>
@@ -64,21 +62,24 @@
                             <span>Aktiviteter</span>
                         </div>
                     </div>
-
-                </div>
+                </div> -->
 
                 <div ng-repeat="h in hotels | filter: filterFunction" class="mb-3">
-                    <a href="">
-                    <div class="row row-wrap bg-info p-2">
-                        <div class="col col-4">
-                            <img ng-src="img/hotels/@{{h.hotels_img01}}" alt="City" weight="75px" height="75px">
+                    
+                    <div class="row middle-grey-bg px-0 py-2 mb-3 tabBorder">
+                        <div class="col col-5 my-auto">
+                            <img ng-src="img/hotels/@{{h.hotels_img01}}" alt="City" class="rounded img-fluid">
                         </div>
-                        <div class="col col-8" style="padding-left:40px; color:black">
+                        <div class="col col-7 px-auto" style="color:black">
                             <h3> @{{h.hotels_name}}</h3>
-                            <span>@{{h.hotels_text|limitTo:100}}...</span>
+                            <!-- <span>@{{h.hotels_text|limitTo:100}}...</span> -->
+                            <p>BETYG: 3.4/5</p>     
+                            <p><i class="fas fa-phone-volume" style="color:#ffcc00;"></i>  +46 8 21 53 10</p>                   
+                            <p><i class="fas fa-map-marker" style="color:#ffcc00;"></i>  Stockholm Sweden 0,2 km till centrum</p>
+                            <a href="" class="btn btn-warning float-right" style="color:white;">GÅ TILL HEMSIDA</a>
                         </div>
                     </div>
-                    </a>
+
                 </div>                
 
             </div>
