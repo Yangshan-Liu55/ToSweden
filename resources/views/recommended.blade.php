@@ -61,7 +61,7 @@
                     
                     <div class="row middle-grey-bg px-0 py-2 mb-3 tabBorder">
                         <div class="col col-5 my-auto">
-                            <img ng-src="img/hotels/@{{h.hotels_img01}}" alt="City" class="rounded img-fluid">
+                            <img ng-src="/img/hotels/@{{h.hotels_img01}}" alt="City" class="rounded img-fluid">
                         </div>
                         <div class="col col-7 px-auto" style="color:black">
                             <h3> @{{h.hotels_name}}</h3>
