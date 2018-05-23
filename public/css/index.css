@@ -384,5 +384,6 @@ body {
 .rightBtn {border-radius: 0px 5px 5px 0px;}
 .menuSelect:hover{background: #007cba; border-color: #007cba;}
 .tabSelected:hover{background: #DBA901;}
+.tabBorder{border-radius: 5px 5px 5px 5px;}
 
 
