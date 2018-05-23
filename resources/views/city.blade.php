@@ -61,8 +61,7 @@
             <!-- End of Slides -->
 
             <h1 style="font-size:50px; text-align:center;">@{{c.cities_name}}</h1>
-            <div class="yellowCard" id="headline-game">               
-                <!-- <p   style="color:white">@{{c.cities_text}}</p> -->
+            <div class="p-2 p-md-4" id="headline-game">               
                 <div ng-repeat="s in breakStr(c.cities_text)">
                     <p ng-bind-html="disBR(s)"></p>
                 </div>

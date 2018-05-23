@@ -356,7 +356,7 @@ app.controller('HotelsCtrl', function ($scope, $http) {
         switch (n) {
             case 1:
                 if ($scope.tabSelect1 == "yellow-bg navbar-black") {
-                    $scope.tabSelect1 = "dark-yellew-bg";
+                    $scope.tabSelect1 = "dark-yellew-bg white-col";
                     addRes(1);
                     break;
                 }
@@ -368,7 +368,7 @@ app.controller('HotelsCtrl', function ($scope, $http) {
 
             case 2:
                 if ($scope.tabSelect2 == "yellow-bg navbar-black") {
-                    $scope.tabSelect2 = "dark-yellew-bg";
+                    $scope.tabSelect2 = "dark-yellew-bg white-col";
                     addRes(2);
                     break;
                 }
@@ -380,7 +380,7 @@ app.controller('HotelsCtrl', function ($scope, $http) {
 
             case 3:
                 if ($scope.tabSelect3 == "yellow-bg navbar-black") {
-                    $scope.tabSelect3 = "dark-yellew-bg";
+                    $scope.tabSelect3 = "dark-yellew-bg white-col";
                     addRes(3);
                     break;
                 }
