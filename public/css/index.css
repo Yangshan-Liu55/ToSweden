@@ -21,7 +21,9 @@ h1 {
     font-size: 20px;
 }
 
-p {
+p,
+.goog-te-combo, .goog-te-banner *, .goog-te-ftab *, .goog-te-menu *, .goog-te-menu2 *, .goog-te-balloon *
+{
     font-family: Lato;
     font-size: 14px;
     line-height: 24px;
@@ -382,9 +384,14 @@ p {
 .goog-te-banner-frame.skiptranslate {
     display: none !important;
     } 
-body {
-    top: 0px !important; 
-    }
+
+    .goog-te-combo, 
+    .goog-te-banner *, 
+    .goog-te-ftab *, 
+    .goog-te-menu *, 
+    .goog-te-menu2 *, 
+    .goog-te-balloon *{height:30px !important;}
+
     .goog-logo-link {
         display:none !important;
      } 
