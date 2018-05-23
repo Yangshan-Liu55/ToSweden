@@ -66,10 +66,10 @@
                         <div class="col col-7 px-auto" style="color:black">
                             <h3> @{{h.hotels_name}}</h3>
                             <!-- <span>@{{h.hotels_text|limitTo:100}}...</span> -->
-                            <p>BETYG: 3.4/5</p>     
-                            <p><i class="fas fa-phone-volume middleblue-col" ></i>  +46 8 21 53 10</p>                   
-                            <p><i class="fas fa-map-marker middleblue-col" ></i>  Stockholm Sweden 0,2 km till centrum</p>
-                            <a href="" class="btn btn-warning float-right middleblue-col" style="color:white;">GÅ TILL HEMSIDA</a>
+                            <p>BETYG: @{{h.hotels_stars}}/5</p>     
+                            <p><i class="fas fa-phone-volume middleblue-col" ></i>  @{{h.hotels_phone}}</p>                   
+                            <p><i class="fas fa-map-marker middleblue-col" ></i>  @{{h.hotels_tocity}}</p>
+                            <a href="@{{h.hotels_web}}" class="btn btn-warning float-right middleblue-col" style="color:white;">GÅ TILL HEMSIDA</a>
                         </div>
                     </div>
 
