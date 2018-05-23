@@ -186,14 +186,14 @@ p {
     padding: 10px;
 }
 
-.searchField button{
+.searchField button, .table button{
     background-color: #006699;
     color: #fff;
 }
 
-.table button{
-    background-color: #006699;
-    color: #fff;
+.searchField button:hover, .table button:hover{
+    background-color: #00496d;
+    cursor:pointer;
 }
 
 .resultBox{
@@ -219,6 +219,10 @@ p {
 .toS-blue
 {
     color: #006699;
+}
+
+.modal-footer button:hover {
+    cursor: pointer;
 }
 
 /* Hide all class events in Modal on home.php */
