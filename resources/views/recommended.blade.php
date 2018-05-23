@@ -31,23 +31,16 @@
               
             <div class="container">
 
+
+
+                
                 <!-- City tabs -->
-                <div class="row row-wrap mb-2 mt-5" align="center">
-                    <div class="col col-4 pl-0">
-                        <div class="p-2 m-0 tabBorder tabSelected text-uppercase @{{tabSelect1}}" ng-click="changeColor(1)">
-                            <span>STOCKHOM</span>
-                        </div>
-                    </div>
-                    <div class="col col-4 px-1">
-                        <div class="p-2 m-0 tabBorder tabSelected text-uppercase @{{tabSelect2}}"ng-click="changeColor(2)">
-                            <span>FALUN</span>
-                        </div>
-                    </div>
-                    <div class="col col-4 pr-0">
-                        <div class="p-2 m-0 tabBorder tabSelected text-uppercase @{{tabSelect3}}" ng-click="changeColor(3)">
-                            <span>ÅRE</span>
-                        </div>
-                    </div>
+                <div class="row row-wrap  my-3" align="center">
+
+                        <button type="button" class="btn pointer btn-primary leftBtn rekoSelect yellow-bg yellow-border navbar-black text-uppercase @{{tabSelect1}} " ng-click="changeColor(1)">Stockholm</button
+                        ><button type="button" class="btn pointer btn-primary middleBtn rekoSelect yellow-bg yellow-border navbar-black text-uppercase @{{tabSelect2}} " ng-click="changeColor(2)">Falun</button
+                        ><button type="button" class="btn pointer btn-primary rightBtn rekoSelect yellow-bg yellow-border navbar-black text-uppercase @{{tabSelect3}} " ng-click="changeColor(3)" >Åre</button>
+
                 </div>
 
                 <!-- Aktivitets tabs -->
@@ -74,9 +67,9 @@
                             <h3> @{{h.hotels_name}}</h3>
                             <!-- <span>@{{h.hotels_text|limitTo:100}}...</span> -->
                             <p>BETYG: 3.4/5</p>     
-                            <p><i class="fas fa-phone-volume" style="color:#ffcc00;"></i>  +46 8 21 53 10</p>                   
-                            <p><i class="fas fa-map-marker" style="color:#ffcc00;"></i>  Stockholm Sweden 0,2 km till centrum</p>
-                            <a href="" class="btn btn-warning float-right" style="color:white;">GÅ TILL HEMSIDA</a>
+                            <p><i class="fas fa-phone-volume middleblue-col" ></i>  +46 8 21 53 10</p>                   
+                            <p><i class="fas fa-map-marker middleblue-col" ></i>  Stockholm Sweden 0,2 km till centrum</p>
+                            <a href="" class="btn btn-warning float-right middleblue-col" style="color:white;">GÅ TILL HEMSIDA</a>
                         </div>
                     </div>
 

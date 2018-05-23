@@ -407,7 +407,7 @@ p,
 .leftBtn {border-radius: 5px 0px 0px 5px;}
 .middleBtn {border-radius: 0;}
 .rightBtn {border-radius: 0px 5px 5px 0px;}
-.menuSelect:hover{background: #007cba; border-color: #007cba;}
+.menuSelect:hover, .rekoSelect:hover{background: #007cba; border-color: #007cba;}
 .tabSelected:hover{background: #DBA901;}
 .tabBorder{border-radius: 5px 5px 5px 5px;}
 
