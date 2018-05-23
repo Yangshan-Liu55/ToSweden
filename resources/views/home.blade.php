@@ -1,4 +1,4 @@
-
+@php session_start(); @endphp
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
 
@@ -28,7 +28,7 @@
 
 <body ng-app="myApp">
     @include('includes.navbar')
-
+    
     <!-- NAVIGATION -->
     <div id="homeimage">
         <div id="home-welcome">
@@ -51,17 +51,19 @@
                   <div class="col-sm-12" align="center">
                     <div class="form-group col-md-6 col-sm-12" align="left">
                         <label>FRÅN</label>
-                        <input required ng-model="fromCity" type="text" class="form-control">
+                        <input id="inputCity" required ng-model="fromCity" type="text" class="form-control">
                     </div>
                     <div class="form-group col-md-6 col-sm-12" align="left">
                         <label for="exampleFormControlSelect1">DESTINATION</label>
-                        <select ng-model="toCity" required class="form-control" id="exampleFormControlSelect1">
-                            <option value="Stockholm" selected>Stockholm</option>
+                        <select ng-model="toCity" required class="form-control" id="selectCity">
+                            <option value="Stockholm">Stockholm</option>
                             <option value="Åre">Åre</option>
                             <option value="Falun">Falun</option>
                         </select>
                       <div align="right">
                         <button ng-click="search()" type="submit" class="btn btn-lg mt-3">SÖK</button>
+                        <button class="btn btn-lg mt-3" onclick="saveCookies()">Spara</button>
+                        <button class="btn btn-lg mt-3" onclick="loadCookies()">Ladda</button>
                       </div>
                     </div>
                   </div>
@@ -69,7 +71,6 @@
             </div>
         </div>
         <!-- SLUT på SÖK RESA -->
-
         <!-- 
     visar URL eller FEL meddelande 
     <p id="apiUrl"></p>
@@ -129,6 +130,7 @@
                         </table>
                         <iframe id="googleMap" width="100%" height="300" frameborder="0" style="border:0" src="" allowfullscreen>
                         </iframe>
+                        <div class="sharethis-inline-share-buttons"></div>
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
@@ -143,24 +145,8 @@
 
     <!-- Modal för OS-SCHEMA -->
 
-
-
-    <BR>
-    <BR><!--
-    <img src="/img/travel/pos/bus.png">
-    <img src="/img/travel/pos/air.png">
-    <img src="/img/travel/pos/train.png">
-    <img src="/img/travel/pos/walk.png">
-    <BR>
-    <BR>
-    <img src="/img/travel/neg/bus.png">
-    <img src="/img/travel/neg/air.png">
-    <img src="/img/travel/neg/train.png">
-    <img src="/img/travel/neg/walk.png">-->
-    <BR>
-    <BR>
-    <div class="container">
-        <button class="btn darkblue-bg btn-block pointer" data-toggle="modal" data-target="#eventsModal">
+    <div class="container p-4  col-md-6 col-sm-12">
+        <button id="osschema-knapp" class="btn darkblue-bg btn-block pointer" data-toggle="modal" data-target="#eventsModal">
             <h2 class="white-col">
                 <i class="far fa-calendar-alt yellow-col"></i> &nbsp;&nbsp;OS-schema</h2>
         </button>
@@ -176,52 +162,10 @@
                 </div>
                 <!-- Modal body -->
                 <div class="modal-body">
-                    <!-- Filter för att plocka ut rätt sporter till rätt städer -->
-                    <!-- Loopar igenom alla Städer -->
-                    <div ng-controller="CitiesCtrl">
-                        <div ng-repeat="city in cities">
-                            <div id="schedule-thead" class="thead p-3">
-                                <h5>@{{city.cities_name}}</h5>
-                            </div>
-                            <div ng-controller="sportsCtrl">
-                                <!-- Loopar igenom alla Sporter -->
-                                <div class="eventsHeader schedule-sports-bg " ng-if="sport.sports_cities_id==city.id" ng-repeat="sport in sports">
-                                    <div id="schedule-row" class="row p-1">
-                                        <div class="col">
-                                            <div class="p-2">
-                                                <img class="schedule-picto" ng-src="/img/pictogram/neg/@{{sport.sports_img}}">
-                                            </div>
-                                        </div>
-                                        <div id="schedule-sports-name" class="col-9">
-                                            <h6>@{{sport.sports_name_swe}}</h6>
-                                        </div>
-                                    </div>
 
-                                    <!-- Loopar igenom Sportschema -->
-                                    <div class="eventsBody schedule-days-bg " ng-controller="allEvents">
-                                        <div class="schedule-days-border" ng-if="event.events_sports_id==sport.id" ng-repeat="event in allEvents">
-                                            <div class="row  p-3">
-
-                                                <!-- Kontrollerar medaljstatus -->
-                                                <div class="col" ng-if="event.events_status==1">
-                                                    <img class="schedule-picto" src="/img/pictogram/pos/day.png">
-                                                </div>
-                                                <div class="col" ng-if="event.events_status==2">
-                                                    <img class="schedule-picto" src="/img/pictogram/pos/medal.png">
-                                                </div>
-                                                <div class="col-9">
-                                                    <div class="schedule-sports-name py-2">
-                                                        <h6>@{{event.events_cities_day_swe}} @{{event.events_date}}/2</h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- SLUT Filter för schema -->
+                    <!-- OS Schema -->
+                    @include('includes.scheduele-table')      
+                 
                 </div>
                 <!-- Modal footer -->
                 <div class="modal-footer">
@@ -231,9 +175,8 @@
         </div>
     </div>
     <!-- SLUT Modal för OS-schema -->
-
-    <div class="footer p-5">
-        </footer>
+    
+    <!-- Footer -->
+    @include('includes.footer')
 </body>
-
 </html>
