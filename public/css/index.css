@@ -28,13 +28,14 @@ p {
     letter-spacing: 1px;
 }
 
+.nopadding {padding:0;}
 
 .btn:focus, .btn:active {
     outline: none !important;
     box-shadow: none !important;
   }
 
-.dark-yellew-bg{background: #B18904; color: white;}
+.dark-yellew-bg{background: #B18904;}
 .yellow-bg{background: #ffcc00;}
 .yellow-col{color: #ffcc00;}
 .yellow-border {border: 1px solid #ffcc00; }
@@ -50,6 +51,7 @@ p {
 .navbar-black{color: rgba(0,0,0,.5);}
 .white-col{color: #fff;}
 .light-grey-bg{background: #f3f2f2}
+.middle-grey-bg{background: #dfdfdf }
 
 .navbar {
     background-color: #ffcc00 !important;
@@ -219,13 +221,12 @@ p {
     padding: 10px;
 }
 .table thead th{
-    background-color: #006699;
     border-bottom: none;
 }
 
 .table td, .table th{
     border-top: none;
-    border-bottom: 1px solid white;
+    border-bottom: 1px #006699 solid;
 }
 
 .modal .thead {
@@ -339,7 +340,7 @@ p {
 }
 
 
-#schedule-row{
+#schedule-row, #search-row{
     -webkit-transition: all .5s ease-out;
     -moz-transition: all .5s ease-out;
     -o-transition: all .5s ease-out;
@@ -347,7 +348,7 @@ p {
     transition: all .5s ease-out;
 }
 
-#schedule-row:hover{ 
+#schedule-row:hover, #search-row:hover{ 
    position: relative;
    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
