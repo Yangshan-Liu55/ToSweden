@@ -92,7 +92,9 @@
                     </th>
                 </thead>
                 <tr ng-repeat="route in info.routes | orderBy: propertyName : reverse">
-                    <td>@{{route.name}}</td>
+                <script>console.log("TEST" )</script>
+                    <td><span ng-bind-html="addIcon(route.name)"></span>@{{route.name}}</td>
+
                     <td>@{{timeConvert(route.totalDuration)}}</td>
                     <td>@{{convertMoney(route.indicativePrices[0].priceLow)}} - @{{convertMoney(route.indicativePrices[0].priceHigh)}}</td>
                     <td align="center">

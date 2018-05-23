@@ -20,7 +20,7 @@ var googleTo = "&destination=";
 var app = angular.module("myApp", []);
 
 //Search delen i Home.php
-app.controller("searchCtrl", function ($scope, $http) {
+app.controller("searchCtrl", function ($scope, $http, $sce) {
 
     //vald valuta
     $scope.choosenCurrency = "EUR";
@@ -194,7 +194,47 @@ app.controller("searchCtrl", function ($scope, $http) {
         }
 
     };
+    /*LÄGG TILL ICON VID SÖKRESULTATEN */ 
+    $scope.addIcon = function(travelText){
+      
+        
+        /*Omvandlar till små bokstäver*/ 
+        var travel = travelText.toLowerCase();
+       
+        /*Spara färdmedel för de olika resor*/ 
+        var output = "";
+        
+        /*Om det ingår att flyga */
+        if(travel.indexOf("fly") >= 0){
+          output += ' <img src="img/travel/pos/air.png" width ="20px" height="20px">'
+          
+        } 
+        /*Om det ingår att åka buss */
+        if (travel.indexOf("bus") >= 0){
+            output += ' <img src="img/travel/pos/bus.png" width ="20px" height="20px" >'
+           
+        } 
+        /*Om det ingår att åka tåg */
+        if(travel.indexOf("train") >= 0){
+            output += ' <img src="img/travel/pos/train.png" width ="20px" height="20px">'
+            
+           } 
+           if(travel.indexOf("walk") >= 0){
+            output += ' <img src="img/travel/pos/walk.png" width ="20px" height="20px">'
+            
+           } 
+           return $sce.trustAsHtml(output);
+
+
+         
+         
+         
+
+    }
+
 });
+
+
 
 //Hämtar JSON för Sporter till schema i Home.php.
 app.controller('sportsCtrl', function ($scope, $http) {
