@@ -42,9 +42,8 @@
             </h1>
         </div>-->
     </div>
-
     <!-- SÖK RESA -->
-    <div ng-controller="searchCtrl" ng-init="changeCurrency()">
+    <div class="test" ng-controller="searchCtrl" ng-init="changeCurrency()">
         <div class="searchField">
             <div class="container" id="navbar">
                 <form class="container" name="searchForm">
@@ -61,13 +60,18 @@
                             <option value="Falun">Falun</option>
                         </select>
                       <div align="right">
-                        <button ng-click="search()" type="submit" class="btn btn-lg mt-3 pointer">SÖK</button>
-                        <button class="btn btn-lg mt-3 pointer" onclick="saveCookies()">Spara</button>
-                        <button class="btn btn-lg mt-3 pointer" onclick="loadCookies()">Ladda</button>
+                        <button ng-click="search()" type="submit" class="btn btn-lg mt-3">SÖK</button>
+                        <button ng-click="loadData()" class="btn btn-lg mt-3">Sparad Resa</button>
                       </div>
                     </div>
                   </div>
                 </form>
+            </div>
+            <div class="container darkblue-bg">
+                <h3 class="text-center" id="showRoute"></h3>
+                <h3 class="text-center" id="showCities"></h3>
+                <h3 class="text-center" id="showTime"></h3>
+                <h3 class="text-center" id="showCost"></h3>
             </div>
         </div>
         <!-- SLUT på SÖK RESA -->
@@ -91,8 +95,10 @@
                         </select>
                     </th>
                 </thead>
-                <tr id="search-row" class="pointer middleblue-col" ng-repeat="route in info.routes | orderBy: propertyName : reverse" ng-click="getDetails($index)" data-toggle="modal" data-target="#myModal">
-                    <td>@{{route.name}}</td>
+                <tr ng-repeat="route in info.routes | orderBy: propertyName : reverse">
+                <script>console.log("TEST" )</script>
+                    <td><span ng-bind-html="addIcon(route.name)"></span>@{{route.name}}</td>
+
                     <td>@{{timeConvert(route.totalDuration)}}</td>
                     <td>@{{convertMoney(route.indicativePrices[0].priceLow)}} - @{{convertMoney(route.indicativePrices[0].priceHigh)}}</td>
                     <td align="center">
@@ -135,6 +141,7 @@
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
+                        <button ng-click="saveData()" class="btn btn-success">Spara resa</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Stäng</button>
                     </div>
 

@@ -34,10 +34,7 @@ p {
     box-shadow: none !important;
   }
 
-  .nopadding {
-    padding: 0 !important;
- }
-
+.dark-yellew-bg{background: #B18904; color: white;}
 .yellow-bg{background: #ffcc00;}
 .yellow-col{color: #ffcc00;}
 .yellow-border {border: 1px solid #ffcc00; }
@@ -191,14 +188,14 @@ p {
     padding: 10px;
 }
 
-.searchField button{
+.searchField button, .table button{
     background-color: #006699;
     color: #fff;
 }
 
-.table button{
-    background-color: #006699;
-    color: #fff;
+.searchField button:hover, .table button:hover{
+    background-color: #00496d;
+    cursor:pointer;
 }
 
 .resultBox{
@@ -223,6 +220,10 @@ p {
 .toS-blue
 {
     color: #006699;
+}
+
+.modal-footer button:hover {
+    cursor: pointer;
 }
 
 /* Hide all class events in Modal on home.php */
@@ -382,4 +383,7 @@ body {
 .middleBtn {border-radius: 0;}
 .rightBtn {border-radius: 0px 5px 5px 0px;}
 .menuSelect:hover{background: #007cba; border-color: #007cba;}
+.tabSelected:hover{background: #DBA901;}
+.tabBorder{border-radius: 5px 5px 5px 5px;}
+
 
