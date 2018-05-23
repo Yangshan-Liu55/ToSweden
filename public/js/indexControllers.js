@@ -262,10 +262,14 @@ app.controller('HotelsCtrl', function ($scope, $http) {
         .then(function (response) {
             $scope.hotels = response.data;
         });
+    
+    $scope.tabSelect1 = "yellow-bg navbar-black";
+    $scope.tabSelect2 = "yellow-bg navbar-black";
+    $scope.tabSelect3 = "yellow-bg navbar-black";
 
-    $scope.bgColor1 = "#ffcc00";
-    $scope.bgColor2 = "#ffcc00";
-    $scope.bgColor3 = "#ffcc00";
+    // $scope.bgColor1 = "#ffcc00"; //#B18904
+    // $scope.bgColor2 = "#ffcc00"; 
+    // $scope.bgColor3 = "#ffcc00"; 
     var cSelected = [];
 
     var addRes = function (n) {
@@ -283,37 +287,37 @@ app.controller('HotelsCtrl', function ($scope, $http) {
     $scope.changeColor = function (n) {
         switch (n) {
             case 1:
-                if ($scope.bgColor1 == "#ffcc00") {
-                    $scope.bgColor1 = "#B18904";
+                if ($scope.tabSelect1 == "yellow-bg navbar-black") {
+                    $scope.tabSelect1 = "dark-yellew-bg";
                     addRes(1);
                     break;
                 }
                 else {
-                    $scope.bgColor1 = "#ffcc00";
+                    $scope.tabSelect1 = "yellow-bg navbar-black";
                     removeRes(1);
                     break;
                 }
 
             case 2:
-                if ($scope.bgColor2 == "#ffcc00") {
-                    $scope.bgColor2 = "#B18904";
+                if ($scope.tabSelect2 == "yellow-bg navbar-black") {
+                    $scope.tabSelect2 = "dark-yellew-bg";
                     addRes(2);
                     break;
                 }
                 else {
-                    $scope.bgColor2 = "#ffcc00";
+                    $scope.tabSelect2 = "yellow-bg navbar-black";
                     removeRes(2);
                     break;
                 }
 
             case 3:
-                if ($scope.bgColor3 == "#ffcc00") {
-                    $scope.bgColor3 = "#B18904";
+                if ($scope.tabSelect3 == "yellow-bg navbar-black") {
+                    $scope.tabSelect3 = "dark-yellew-bg";
                     addRes(3);
                     break;
                 }
                 else {
-                    $scope.bgColor3 = "#ffcc00";
+                    $scope.tabSelect3 = "yellow-bg navbar-black";
                     removeRes(3);
                     break;
                 }
