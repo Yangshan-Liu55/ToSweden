@@ -147,9 +147,13 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
         //hämtar resvägen man vill ha detaljer för
         var route = $scope.info.routes[index];
 
-        var depCity = $scope.info.places[route.depPlace].longName;
+        $scope.depCity = $scope.info.places[route.depPlace].longName;
 
-        var arrCity = $scope.info.places[route.arrPlace].longName;
+        $scope.arrCity = $scope.info.places[route.arrPlace].longName;
+
+        $scope.cash = $scope.convertMoney(route.indicativePrices[0].priceLow);
+
+        $scope.travelTime = $scope.timeConvert(route.totalDuration);
 
         //en array att lagra detalj informationen
         $scope.travelInfo = [];
@@ -158,10 +162,10 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
         for (var i = 0; i < route.segments.length; i++) {
 
             //hämtar avgångstationen
-            var depName = $scope.info.places[route.segments[i].depPlace].shortName;
+            $scope.depName = $scope.info.places[route.segments[i].depPlace].shortName;
 
             //hämtar ankomststationen
-            var arrName = $scope.info.places[route.segments[i].arrPlace].shortName;
+            $scope.arrName = $scope.info.places[route.segments[i].arrPlace].shortName;
 
             //tiden mellan stationerna
             var time = route.segments[i].transitDuration;
@@ -169,6 +173,7 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
             //resvägens namn
             $scope.routeName = route.name;
 
+            //antal segment
             $scope.segmentLength = route.segments.length;
 
             //om prices fältet inte är tomt
@@ -181,19 +186,34 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
                 var currency = route.segments[i].indicativePrices[0].currency
 
                 //läger till allt i array
-                $scope.travelInfo.push({ 'depName': depName, 'arrName': arrName, 'transferTime': time, 'lowPrice': lowPrice, 'highPrice': highPrice, 'currency': currency });
+                $scope.travelInfo.push({ 'depName': $scope.depName, 'arrName': $scope.arrName, 'transferTime': time, 'lowPrice': lowPrice, 'highPrice': highPrice, 'currency': currency });
             }
             else {
                 //lägg till i array
-                $scope.travelInfo.push({ 'depName': depName, 'arrName': arrName, 'transferTime': time });
+                $scope.travelInfo.push({ 'depName': $scope.depName, 'arrName': $scope.arrName, 'transferTime': time });
             }
-
-            $scope.googleUrl = googleAPI + googleKey + googleFrom + depCity + googleTo + arrCity;
-            document.getElementById("googleMap").src = $scope.googleUrl;
-
         }
+        $scope.googleUrl = googleAPI + googleKey + googleFrom + $scope.depCity + googleTo + $scope.arrCity;
+        document.getElementById("googleMap").src = $scope.googleUrl;
 
     };
+
+    var savedInfo = {};
+    $scope.saveData = function () {
+        savedInfo["routeName"] = $scope.routeName;
+        savedInfo["cities"] = $scope.depCity +" - " + $scope.arrCity;
+        savedInfo["time"] = $scope.travelTime;
+        savedInfo["costLow"] = $scope.cash; 
+        var ending = new Date(Date.now() + 60 * 1000).toString();
+        var cookieString = "";
+        for (var key in savedInfo) {
+            cookieString = key + "=" + savedInfo[key] + ";" + ending + ";";
+            document.cookie = cookieString;
+        }
+    }
+
+    
+
     /*LÄGG TILL ICON VID SÖKRESULTATEN */ 
     $scope.addIcon = function(travelText){
       
@@ -224,14 +244,22 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
             
            } 
            return $sce.trustAsHtml(output);
+}
 
+   
 
-         
-         
-         
-
+$scope.loadData = function () {
+        savedInfo = {};
+        var kv = document.cookie.split(";");
+        for (var id in kv) {
+            var cookie = kv[id].split("=");
+            savedInfo[cookie[0].trim()] = cookie[1];
+        }
+        document.getElementById("showRoute").innerHTML ="Resnamn: " + savedInfo["routeName"];
+        document.getElementById("showCities").innerHTML = "Resmål: "+savedInfo["cities"];
+        document.getElementById("showTime").innerHTML = "Tid: " + savedInfo["time"];
+        document.getElementById("showCost").innerHTML = "Kostnad: "+savedInfo["costLow"];
     }
-
 });
 
 
@@ -246,8 +274,8 @@ app.controller('sportsCtrl', function ($scope, $http) {
 
 
 
-app.controller('selectTabs', function($scope){
-    $scope.click = function(itemNmb){
+app.controller('selectTabs', function ($scope) {
+    $scope.click = function (itemNmb) {
         $scope.tabOut = itemNmb;
         console.log(itemNmb)
     };
@@ -260,7 +288,7 @@ app.controller('CitiesCtrl', function ($scope, $http, $location, $sce) {
     $http.get('http://steffo.info/toswe-api/toswe-cities.php')
         .then(function (response) {
             $scope.cities = response.data;
-    });
+        });
 
     //local url
     var locurl = $location.absUrl();
@@ -302,10 +330,14 @@ app.controller('HotelsCtrl', function ($scope, $http) {
         .then(function (response) {
             $scope.hotels = response.data;
         });
+    
+    $scope.tabSelect1 = "yellow-bg navbar-black";
+    $scope.tabSelect2 = "yellow-bg navbar-black";
+    $scope.tabSelect3 = "yellow-bg navbar-black";
 
-    $scope.bgColor1 = "#ffcc00";
-    $scope.bgColor2 = "#ffcc00";
-    $scope.bgColor3 = "#ffcc00";
+    // $scope.bgColor1 = "#ffcc00"; //#B18904
+    // $scope.bgColor2 = "#ffcc00"; 
+    // $scope.bgColor3 = "#ffcc00"; 
     var cSelected = [];
 
     var addRes = function (n) {
@@ -323,37 +355,37 @@ app.controller('HotelsCtrl', function ($scope, $http) {
     $scope.changeColor = function (n) {
         switch (n) {
             case 1:
-                if ($scope.bgColor1 == "#ffcc00") {
-                    $scope.bgColor1 = "#B18904";
+                if ($scope.tabSelect1 == "yellow-bg navbar-black") {
+                    $scope.tabSelect1 = "dark-yellew-bg";
                     addRes(1);
                     break;
                 }
                 else {
-                    $scope.bgColor1 = "#ffcc00";
+                    $scope.tabSelect1 = "yellow-bg navbar-black";
                     removeRes(1);
                     break;
                 }
 
             case 2:
-                if ($scope.bgColor2 == "#ffcc00") {
-                    $scope.bgColor2 = "#B18904";
+                if ($scope.tabSelect2 == "yellow-bg navbar-black") {
+                    $scope.tabSelect2 = "dark-yellew-bg";
                     addRes(2);
                     break;
                 }
                 else {
-                    $scope.bgColor2 = "#ffcc00";
+                    $scope.tabSelect2 = "yellow-bg navbar-black";
                     removeRes(2);
                     break;
                 }
 
             case 3:
-                if ($scope.bgColor3 == "#ffcc00") {
-                    $scope.bgColor3 = "#B18904";
+                if ($scope.tabSelect3 == "yellow-bg navbar-black") {
+                    $scope.tabSelect3 = "dark-yellew-bg";
                     addRes(3);
                     break;
                 }
                 else {
-                    $scope.bgColor3 = "#ffcc00";
+                    $scope.tabSelect3 = "yellow-bg navbar-black";
                     removeRes(3);
                     break;
                 }
@@ -398,7 +430,7 @@ app.controller('HotelsCtrl', function ($scope, $http) {
 
 });
 
-var myCookies = {};
+/*var myCookies = {};
 
 function saveCookies() {
     myCookies["city"] = document.getElementById("inputCity").value;
@@ -422,5 +454,5 @@ function loadCookies() {
     document.getElementById("inputCity").value = myCookies["city"];
     var selectMenu = document.getElementById("selectCity");
     selectMenu.value = myCookies["select"];
-}
+}*/
 
