@@ -54,6 +54,10 @@ p {
 .navbar {
     background-color: #ffcc00 !important;
 }
+.hidetexttwo{
+    display: none;
+    color: white;
+}
 
 #homeimage{
     background-image: url("../img/foto/sverige01.jpg");
@@ -156,6 +160,10 @@ p {
     #city-hero img{
         max-height:60px;
     }
+    .hidetexttwo{
+        display: block;
+        color: white;
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -165,11 +173,20 @@ p {
     #city-hero img{
         max-height:100px;
     }
+    .hidetexttwo{
+        display: block;
+        color: white;
+    }
 }
 
 @media only screen and (max-width: 550px) {
     #city-hero img{
         height:60px;
+    }
+
+    .hidetexttwo{
+        display: block;
+        color: white;
     }
 }
 
