@@ -16,7 +16,7 @@
             <!-- Loopar igenom alla Sporter -->
             <div class="eventsHeader schedule-sports-bg " ng-if="sport.sports_cities_id==city.id" ng-repeat="sport in sports">
                 <div id="schedule-row" class="row  schedule-days-border">
-                    <div class="col">
+                    <div class="col-3">
                         <div class="p-2">
                             <img class="schedule-picto" ng-src="/img/pictogram/pos/@{{sport.sports_img}}">
                         </div>
