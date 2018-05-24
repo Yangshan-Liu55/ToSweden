@@ -72,6 +72,7 @@
                 <h3 class="text-center" id="showCities"></h3>
                 <h3 class="text-center" id="showTime"></h3>
                 <h3 class="text-center" id="showCost"></h3>
+                <h3 class="text-center" id="test"></h3>
             </div>
         </div>
         <!-- SLUT på SÖK RESA -->
@@ -136,6 +137,7 @@
                         </table>
                         <iframe id="googleMap" width="100%" height="300" frameborder="0" style="border:0" src="" allowfullscreen>
                         </iframe>
+                        <div style="color:black" ng-repeat="resa in travelInfo">@{{resa}}</div>
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
