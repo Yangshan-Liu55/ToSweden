@@ -32,13 +32,9 @@
                     <div class="col col-12 col-md-6 p-0 hovereffect ">
                         <img ng-src="img/foto/@{{city.cities_img01}}" alt="City" class="d-block w-100 h-60">
                         <span id="city-hero"><img ng-src="img/skrivstil/@{{city.cities_head_img}}"></span>
-<<<<<<< HEAD
-                        <a href="city?nr=@{{city.id}}" class="btn overlay"><span id="citis-img" class="bottomlay">KLICK FÖR ATT SE MER</span></a>                    
-=======
                         <a href="city?nr=@{{city.id}}" class="hidetexttwo"><span class="bottomlay hidetexttwo" style="color:white;" >KLICK FÖR ATT SE MER</span></a>                    
 
                         <a href="city?nr=@{{city.id}}" class="btn overlay"><span class="bottomlay">KLICK FÖR ATT SE MER</span></a>                    
->>>>>>> 604bf85b4d76e952455f0b43c848bce6b978b519
                     </div>
                     <div class="col col-12 col-md-6 px-5 py-4">
                         <div class="darkblue-bg p-4 m-2 rounded"  ng-repeat="s in breakStr((city.cities_text|limitTo:200)+'...')">

@@ -52,7 +52,7 @@
 </div>
 
    <br>
-   <div  align ="center" class=" p-1 m-1 ">
+   <div  align =" center " class=" p-1 m-1 ">
    <img src="img/logotyp/logotyp.png" alt="2 Sweden">
    </div>
 
