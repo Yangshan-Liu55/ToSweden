@@ -46,7 +46,7 @@
                 <!-- Aktivitets tabs -->
                 <!-- <div class="row row-wrap mb-2 mt-5" align="center">
                     <div class="col col-6">
-                        <div class="p-2 m-0" style="background: @{{bgColor0}};" ng-click="">
+                        <div class="p-2 m-0" style="background: @{{bgColor0}};" ng-click="changeColor()">
                             <span>Hotel/resturang</span>
                         </div>
                     </div>
