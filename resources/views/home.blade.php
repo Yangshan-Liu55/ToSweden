@@ -72,6 +72,7 @@
                 <h3 class="text-center" id="showCities"></h3>
                 <h3 class="text-center" id="showTime"></h3>
                 <h3 class="text-center" id="showCost"></h3>
+                <h3 class="text-center" id="test"></h3>
             </div>
         </div>
         <!-- SLUT på SÖK RESA -->
@@ -96,7 +97,7 @@
                     </th>
                 </thead>
                 <tr id="search-row" class="pointer middleblue-col" ng-repeat="route in info.routes | orderBy: propertyName : reverse" ng-click="getDetails($index)" data-toggle="modal" data-target="#myModal">
-                    <td><span ng-bind-html="addIcon(route.name)"></span>@{{route.name}}@{{route.name}}</td>
+                    <td><span ng-bind-html="addIcon(route.name)"></span><span class="pl-1">@{{route.name}}</span></td>
                     <td>@{{timeConvert(route.totalDuration)}}</td>
                     <td>@{{convertMoney(route.indicativePrices[0].priceLow)}} - @{{convertMoney(route.indicativePrices[0].priceHigh)}}</td>
                     <td align="center">
@@ -136,6 +137,7 @@
                         </table>
                         <iframe id="googleMap" width="100%" height="300" frameborder="0" style="border:0" src="" allowfullscreen>
                         </iframe>
+                        <div style="color:black" ng-repeat="resa in travelInfo">@{{resa}}</div>
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
