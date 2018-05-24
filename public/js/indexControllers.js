@@ -221,26 +221,26 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
         /*Omvandlar till små bokstäver*/ 
         var travel = travelText.toLowerCase();
        
-        /*Spara färdmedel för de olika resor*/ 
+        /*Här sparas de olika transportmedel*/ 
         var output = "";
         
-        /*Om det ingår att flyga */
+        /* Om det ingår att flyga */
         if(travel.indexOf("fly") >= 0){
-          output = output+' <img src="img/travel/pos/air.png" width ="20px" height="20px">'
+          output = output+' <img src="img/travel/pos/air.png" width ="20px" height="20px">' + " ";
           
         } 
-        /*Om det ingår att åka buss */
+        /* Om det ingår att åka buss  */
         if (travel.indexOf("bus") >= 0){
-            output = output+' <img src="img/travel/pos/bus.png" width ="20px" height="20px" >'
+            output = output+' <img src="img/travel/pos/bus.png" width ="20px" height="20px" >' + " ";
            
         } 
-        /*Om det ingår att åka tåg */
+        /*O m det ingår att åka tåg */
         if(travel.indexOf("train") >= 0){
-            output = output+' <img src="img/travel/pos/train.png" width ="20px" height="20px">'
+            output = output+' <img src="img/travel/pos/train.png" width ="20px" height="20px">' + " ";
             
            } 
            if(travel.indexOf("walk") >= 0){
-            output = output+' <img src="img/travel/pos/walk.png" width ="20px" height="20px">'
+            output = output+' <img src="img/travel/pos/walk.png" width ="20px" height="20px">' + " ";
             
            } 
            return $sce.trustAsHtml(output);
