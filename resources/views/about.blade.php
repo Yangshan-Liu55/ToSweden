@@ -80,11 +80,7 @@
 <!-- Slut om OS -->
 
    <br>
-<<<<<<< HEAD
-   <div  align =" center " class=" p-1 m-1 ">
-=======
    <div  align ="center" class=" pt-2 pb-4">
->>>>>>> 8bc498ffaca9a2b8d72f9666948642df255ba920
    <img src="img/logotyp/logotyp.png" alt="2 Sweden">
    </div>
 
