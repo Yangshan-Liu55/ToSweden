@@ -59,11 +59,7 @@
     <h1 class="text-center mt-5">Historien om OS</h1>
         <div class="container">         
         <hr class="hr" size=1   color="#ffcc00" style="border:2 solid #ffcc00">
-<<<<<<< HEAD
         <p class="text-center darkblue-bg p-4 m-2 rounded">Den franske baronen och filosofen Pierre de Coubertin grundade de olympiska spelen 1894. Han var övertygad om att
-=======
-        <p class="px-5">Den franske baronen och filosofen Pierre de Coubertin grundade de olympiska spelen 1894. Han var övertygad om att
->>>>>>> 8bc498ffaca9a2b8d72f9666948642df255ba920
             man kan göra världen bättre med hjälp av idrott. De första olympiska spelen arrangerades i Aten 1896. Inspirationen
             till spelen var hämtade från idrottstävlingar som hölls till guden Zeus ära i Grekland under antiken.
         </p>
@@ -84,11 +80,7 @@
 <!-- Slut om OS -->
 
    <br>
-<<<<<<< HEAD
-   <div  align =" center " class=" p-1 m-1 ">
-=======
    <div  align ="center" class=" pt-2 pb-4">
->>>>>>> 8bc498ffaca9a2b8d72f9666948642df255ba920
    <img src="img/logotyp/logotyp.png" alt="2 Sweden">
    </div>
 

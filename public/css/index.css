@@ -37,16 +37,10 @@ p,
     box-shadow: none !important;
   }
 
-<<<<<<< HEAD
-.yellow-bg{background: #ffcc00;}/*SverigeeGul*/
-.yellow-col{color: #ffcc00;}/*SverigeGul*/
-.yellow-border {border: 1px solid #ffcc00;}
-=======
 .dark-yellew-bg{background: #B18904;}
 .yellow-bg{background: #ffcc00;}
 .yellow-col{color: #ffcc00;}
 .yellow-border {border: 1px solid #ffcc00; }
->>>>>>> 604bf85b4d76e952455f0b43c848bce6b978b519
 .white-bg{background: #fff;}
 .white-col{color: #fff;}
 .darkblue-bg{background: #00496d;}
@@ -59,12 +53,9 @@ p,
 .navbar-black{color: rgba(0,0,0,.5);}
 .white-col{color: #fff;}
 .light-grey-bg{background: #f3f2f2}
-<<<<<<< HEAD
 .pale-grey-bg{ background: #dfdfdf ; }
 
-=======
 .middle-grey-bg{background: #dfdfdf }
->>>>>>> 604bf85b4d76e952455f0b43c848bce6b978b519
 
 .navbar {
     background-color: #ffcc00 !important;
