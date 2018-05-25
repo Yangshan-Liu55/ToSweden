@@ -124,12 +124,12 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
 
             //om man väljer USD som valuta
             currencyToConvert = Math.round(convertedAmount * $scope.currencyInfo.rates.USD);
-            resultAmount = currencyToConvert + " " + $scope.choosenCurrency;
+            resultAmount = "$"+currencyToConvert;
 
         } else {
 
             //om man väljer EUR som valuta
-            resultAmount = convertedAmount + " " + $scope.choosenCurrency;
+            resultAmount = "€"+convertedAmount ;
 
         }
 
@@ -146,6 +146,7 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
 
         //hämtar resvägen man vill ha detaljer för
         var route = $scope.info.routes[index];
+       
 
         $scope.depCity = $scope.info.places[route.depPlace].longName;
 
@@ -186,15 +187,17 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
                 var currency = route.segments[i].indicativePrices[0].currency
 
                 //läger till allt i array
-                $scope.travelInfo.push({ 'depName': $scope.depName, 'arrName': $scope.arrName, 'transferTime': time, 'lowPrice': lowPrice, 'highPrice': highPrice, 'currency': currency });
+                $scope.travelInfo.push({ 'hej': "HEJ", 'depName': $scope.depName, 'arrName': $scope.arrName, 'transferTime': time, 'lowPrice': lowPrice, 'highPrice': highPrice, 'currency': currency });
             }
             else {
                 //lägg till i array
                 $scope.travelInfo.push({ 'depName': $scope.depName, 'arrName': $scope.arrName, 'transferTime': time });
             }
         }
-        $scope.googleUrl = googleAPI + googleKey + googleFrom + $scope.depCity + googleTo + $scope.arrCity;
-        document.getElementById("googleMap").src = $scope.googleUrl;
+
+    //Skriver ut aktuell karta.     
+    let source = googleAPI + googleKey + googleFrom + $scope.depCity + googleTo + $scope.arrCity; 
+    $scope.googleUrl = $sce.trustAsHtml("<iframe class='img-thumbnail' width='100%' height='400px' frameborder='0' style='border:0'  src='"+source+"' allowfullscreen></iframe>");
 
     };
 
