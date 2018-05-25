@@ -335,9 +335,6 @@ app.controller('HotelsCtrl', function ($scope, $http) {
     $scope.tabSelect2 = "yellow-bg navbar-black";
     $scope.tabSelect3 = "yellow-bg navbar-black";
 
-    // $scope.bgColor1 = "#ffcc00"; //#B18904
-    // $scope.bgColor2 = "#ffcc00"; 
-    // $scope.bgColor3 = "#ffcc00"; 
     var cSelected = [];
 
     var addRes = function (n) {

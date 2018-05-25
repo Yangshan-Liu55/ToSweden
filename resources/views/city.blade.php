@@ -61,7 +61,8 @@
             <!-- End of Slides -->
 
             <h1 style="font-size:50px; text-align:center;">@{{c.cities_name}}</h1>
-            <div class="p-2 p-md-4" id="headline-game">               
+            <div class="p-2 p-md-4" id="headline-game">  
+                <h2 align="center">Subtitle</h2>             
                 <div ng-repeat="s in breakStr(c.cities_text)">
                     <p ng-bind-html="disBR(s)"></p>
                 </div>
@@ -70,6 +71,8 @@
             </div>
             <h2 style="text-align:center;">Att göra i @{{c.cities_name}}</h2>   <!-- flyta till recomend -->        
             </div><!-- End of City -->
+
+            <!--  -->
 
             <!-- To do -->
             <div class="yellowCard" ng-repeat="t in todo | filter: {todo_cities_id:citynr}">                
