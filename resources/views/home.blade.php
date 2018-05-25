@@ -72,6 +72,7 @@
                 <h3 class="text-center" id="showCities"></h3>
                 <h3 class="text-center" id="showTime"></h3>
                 <h3 class="text-center" id="showCost"></h3>
+                <h3 class="text-center" id="test"></h3>
             </div>
         </div>
         <!-- SLUT på SÖK RESA -->
@@ -80,36 +81,7 @@
     <p id="apiUrl"></p>
     -->
         <!-- START, visa RESULTATET vid respons från server -->
-        <div ng-show="isResultOpen" class="container mt-4 table-responsive-sm middle-grey-bg nopadding">
-            <table class="container table ">
-                <thead class="lightblue-bg">
-                    <th ng-click="sortBy('name')"><h5>Färdmedel<h5></th>
-                    <th ng-click="sortBy('totalDuration')"><h5>Tid</h5></th>
-                    <th ng-click="sortBy('indicativePrices[0].priceLow')"><h5>Pris</h5></th>
-                    <th>
-                        <h5>Valuta</h5>
-                        <select class="form-control" ng-model="choosenCurrency">
-                            <option value="EUR">EUR</option>
-                            <option value="SEK">SEK</option>
-                            <option value="USD">USD</option>
-                        </select>
-                    </th>
-                </thead>
-                <tr ng-repeat="route in info.routes | orderBy: propertyName : reverse">
-                <script>console.log("TEST" )</script>
-                    <td><span ng-bind-html="addIcon(route.name)"></span>@{{route.name}}</td>
-
-                    <td>@{{timeConvert(route.totalDuration)}}</td>
-                    <td>@{{convertMoney(route.indicativePrices[0].priceLow)}} - @{{convertMoney(route.indicativePrices[0].priceHigh)}}</td>
-                    <td align="center">
-                        <button class="btn pointer" >Detaljer</button>
-                    </td>
-                </tr>
-            </table>
-            <div class="pb-4" align="center">
-                <button ng-click="closeResult()" class="btn btn-danger col-md-6 col-sm-12 btn-block pointer">Stäng</button>
-            </div>
-        </div>
+        @include('includes.searchresult')  
         
         
 
@@ -138,6 +110,7 @@
                         </table>
                         <iframe id="googleMap" width="100%" height="300" frameborder="0" style="border:0" src="" allowfullscreen>
                         </iframe>
+                        <div style="color:black" ng-repeat="resa in travelInfo">@{{resa}}</div>
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
@@ -183,6 +156,9 @@
         </div>
     </div>
     <!-- SLUT Modal för OS-schema -->
+    
+
+
     
     <!-- Footer -->
     @include('includes.footer')

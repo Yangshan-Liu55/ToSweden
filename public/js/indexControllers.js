@@ -124,12 +124,12 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
 
             //om man väljer USD som valuta
             currencyToConvert = Math.round(convertedAmount * $scope.currencyInfo.rates.USD);
-            resultAmount = currencyToConvert + " " + $scope.choosenCurrency;
+            resultAmount = "$"+currencyToConvert;
 
         } else {
 
             //om man väljer EUR som valuta
-            resultAmount = convertedAmount + " " + $scope.choosenCurrency;
+            resultAmount = "€"+convertedAmount ;
 
         }
 
@@ -146,6 +146,7 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
 
         //hämtar resvägen man vill ha detaljer för
         var route = $scope.info.routes[index];
+       
 
         $scope.depCity = $scope.info.places[route.depPlace].longName;
 
@@ -186,24 +187,26 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
                 var currency = route.segments[i].indicativePrices[0].currency
 
                 //läger till allt i array
-                $scope.travelInfo.push({ 'depName': $scope.depName, 'arrName': $scope.arrName, 'transferTime': time, 'lowPrice': lowPrice, 'highPrice': highPrice, 'currency': currency });
+                $scope.travelInfo.push({ 'hej': "HEJ", 'depName': $scope.depName, 'arrName': $scope.arrName, 'transferTime': time, 'lowPrice': lowPrice, 'highPrice': highPrice, 'currency': currency });
             }
             else {
                 //lägg till i array
                 $scope.travelInfo.push({ 'depName': $scope.depName, 'arrName': $scope.arrName, 'transferTime': time });
             }
         }
-        $scope.googleUrl = googleAPI + googleKey + googleFrom + $scope.depCity + googleTo + $scope.arrCity;
-        document.getElementById("googleMap").src = $scope.googleUrl;
+
+    //Skriver ut aktuell karta.     
+    let source = googleAPI + googleKey + googleFrom + $scope.depCity + googleTo + $scope.arrCity; 
+    $scope.googleUrl = $sce.trustAsHtml("<iframe class='img-thumbnail' width='100%' height='400px' frameborder='0' style='border:0'  src='"+source+"' allowfullscreen></iframe>");
 
     };
 
     var savedInfo = {};
     $scope.saveData = function () {
         savedInfo["routeName"] = $scope.routeName;
-        savedInfo["cities"] = $scope.depCity +" - " + $scope.arrCity;
+        savedInfo["cities"] = $scope.depCity + " - " + $scope.arrCity;
         savedInfo["time"] = $scope.travelTime;
-        savedInfo["costLow"] = $scope.cash; 
+        savedInfo["costLow"] = $scope.cash;
         var ending = new Date(Date.now() + 60 * 1000).toString();
         var cookieString = "";
         for (var key in savedInfo) {
@@ -212,53 +215,55 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
         }
     }
 
-    
-
-    /*LÄGG TILL ICON VID SÖKRESULTATEN */ 
-    $scope.addIcon = function(travelText){
-      
-        
-        /*Omvandlar till små bokstäver*/ 
-        var travel = travelText.toLowerCase();
-       
-        /*Spara färdmedel för de olika resor*/ 
-        var output = "";
-        
-        /*Om det ingår att flyga */
-        if(travel.indexOf("fly") >= 0){
-          output += ' <img src="img/travel/pos/air.png" width ="20px" height="20px">'
-          
-        } 
-        /*Om det ingår att åka buss */
-        if (travel.indexOf("bus") >= 0){
-            output += ' <img src="img/travel/pos/bus.png" width ="20px" height="20px" >'
-           
-        } 
-        /*Om det ingår att åka tåg */
-        if(travel.indexOf("train") >= 0){
-            output += ' <img src="img/travel/pos/train.png" width ="20px" height="20px">'
-            
-           } 
-           if(travel.indexOf("walk") >= 0){
-            output += ' <img src="img/travel/pos/walk.png" width ="20px" height="20px">'
-            
-           } 
-           return $sce.trustAsHtml(output);
-}
-
-   
-
-$scope.loadData = function () {
+    $scope.loadData = function () {
         savedInfo = {};
         var kv = document.cookie.split(";");
         for (var id in kv) {
             var cookie = kv[id].split("=");
             savedInfo[cookie[0].trim()] = cookie[1];
         }
-        document.getElementById("showRoute").innerHTML ="Resnamn: " + savedInfo["routeName"];
-        document.getElementById("showCities").innerHTML = "Resmål: "+savedInfo["cities"];
+        document.getElementById("showRoute").innerHTML = "Resnamn: " + savedInfo["routeName"];
+        document.getElementById("showCities").innerHTML = "Resmål: " + savedInfo["cities"];
         document.getElementById("showTime").innerHTML = "Tid: " + savedInfo["time"];
-        document.getElementById("showCost").innerHTML = "Kostnad: "+savedInfo["costLow"];
+        document.getElementById("showCost").innerHTML = "Kostnad: " + savedInfo["costLow"];
+    }
+
+
+
+    /*LÄGG TILL ICON VID SÖKRESULTATEN */
+    $scope.addIcon = function (travelText) {
+
+
+        /*Omvandlar till små bokstäver*/
+        var travel = travelText.toLowerCase();
+
+        /*Spara färdmedel för de olika resor*/
+        var output = "";
+
+        /*Om det ingår att flyga */
+        if (travel.indexOf("fly") >= 0) {
+            output = output + ' <img src="img/travel/pos/air.png" width ="20px" height="20px">'
+        }
+        /*Om det ingår att åka buss */
+        if (travel.indexOf("bus") >= 0) {
+            output = output + ' <img src="img/travel/pos/bus.png" width ="20px" height="20px" >'
+        }
+        /*Om det ingår att åka tåg */
+        if (travel.indexOf("train") >= 0) {
+            output = output + ' <img src="img/travel/pos/train.png" width ="20px" height="20px">'
+        }
+        if (travel.indexOf("walk") >= 0) {
+            output = output + ' <img src="img/travel/pos/walk.png" width ="20px" height="20px">'
+        }
+
+        if (travel.indexOf("drive") >= 0) {
+            output = output + ' <img src="img/travel/pos/car.png" width ="20px" height="20px">'
+        }
+        if (travel.indexOf("ferry") >= 0) {
+            output = output + ' <img src="img/travel/pos/boat.png" width ="20px" height="20px">'
+        }
+        return $sce.trustAsHtml(output);
+
     }
 });
 
@@ -330,7 +335,7 @@ app.controller('HotelsCtrl', function ($scope, $http) {
         .then(function (response) {
             $scope.hotels = response.data;
         });
-    
+
     $scope.tabSelect1 = "yellow-bg navbar-black";
     $scope.tabSelect2 = "yellow-bg navbar-black";
     $scope.tabSelect3 = "yellow-bg navbar-black";

@@ -29,13 +29,15 @@
 
             <div  ng-repeat="city in cities">
                 <div class="row row-wrap">
-                    <div class="col col-12 col-md-6 p-0 hovereffect">
+                    <div class="col col-12 col-md-6 p-0 hovereffect ">
                         <img ng-src="img/foto/@{{city.cities_img01}}" alt="City" class="d-block w-100 h-60">
                         <span id="city-hero"><img ng-src="img/skrivstil/@{{city.cities_head_img}}"></span>
+                        <a href="city?nr=@{{city.id}}" class="hidetexttwo"><span class="bottomlay hidetexttwo" style="color:white;" >KLICK FÖR ATT SE MER</span></a>                    
+
                         <a href="city?nr=@{{city.id}}" class="btn overlay"><span class="bottomlay">KLICK FÖR ATT SE MER</span></a>                    
                     </div>
                     <div class="col col-12 col-md-6 px-5 py-4">
-                        <div ng-repeat="s in breakStr((city.cities_text|limitTo:200)+'...')">
+                        <div class="darkblue-bg p-4 m-2 rounded"  ng-repeat="s in breakStr((city.cities_text|limitTo:200)+'...')">
                             <p ng-bind-html="disBR(s)"></p>
                         </div>
                     </div>
