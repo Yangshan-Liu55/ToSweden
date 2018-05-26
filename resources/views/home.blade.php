@@ -102,6 +102,8 @@
                     <td>@{{convertMoney(route.indicativePrices[0].priceLow)}} - @{{convertMoney(route.indicativePrices[0].priceHigh)}}</td>
                     <td align="center">
                         <button class="btn pointer" >Detaljer</button>
+                        <button ng-click="getVeichle($index)">FORDON</button>
+
                     </td>
                 </tr>
             </table>

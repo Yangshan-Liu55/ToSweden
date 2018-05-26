@@ -39,6 +39,7 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
 
     //när man söker resa
     $scope.search = function () {
+        
 
         //skapar jsonUrl för sökningen
         var jsonUrl = searchAPI + searchAPIKey + searchSpecify + searchFrom + $scope.fromCity + searchTo + $scope.toCity;
@@ -51,6 +52,7 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
             //lagrar datan från json
             $scope.info = response.data;
 
+            
             //visar api url
             //document.getElementById("apiUrl").innerHTML = jsonUrl;
 
@@ -63,6 +65,7 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
             //document.getElementById("apiUrl").innerHTML = "Ingen respons från servern!";
 
         });
+       
     }
     $scope.closeResult = function () {
         $scope.isResultOpen = false;
@@ -196,7 +199,65 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
         $scope.googleUrl = googleAPI + googleKey + googleFrom + $scope.depCity + googleTo + $scope.arrCity;
         document.getElementById("googleMap").src = $scope.googleUrl;
 
+        
+
     };
+
+    $scope.getVeichle = function(index){
+        var route = $scope.info.routes[index];
+        for (var i = 0; i < route.segments.length; i++){
+        $scope.vehicles = $scope.info.vehicles[route.segments[i].vehicle].name;
+
+       
+       
+        if($scope.vehicles == "Train"){
+            console.log("DU SKA TA TÅGET");
+        }
+        if($scope.vehicles == "RER"){
+            console.log("DU SKA TA ETT KONSTIGT TÅG");
+        }
+        if($scope.vehicles == "Bus"){
+            console.log("DU SKA TA BUSSEN");
+        }
+        if($scope.vehicles == "Rideshare"){
+            console.log("Ride share");
+        }
+        if($scope.vehicles == "Car"){
+            console.log("DU SKA TA BILEN ");
+        }
+        if($scope.vehicles == "Eurotunnel"){
+            console.log("DU SKA TA tåg eurotunnel");
+        }
+        if($scope.vehicles == "car ferry"){
+            console.log("DU SKA TA BÅT FÄRGA");
+        }
+        if($scope.vehicles == "Plane"){
+            console.log("DU SKA TA PLANET ");
+        }
+        
+        if($scope.vehicles == "Walk"){
+            console.log("DU SKA GÅ");
+        }
+        if($scope.vehicles == "Taxi"){
+            console.log("DU SKA TA Taxi");
+        }
+        if($scope.vehicles == "Uber"){
+            console.log("DU SKA TA EN UBER ");
+        }
+        if($scope.vehicles == "Shuttle"){
+            console.log("DU SKA TA EN SKÅPBIL ");
+        }
+        if($scope.vehicles == "Towncar"){
+            console.log("DU SKA TA STADSBIL ");
+        }
+
+    
+
+
+        }    
+
+    }
+    
 
     var savedInfo = {};
     $scope.saveData = function () {
@@ -226,6 +287,8 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
     }
 
 
+
+   
 
     /*LÄGG TILL ICON VID SÖKRESULTATEN */
     $scope.addIcon = function (travelText) {
