@@ -319,6 +319,8 @@ app.controller('allToDo', function ($scope, $http) {
         .then(function (response) {
             $scope.allToDo = response.data;
         });
+
+    $scope.toToType="Sevärdhet";
 });
 
 //Hämtar JSON för Recommended  i Recommended.php.

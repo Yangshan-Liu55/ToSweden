@@ -61,24 +61,26 @@
             <!-- End of Slides -->
 
             <h1 style="font-size:50px; text-align:center;">@{{c.cities_name}}</h1>
-<<<<<<< HEAD
-            <div class="p-2 p-md-4" id="headline-game">  
-                <h2 align="center">Subtitle</h2>             
-=======
             <div class="p-2 p-md-4 darkblue-bg rounded " id="headline-game">               
->>>>>>> fa87b5034b2a003ed5a347debd5b2e2819b7f4cf
                 <div ng-repeat="s in breakStr(c.cities_text)">
                     <p ng-bind-html="disBR(s)"> </p>
                 </div>
                 
             </div>
-            <h2 style="text-align:center;">Att göra i @{{c.cities_name}}</h2>   <!-- flyta till recomend -->        
+            <!--<h2 style="text-align:center;">Att göra i @{{c.cities_name}}</h2> -->   <!-- flyta till recomend -->        
             </div><!-- End of City -->
 
             <!--  -->
 
             <!-- To do -->
-            <div class="yellowCard" ng-repeat="t in todo | filter: {todo_cities_id:citynr}">                
+            <div class="row row-wrap m-2 mt-5" align="center">
+
+                <button type="button" class="btn pointer btn-primary leftBtn menuSelect yellow-bg yellow-border navbar-black text-uppercase @{{tabSelect1}}" ng-click="toToType='Sevärdhet'">Sevärdhet</button
+                ><button type="button" class="btn pointer btn-primary middleBtn menuSelect yellow-bg yellow-border navbar-black text-uppercase @{{tabSelect2}} " ng-click="toToType='Aktivitet'">Aktivitet</button
+                ><button type="button" class="btn pointer btn-primary rightBtn menuSelect yellow-bg yellow-border navbar-black text-uppercase @{{tabSelect3}} " ng-click="toToType='Shopping'" >Shopping</button>
+
+            </div>
+            <div class="yellowCard" ng-repeat="t in todo | filter: {todo_cities_id:citynr} | filter: {todo_activity:toToType}">                
                 <div class="row row-wrap">
                     <div class="col col-12 col-md-6">
                         <img ng-src="img/todo/@{{t.todo_img01}}" alt="@{{t.todo_name}}" class="d-block w-100 h-60">
