@@ -75,9 +75,9 @@
             <!-- To do -->
             <div class="row row-wrap m-2 mt-5" align="center">
 
-                <button type="button" class="btn pointer btn-primary leftBtn menuSelect yellow-bg yellow-border navbar-black text-uppercase @{{tabSelect1}}" ng-click="toToType='Sevärdhet'">Sevärdhet</button
-                ><button type="button" class="btn pointer btn-primary middleBtn menuSelect yellow-bg yellow-border navbar-black text-uppercase @{{tabSelect2}} " ng-click="toToType='Aktivitet'">Aktivitet</button
-                ><button type="button" class="btn pointer btn-primary rightBtn menuSelect yellow-bg yellow-border navbar-black text-uppercase @{{tabSelect3}} " ng-click="toToType='Shopping'" >Shopping</button>
+                <button type="button" class="btn pointer btn-primary leftBtn menuSelect yellow-bg yellow-border navbar-black text-uppercase" ng-click="toToType='Sevärdhet'">Sevärdhet</button
+                ><button type="button" class="btn pointer btn-primary middleBtn menuSelect yellow-bg yellow-border navbar-black text-uppercase" ng-click="toToType='Aktivitet'">Aktivitet</button
+                ><button type="button" class="btn pointer btn-primary rightBtn menuSelect yellow-bg yellow-border navbar-black text-uppercase" ng-click="toToType='Shopping'" >Shopping</button>
 
             </div>
             <div class="yellowCard" ng-repeat="t in todo | filter: {todo_cities_id:citynr} | filter: {todo_activity:toToType}">                
