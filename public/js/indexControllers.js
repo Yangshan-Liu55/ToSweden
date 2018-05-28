@@ -9,7 +9,7 @@ var searchTo = "&dName=";
 
 //valuta api bas
 var currencyAPI = "http://data.fixer.io/api/latest?";
-var currencyAPIKey = "access_key=69b996c0142c261c2378e5656d182eb7";
+var currencyAPIKey = "access_key=e21bb1b7b92000e2ab502fe0df559c47";
 
 //google map API
 var googleAPI = "https://www.google.com/maps/embed/v1/directions?";
@@ -124,12 +124,12 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
 
             //om man väljer USD som valuta
             currencyToConvert = Math.round(convertedAmount * $scope.currencyInfo.rates.USD);
-            resultAmount = currencyToConvert + " " + $scope.choosenCurrency;
+            resultAmount = "$"+currencyToConvert;
 
         } else {
 
             //om man väljer EUR som valuta
-            resultAmount = convertedAmount + " " + $scope.choosenCurrency;
+            resultAmount = "€"+convertedAmount ;
 
         }
 
@@ -146,6 +146,7 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
 
         //hämtar resvägen man vill ha detaljer för
         var route = $scope.info.routes[index];
+       
 
         $scope.depCity = $scope.info.places[route.depPlace].longName;
 
@@ -186,15 +187,17 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
                 var currency = route.segments[i].indicativePrices[0].currency
 
                 //läger till allt i array
-                $scope.travelInfo.push({ 'depName': $scope.depName, 'arrName': $scope.arrName, 'transferTime': time, 'lowPrice': lowPrice, 'highPrice': highPrice, 'currency': currency });
+                $scope.travelInfo.push({ 'hej': "HEJ", 'depName': $scope.depName, 'arrName': $scope.arrName, 'transferTime': time, 'lowPrice': lowPrice, 'highPrice': highPrice, 'currency': currency });
             }
             else {
                 //lägg till i array
                 $scope.travelInfo.push({ 'depName': $scope.depName, 'arrName': $scope.arrName, 'transferTime': time });
             }
         }
-        $scope.googleUrl = googleAPI + googleKey + googleFrom + $scope.depCity + googleTo + $scope.arrCity;
-        document.getElementById("googleMap").src = $scope.googleUrl;
+
+    //Skriver ut aktuell karta.     
+    let source = googleAPI + googleKey + googleFrom + $scope.depCity + googleTo + $scope.arrCity; 
+    $scope.googleUrl = $sce.trustAsHtml("<iframe class='img-thumbnail' width='100%' height='400px' frameborder='0' style='border:0'  src='"+source+"' allowfullscreen></iframe>");
 
     };
 
@@ -290,7 +293,7 @@ app.controller('CitiesCtrl', function ($scope, $http, $location, $sce) {
     $http.get('http://steffo.info/toswe-api/toswe-cities.php')
         .then(function (response) {
             $scope.cities = response.data;
-        });
+    });
 
     //local url
     var locurl = $location.absUrl();
@@ -299,7 +302,9 @@ app.controller('CitiesCtrl', function ($scope, $http, $location, $sce) {
     $http.get('http://steffo.info/toswe-api/toswe-todo.php')
         .then(function (response) {
             $scope.todo = response.data;
-        });
+    });
+    
+    $scope.toToType;
 
     $scope.breakStr = function (str) {
         return str.split("/n");
@@ -308,14 +313,6 @@ app.controller('CitiesCtrl', function ($scope, $http, $location, $sce) {
     $scope.disBR = function (str1) {
         return $sce.trustAsHtml(str1);
     }
-});
-
-//Hämtar JSON för Recommended  i Recommended.php.
-app.controller('allToDo', function ($scope, $http) {
-    $http.get('http://steffo.info/toswe-api/toswe-todo.php')
-        .then(function (response) {
-            $scope.allToDo = response.data;
-        });
 });
 
 //Hämtar JSON för Recommended  i Recommended.php.
@@ -337,9 +334,6 @@ app.controller('HotelsCtrl', function ($scope, $http) {
     $scope.tabSelect2 = "yellow-bg navbar-black";
     $scope.tabSelect3 = "yellow-bg navbar-black";
 
-    // $scope.bgColor1 = "#ffcc00"; //#B18904
-    // $scope.bgColor2 = "#ffcc00"; 
-    // $scope.bgColor3 = "#ffcc00"; 
     var cSelected = [];
 
     var addRes = function (n) {

@@ -9,6 +9,9 @@
        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
        
+       <!--  Angular sanitizer - för att sanera farliga html-taggar -->
+       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
+
        <!-- Social Media Knappar -->
        <script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5b0324dc4919d900111786a3&product=inline-share-buttons' async='async'></script>
 

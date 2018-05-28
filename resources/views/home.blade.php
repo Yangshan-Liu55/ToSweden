@@ -80,6 +80,7 @@
     <p id="apiUrl"></p>
     -->
         <!-- START, visa RESULTATET vid respons från server -->
+<<<<<<< HEAD
         <div ng-show="isResultOpen" class="container mt-4 table-responsive-sm middle-grey-bg nopadding rounded">
             <table class="container table">
                 <thead class="lightblue-bg">
@@ -108,6 +109,9 @@
                 <button ng-click="closeResult()" class="btn btn-danger col-md-6 col-sm-12 btn-block pointer">Stäng</button>
             </div>
         </div>
+=======
+        @include('includes.searchresult')  
+>>>>>>> 3a835031908647c1aaaac6bbe84cd7eee7e1a9d1
         
         
 
@@ -182,6 +186,9 @@
         </div>
     </div>
     <!-- SLUT Modal för OS-schema -->
+    
+
+
     
     <!-- Footer -->
     @include('includes.footer')
