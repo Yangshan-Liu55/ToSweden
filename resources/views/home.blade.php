@@ -69,7 +69,7 @@
             </div>
         </div>
         <!-- SLUT på SÖK RESA -->
-        <!--<p id="warning"></p>-->
+        <p id="warning"></p>
         <div ng-show="localShow" class="container">
 
             <div style="color: #006699" class="col-12 even-paler-grey-bg py-2  mt-3 ">
