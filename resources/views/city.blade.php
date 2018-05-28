@@ -23,13 +23,13 @@
     @include('includes.stylesscripts')
 
 
-
     </head>
     <body ng-app="myApp" ng-controller="CitiesCtrl" >
         @include('includes.navbar')
 
-            
-        <div class="content">
+      <div class="imgBG">
+             
+        <div class="content container">
         <!-- City -->
             <div style="padding: 5px" ng-repeat="c in cities | filter: {id:citynr}">
             <!-- Slides -->
@@ -77,24 +77,15 @@
                 ><button type="button" class="btn pointer btn-primary rightBtn menuSelect yellow-bg yellow-border navbar-black text-uppercase" ng-click="toToType='Shopping'" >Shopping</button>
 
             </div>
-            <div class="yellowCard" ng-repeat="t in todo | filter: {todo_cities_id:citynr} | filter: {todo_activity:toToType}">                
+            <div class="yellowCard rounded" ng-repeat="t in todo | filter: {todo_cities_id:citynr} | filter: {todo_activity:toToType}">                
                 <div class="row row-wrap">
                     <div class="col col-12 col-md-6">
                         <img ng-src="img/todo/@{{t.todo_img01}}" alt="@{{t.todo_name}}" class="d-block w-100 h-60">
                     </div>
-                    <div class="col col-12 col-md-6 imgBG">
+                    <div class="col col-12 col-md-6">
                             
-<<<<<<< HEAD
-                                <!-- Avgör om rubriken ska översättas eller inte -->  
-                                <div ng-switch="@{{t.todo_translate_header}}" class="textcolor m-3 p-3">
-                                    <h3 ng-switch-when=1><span>@{{t.todo_name}}</span> </h3>
-                                    <h3 ng-switch-default><span class="notranslate";>@{{t.todo_name}}</span> </h3>
-                                </div>
-                            
-                        <b class="textcolor" >@{{t.todo_text}}</b>
-=======
                         <!-- Avgör om rubriken ska översättas eller inte -->  
-                        <div ng-switch="@{{t.todo_translate_header}}">
+                        <div ng-switch="@{{t.todo_translate_header}}" class="m-2 p-2">
                             <h3 ng-switch-when=1><span>@{{t.todo_name}}</span> </h3>
                             <h3 ng-switch-default><span class="notranslate";>@{{t.todo_name}}</span> </h3>
                         </div>
@@ -102,12 +93,12 @@
                         <div ng-repeat="s in breakStr(t.todo_text)">
                             <p ng-bind-html="disBR(s)"></p>
                         </div>
->>>>>>> 3a835031908647c1aaaac6bbe84cd7eee7e1a9d1
                     </div>
                 </div>
             </div><!-- End of To do -->
 
         </div>
+    </div> 
     <!-- Footer -->
     @include('includes.footer')
     </body>

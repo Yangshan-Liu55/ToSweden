@@ -25,11 +25,11 @@
     <body ng-app="myApp" ng-controller="CitiesCtrl" ng-cloak>
         @include('includes.navbar')
       
-        <div class="content">
+        <div class="content imgBG">
 
             <div  ng-repeat="city in cities">
                 <div class="row row-wrap">
-                    <div class="col col-12 col-md-6 p-0 hovereffect ">
+                    <div class="col col-12 col-md-6 p-0 hovereffect">
                         <img ng-src="img/foto/@{{city.cities_img01}}" alt="City" class="d-block w-100 h-60">
                         <span id="city-hero"><img ng-src="img/skrivstil/@{{city.cities_head_img}}"></span>
                         <a href="city?nr=@{{city.id}}" class="hidetexttwo"><span class="bottomlay hidetexttwo" style="color:white;" >KLICK FÖR ATT SE MER</span></a>                    

@@ -26,7 +26,7 @@
     @include('includes.stylesscripts')
 </head>
 
-<body ng-app="myApp">
+<body ng-app="myApp" class="imgBG">
     @include('includes.navbar')
 
     <div class="container py-3">

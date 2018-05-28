@@ -27,12 +27,9 @@
     </head>
     <body ng-app="myApp" ng-controller="HotelsCtrl">
             @include('includes.navbar')
-        <div class="position-ref full-height">
+        <div class="position-ref full-height imgBG">
               
             <div class="container">
-
-
-
                 
                 <!-- City tabs -->
                 <div class="row row-wrap  my-3" align="center">
