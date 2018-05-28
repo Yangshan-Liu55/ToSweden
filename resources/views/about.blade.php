@@ -34,7 +34,7 @@
     <h1 class="text-center mt-5">Om To Sweden</h1>
         <div class="container">         
         <hr class="hr" size=1   color="#ffcc00" style="border:2 solid #ffcc00">
-        <p class="px-5">Vi leder alla till Sverige. To Sweden samarbetar med Svenska Olympiska kommittén och den 
+        <p class="px-5 darkblue-bg p-4 m-2 rounded">Vi leder alla till Sverige. To Sweden samarbetar med Svenska Olympiska kommittén och den 
             internationella olympiska kommittén för att hjälpa världens medborgare till årtusendets event.<BR><BR>
             Vi anser att en lyckad upplevelse börjar redan vid resan, därför har vi lagt mycket tid och omsorg
             för att hitta de rätta vägarna till årets olympiska spel. <BR><BR>

@@ -44,9 +44,8 @@
     </div>
     <!-- SÖK RESA -->
     <div class="test" ng-controller="searchCtrl" ng-init="changeCurrency()">
-        <div class="searchField">
+        <div class="searchField imgBG">
             <div class="container" id="navbar">
-                <form class="container" name="searchForm">
                   <div class="col-sm-12" align="center">
                     <div class="form-group col-md-6 col-sm-12" align="left">
                         <label>FRÅN</label>
@@ -67,7 +66,7 @@
                   </div>
                 </form>
             </div>
-            <div class="container darkblue-bg">
+            <div class="container darkblue-bg rounded">
                 <h3 class="text-center" id="showRoute"></h3>
                 <h3 class="text-center" id="showCities"></h3>
                 <h3 class="text-center" id="showTime"></h3>
@@ -81,8 +80,8 @@
     <p id="apiUrl"></p>
     -->
         <!-- START, visa RESULTATET vid respons från server -->
-        <div ng-show="isResultOpen" class="container mt-4 table-responsive-sm middle-grey-bg nopadding">
-            <table class="container table ">
+        <div ng-show="isResultOpen" class="container mt-4 table-responsive-sm middle-grey-bg nopadding rounded">
+            <table class="container table">
                 <thead class="lightblue-bg">
                     <th ng-click="sortBy('name')"><h5>Färdmedel<h5></th>
                     <th ng-click="sortBy('totalDuration')"><h5>Tid</h5></th>

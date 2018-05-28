@@ -76,15 +76,15 @@
                     <div class="col col-12 col-md-6">
                         <img ng-src="img/todo/@{{t.todo_img01}}" alt="@{{t.todo_name}}" class="d-block w-100 h-60">
                     </div>
-                    <div class="col col-12 col-md-6">
+                    <div class="col col-12 col-md-6 imgBG">
                             
                                 <!-- Avgör om rubriken ska översättas eller inte -->  
-                                <div ng-switch="@{{t.todo_translate_header}}">
+                                <div ng-switch="@{{t.todo_translate_header}}" class="textcolor m-3 p-3">
                                     <h3 ng-switch-when=1><span>@{{t.todo_name}}</span> </h3>
                                     <h3 ng-switch-default><span class="notranslate";>@{{t.todo_name}}</span> </h3>
                                 </div>
                             
-                        <p >@{{t.todo_text}}</p>
+                        <b class="textcolor" >@{{t.todo_text}}</b>
                     </div>
                 </div>
             </div><!-- End of To do -->
