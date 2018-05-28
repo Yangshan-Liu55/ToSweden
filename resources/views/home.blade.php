@@ -74,36 +74,41 @@
 
             <div style="color: #006699" class="col-12 even-paler-grey-bg py-2  mt-3 ">
                 <div class="row">
-                    <div class="col-4">Resnam</div>
-                    <div class="col-4">Pris</div>
-                    <div class="col-4">Tid</div>
-                </div>
-                <div class="row">
-                    <div class="col-4">@{{localName}}</div>
-                    <div class="col-4">@{{localLowPrice}} - @{{localHighPrice}}</div>
-                    <div class="col-4">@{{localTotalTime}}</div>
-                    <div id="" class="row">
-                        <div ng-bind-html="localMap" class="col-12 col-lg-6 "></div>
-                        <!-- Skriver ut delarna i resrutt -->
-                        <div class="col-12 col-lg-6 ">
-                            <div class="row" ng-repeat="test in localInfo">
-                                <div class="col-12 pb-2 pt-2">
-                                    @{{test.depName}} - @{{test.arrName}}
-                                </div>
-                                <div class="col-6 ">
-                                    @{{timeConvert(test.transferTime)}}
-                                </div>
-                                <div class="col-6 ">
-                                    @{{convertMoney(test.lowPrice)}} - @{{convertMoney(test.highPrice)}}
-                                </div>
-                                <div class="col-12 middleblue-border remove-house-borders pb-2"></div>
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-4 pb-2 pt-2">
+                                Resnamn: @{{localName}}
+                            </div>
+                            <div class="col-4 pb-2 pt-2">
+                                Totalt pris: @{{localLowPrice}} - @{{localHighPrice}}
+                            </div>
+                            <div class="col-4 pb-2 pt-2">
+                                Total restid: @{{localTotalTime}}
                             </div>
                         </div>
                     </div>
                 </div>
+                <div id="" class="row">
+                    <div ng-bind-html="localMap" class="col-12 col-lg-6 "></div>
+                    <!-- Skriver ut delarna i resrutt -->
+                    <div class="col-12 col-lg-6 ">
+                        <div class="row" ng-repeat="test in localInfo">
+                            <div class="col-12 pb-2 pt-2">
+                                @{{test.depName}} - @{{test.arrName}}
+                            </div>
+                            <div class="col-6 ">
+                                @{{timeConvert(test.transferTime)}}
+                            </div>
+                            <div class="col-6 ">
+                                @{{convertMoney(test.lowPrice)}} - @{{convertMoney(test.highPrice)}}
+                            </div>
+                            <div class="col-12 middleblue-border remove-house-borders pb-2"></div>
+                        </div>
+                    </div>
+                </div>
                 <div align="center">
-            <button ng-click="localShow=false" class="btn btn-danger col-6 pointer">Stäng</button>
-            </div>
+                    <button ng-click="localShow=false" class="btn btn-danger mt-2 col-6 pointer">Stäng</button>
+                </div>
             </div>
         </div>
         <!-- 
