@@ -28,7 +28,7 @@
 
 <body ng-app="myApp">
     @include('includes.navbar')
-    
+
     <!-- NAVIGATION -->
     <div id="homeimage">
         <div id="home-welcome">
@@ -47,120 +47,111 @@
         <div class="searchField">
             <div class="container" id="navbar">
                 <form class="container" name="searchForm">
-                  <div class="col-sm-12" align="center">
-                    <div class="form-group col-md-6 col-sm-12" align="left">
-                        <label>FRÅN</label>
-                        <input id="inputCity" required ng-model="fromCity" type="text" class="form-control">
+                    <div class="col-sm-12" align="center">
+                        <div class="form-group col-md-6 col-sm-12" align="left">
+                            <label>FRÅN</label>
+                            <input id="inputCity" required ng-model="fromCity" type="text" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6 col-sm-12" align="left">
+                            <label for="exampleFormControlSelect1">DESTINATION</label>
+                            <select ng-model="toCity" required class="form-control " id="selectCity">
+                                <option value="Stockholm">Stockholm</option>
+                                <option value="Åre">Åre</option>
+                                <option value="Falun">Falun</option>
+                            </select>
+                            <div align="right">
+                                <button ng-click="search()" type="submit" class="btn btn-lg mt-3">SÖK</button>
+                                <button ng-click="loadLocal()" class="btn btn-lg mt-3">Sparad Resa</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group col-md-6 col-sm-12" align="left">
-                        <label for="exampleFormControlSelect1">DESTINATION</label>
-                        <select ng-model="toCity" required class="form-control " id="selectCity">
-                            <option value="Stockholm">Stockholm</option>
-                            <option value="Åre">Åre</option>
-                            <option value="Falun">Falun</option>
-                        </select>
-                      <div align="right">
-                        <button ng-click="search()" type="submit" class="btn btn-lg mt-3">SÖK</button>
-                        <button ng-click="loadData()" class="btn btn-lg mt-3">Sparad Resa</button>
-                      </div>
-                    </div>
-                  </div>
                 </form>
-            </div>
-            <div class="container darkblue-bg">
-                <h3 class="text-center" id="showRoute"></h3>
-                <h3 class="text-center" id="showCities"></h3>
-                <h3 class="text-center" id="showTime"></h3>
-                <h3 class="text-center" id="showCost"></h3>
-                <h3 class="text-center" id="test"></h3>
             </div>
         </div>
         <!-- SLUT på SÖK RESA -->
+        <!--<p id="warning"></p>-->
+        <div ng-show="localShow" class="container">
+
+            <div style="color: #006699" class="col-12 even-paler-grey-bg py-2  mt-3 ">
+                <div class="row">
+                    <div class="col-4">Resnam</div>
+                    <div class="col-4">Pris</div>
+                    <div class="col-4">Tid</div>
+                </div>
+                <div class="row">
+                    <div class="col-4">@{{localName}}</div>
+                    <div class="col-4">@{{localLowPrice}} - @{{localHighPrice}}</div>
+                    <div class="col-4">@{{localTotalTime}}</div>
+                    <div id="" class="row">
+                        <div ng-bind-html="localMap" class="col-12 col-lg-6 "></div>
+                        <!-- Skriver ut delarna i resrutt -->
+                        <div class="col-12 col-lg-6 ">
+                            <div class="row" ng-repeat="test in localInfo">
+                                <div class="col-12 pb-2 pt-2">
+                                    @{{test.depName}} - @{{test.arrName}}
+                                </div>
+                                <div class="col-6 ">
+                                    @{{timeConvert(test.transferTime)}}
+                                </div>
+                                <div class="col-6 ">
+                                    @{{convertMoney(test.lowPrice)}} - @{{convertMoney(test.highPrice)}}
+                                </div>
+                                <div class="col-12 middleblue-border remove-house-borders pb-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div align="center">
+            <button ng-click="localShow=false" class="btn btn-danger col-6 pointer">Stäng</button>
+            </div>
+            </div>
+        </div>
         <!-- 
     visar URL eller FEL meddelande 
     <p id="apiUrl"></p>
     -->
         <!-- START, visa RESULTATET vid respons från server -->
-        @include('includes.searchresult')  
-        
-        
+        @include('includes.searchresult')
 
-        <!-- The Modal för att visa DETALJER -->
-        <div class="modal" id="myModal">
+
+        <!-- Modal för OS-SCHEMA -->
+
+        <div class="container p-4  col-md-6 col-sm-12">
+            <button id="osschema-knapp" class="btn darkblue-bg btn-block pointer" data-toggle="modal" data-target="#eventsModal">
+                <h2 class="white-col">
+                    <i class="far fa-calendar-alt yellow-col"></i> &nbsp;&nbsp;OS-schema</h2>
+            </button>
+        </div>
+
+        <div class="modal" id="eventsModal">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h4 class="modal-title">@{{routeName}}</h4>
+                        <h4 class="modal-title">OS-schema</h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <!-- Modal body -->
                     <div class="modal-body">
-                        <table class="table table-hover">
-                            <thead class="thead">
-                                <th>Plats</th>
-                                <th>Tid</th>
-                                <th>Pris</th>
-                            </thead>
-                            <tr ng-repeat="infoResa in travelInfo">
-                                <td>@{{infoResa.depName}} - @{{infoResa.arrName}}</td>
-                                <td>@{{timeConvert(infoResa.transferTime)}}</td>
-                                <td>@{{convertMoney(infoResa.lowPrice)}} - @{{convertMoney(infoResa.highPrice)}}</td>
-                            </tr>
-                        </table>
-                        <iframe id="googleMap" width="100%" height="300" frameborder="0" style="border:0" src="" allowfullscreen>
-                        </iframe>
-                        <div style="color:black" ng-repeat="resa in travelInfo">@{{resa}}</div>
+
+                        <!-- OS Schema -->
+                        @include('includes.scheduele-table')
+
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button ng-click="saveData()" class="btn btn-success">Spara resa</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Stäng</button>
                     </div>
-
                 </div>
             </div>
         </div>
-    </div>
-    <!-- SLUT på Modal RESULTATET-->
-
-    <!-- Modal för OS-SCHEMA -->
-
-    <div class="container p-4  col-md-6 col-sm-12">
-        <button id="osschema-knapp" class="btn darkblue-bg btn-block pointer" data-toggle="modal" data-target="#eventsModal">
-            <h2 class="white-col">
-                <i class="far fa-calendar-alt yellow-col"></i> &nbsp;&nbsp;OS-schema</h2>
-        </button>
-    </div>
-
-    <div class="modal" id="eventsModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">OS-schema</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <!-- Modal body -->
-                <div class="modal-body">
-
-                    <!-- OS Schema -->
-                    @include('includes.scheduele-table')      
-                 
-                </div>
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Stäng</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- SLUT Modal för OS-schema -->
-    
+        <!-- SLUT Modal för OS-schema -->
 
 
-    
-    <!-- Footer -->
-    @include('includes.footer')
+
+
+        <!-- Footer -->
+        @include('includes.footer')
 </body>
+
 </html>
