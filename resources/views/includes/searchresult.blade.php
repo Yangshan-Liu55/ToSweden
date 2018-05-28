@@ -59,6 +59,10 @@
                                         @{{convertMoney(infoResa.lowPrice)}} - @{{convertMoney(infoResa.highPrice)}}
                                     </div>
                                     <div class="col-12 middleblue-border remove-house-borders pb-2"></div>
+                                    <!--<p>@{{infoResa}}</p>-->
+                                </div>
+                                <div align="right">
+                                <button ng-click="saveLocal()" class="btn col-4 btn-success mt-2">Spara Resa</button>
                                 </div>
                             </div>
                         </div>
