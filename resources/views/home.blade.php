@@ -46,24 +46,6 @@
     <div class="test" ng-controller="searchCtrl" ng-init="changeCurrency()">
         <div class="searchField">
             <div class="container" id="navbar">
-<<<<<<< HEAD
-                  <div class="col-sm-12" align="center">
-                    <div class="form-group col-md-6 col-sm-12 textcolor" align="left">
-                        <label>FRÅN</label>
-                        <input id="inputCity" required ng-model="fromCity" type="text" class="form-control">
-                    </div>
-                    <div class="form-group col-md-6 col-sm-12" align="left">
-                        <label for="exampleFormControlSelect1" class="textcolor">DESTINATION</label>
-                        <select ng-model="toCity" required class="form-control " id="selectCity">
-                            <option value="Stockholm">Stockholm</option>
-                            <option value="Åre">Åre</option>
-                            <option value="Falun">Falun</option>
-                        </select>
-                      <div align="right">
-                        <button ng-click="search()" type="submit" class="btn btn-lg mt-3">SÖK</button>
-                        <button ng-click="loadData()" class="btn btn-lg mt-3">Sparad Resa</button>
-                      </div>
-=======
                 <form class="container" name="searchForm">
                     <div class="col-sm-12" align="center">
                         <div class="form-group col-md-6 col-sm-12" align="left">
@@ -82,20 +64,9 @@
                                 <button ng-click="loadLocal()" class="btn btn-lg mt-3">Sparad Resa</button>
                             </div>
                         </div>
->>>>>>> 35df2e69caa9c79bdfa368edb310f239a90194b3
                     </div>
                 </form>
             </div>
-<<<<<<< HEAD
-            <div class="container darkblue-bg rounded">
-                <h3 class="text-center" id="showRoute"></h3>
-                <h3 class="text-center" id="showCities"></h3>
-                <h3 class="text-center" id="showTime"></h3>
-                <h3 class="text-center" id="showCost"></h3>
-                <h3 class="text-center" id="test"></h3>
-            </div>
-=======
->>>>>>> 35df2e69caa9c79bdfa368edb310f239a90194b3
         </div>
         <!-- SLUT på SÖK RESA -->
         <p id="warning"></p>
