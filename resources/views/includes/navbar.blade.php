@@ -39,7 +39,7 @@
       <script type="text/javascript">
         function googleTranslateElementInit() {
           var userLang = navigator.language || navigator.userLanguage; 
-          console.log("userLang "+userLang) 
+         
           new google.translate.TranslateElement({pageLanguage: 'sv', layout: google.translate.TranslateElement}, 'google_translate_element');
         }
         </script>

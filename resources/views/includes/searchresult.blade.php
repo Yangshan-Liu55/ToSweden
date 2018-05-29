@@ -59,10 +59,16 @@
                                         @{{convertMoney(infoResa.lowPrice)}} - @{{convertMoney(infoResa.highPrice)}}
                                     </div>
                                     <div class="col-12 middleblue-border remove-house-borders pb-2"></div>
-                                    <!--<p>@{{infoResa}}</p>-->
+                                   <!-- <p>@{{infoResa}}</p> -->
                                 </div>
                                 <div align="right">
-                                <button ng-click="saveLocal()" class="btn col-4 btn-success mt-2">Spara Resa</button>
+                                <button ng-click="saveLocal()" class="btn col-4 btn-success mt-2 pointer">Spara resa</button>
+                                </div>
+                                <div align="right">
+                                {!! Form::open(['action'=>'shareroutesController@store', 'method'=>'POST']) !!}
+                                <textarea hidden="hidden" name="textin" rows="4" cols="50">@{{travelInfo}}</textarea>
+                                {{Form::submit('Dela resa', ['class'=>'btn col-4 mt-2 pointer  btn-info'])}}
+                                {!! Form::close() !!}
                                 </div>
                             </div>
                         </div>

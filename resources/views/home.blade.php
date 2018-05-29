@@ -1,4 +1,4 @@
-@php session_start(); @endphp
+
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
 
@@ -60,8 +60,8 @@
                                 <option value="Falun">Falun</option>
                             </select>
                             <div align="right">
-                                <button ng-click="search()" type="submit" class="btn btn-lg mt-3">SÖK</button>
-                                <button ng-click="loadLocal()" class="btn btn-lg mt-3">Sparad Resa</button>
+                                <button ng-click="search()" type="submit" class="btn btn-lg mt-3">Sök resa</button>
+                                <button ng-click="loadLocal()" class="btn btn-lg mt-3">Sparad resa</button>
                             </div>
                         </div>
                     </div>
@@ -153,10 +153,10 @@
         <!-- SLUT Modal för OS-schema -->
 
 
-
-
         <!-- Footer -->
         @include('includes.footer')
+
+
 </body>
 
 </html>

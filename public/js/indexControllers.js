@@ -219,7 +219,7 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
             $scope.localShow = true;
             let localSrc = $scope.localInfo[0].googleSrc;
             $scope.localMap = $sce.trustAsHtml("<iframe class='img-thumbnail' width='100%' height='400px' frameborder='0' style='border:0'  src='" + localSrc + "' allowfullscreen></iframe>");
-            console.log($scope.localInfo);
+            //console.log($scope.localInfo);
         }
         else{
             document.getElementById("warning").innerHTML = "Ingen sparad resa finns";
