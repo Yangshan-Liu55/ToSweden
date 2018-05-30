@@ -84,26 +84,35 @@
         <div ng-show="isResultOpen" class="container mt-4 table-responsive-sm middle-grey-bg nopadding">
             <table class="container table ">
                 <thead class="lightblue-bg">
-                    <th ng-click="sortBy('name')"><h5>Färdmedel<h5></th>
-                    <th ng-click="sortBy('totalDuration')"><h5>Tid</h5></th>
-                    <th ng-click="sortBy('indicativePrices[0].priceLow')"><h5>Pris</h5></th>
-                    <th>
-                        <h5>Valuta</h5>
-                        <select class="form-control" ng-model="choosenCurrency">
+                    <th ng-click="sortBy('name')"><h6>Färdmedel<h6></th>
+                    <!-- <th ng-click="sortBy('totalDuration')"><h5>Tid</h5></th> -->
+                    <th ng-click="sortBy('indicativePrices[0].priceLow')" width="100px">
+                
+                    <select class="form-control" ng-model="choosenCurrency">
                             <option value="EUR">EUR</option>
                             <option value="SEK">SEK</option>
                             <option value="USD">USD</option>
                         </select>
+                        
+                    </th>
+                    <th>
+                    <h6></h6>
+                        <!-- 
+                        <select class="form-control" ng-model="choosenCurrency">
+                            <option value="EUR">EUR</option>
+                            <option value="SEK">SEK</option>
+                            <option value="USD">USD</option>
+                        </select> flyttat till mitten -->
+                       
                     </th>
                 </thead>
                 <tr id="search-row" class="pointer middleblue-col" ng-repeat="route in info.routes | orderBy: propertyName : reverse" ng-click="getDetails($index)" data-toggle="modal" data-target="#myModal">
-                    <td><span ng-bind-html="addIcon(route.name)"></span><span class="pl-1">@{{route.name}}</span></td>
-                    <td>@{{timeConvert(route.totalDuration)}}</td>
-                    <td>@{{convertMoney(route.indicativePrices[0].priceLow)}} - @{{convertMoney(route.indicativePrices[0].priceHigh)}}</td>
+                    <td><span ng-bind-html="addIcon(route.name)"></span><span class="pl-1">@{{route.name}} <br> <i class="fas fa-clock"></i> @{{timeConvert(route.totalDuration)}}</span></td>
+                    <!-- <td>@{{timeConvert(route.totalDuration)}}</td> flyttat upp till samma kollum -->
+                    <td>@{{convertMoney(route.indicativePrices[0].priceLow)}} - @{{convertMoney(route.indicativePrices[0].priceHigh)}}</td> 
                     <td align="center">
                         <button class="btn pointer" >Detaljer</button>
-                        <button ng-click="getVeichle($index)">FORDON</button>
-
+                        <!-- <button class="btn btn-primary" ng-click="getVeichle($index)">FORDON</button> -->
                     </td>
                 </tr>
             </table>
@@ -131,7 +140,7 @@
                                 <th>Tid</th>
                                 <th>Pris</th>
                             </thead>
-                            <tr ng-repeat="infoResa in travelInfo">
+                            <tr  ng-repeat="infoResa in travelInfo">
                                 <td>@{{infoResa.depName}} - @{{infoResa.arrName}}</td>
                                 <td>@{{timeConvert(infoResa.transferTime)}}</td>
                                 <td>@{{convertMoney(infoResa.lowPrice)}} - @{{convertMoney(infoResa.highPrice)}}</td>
@@ -141,6 +150,8 @@
                         </iframe>
                         <div style="color:black" ng-repeat="resa in travelInfo">@{{resa}}</div>
                     </div>
+
+                    
                     <!-- Modal footer -->
                     <div class="modal-footer">
                         <button ng-click="saveData()" class="btn btn-success">Spara resa</button>
