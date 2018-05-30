@@ -264,22 +264,8 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
 
     }
     
-
-    var savedInfo = {};
-    $scope.saveData = function () {
-        savedInfo["routeName"] = $scope.routeName;
-        savedInfo["cities"] = $scope.depCity + " - " + $scope.arrCity;
-        savedInfo["time"] = $scope.travelTime;
-        savedInfo["costLow"] = $scope.cash;
-        var ending = new Date(Date.now() + 60 * 1000).toString();
-        var cookieString = "";
-        for (var key in savedInfo) {
-            cookieString = key + "=" + savedInfo[key] + ";" + ending + ";";
-            document.cookie = cookieString;
-        }
-        $scope.saveLocal = function () {
-            localStorage.setItem("arraydata", JSON.stringify($scope.travelInfo));
-        }
+    $scope.saveLocal = function () {
+        localStorage.setItem("arraydata", JSON.stringify($scope.travelInfo));
     }
 
     $scope.loadLocal = function () {
