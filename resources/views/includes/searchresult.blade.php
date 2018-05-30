@@ -34,10 +34,10 @@
                 data-target="post@{{$index}}"
                 >
                     <div class="col-5">
-                        @{{route.name}}
+                    <span ng-bind-html="addIcon(route.name)"></span>  @{{route.name}}
                     </div>
                     <div class="col-3">
-                        @{{timeConvert(route.totalDuration)}}
+                    <span><i class="fas fa-clock"></i></span> @{{timeConvert(route.totalDuration)}}
                     </div>
                     <div class="col-4">
                         @{{convertMoney(route.indicativePrices[0].priceLow)}} - @{{convertMoney(route.indicativePrices[0].priceHigh)}}
@@ -53,7 +53,7 @@
                                         @{{infoResa.depName}} - @{{infoResa.arrName}}
                                     </div>
                                     <div class="col-6 ">
-                                        @{{timeConvert(infoResa.transferTime)}}
+                                    <span><i class="fas fa-clock"></i></span>   @{{timeConvert(infoResa.transferTime)}}
                                     </div>
                                     <div class="col-6 ">
                                         @{{convertMoney(infoResa.lowPrice)}} - @{{convertMoney(infoResa.highPrice)}}
