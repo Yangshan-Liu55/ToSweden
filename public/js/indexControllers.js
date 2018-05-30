@@ -9,7 +9,7 @@ var searchTo = "&dName=";
 
 //valuta api bas
 var currencyAPI = "http://data.fixer.io/api/latest?";
-var currencyAPIKey = "access_key=69b996c0142c261c2378e5656d182eb7";
+var currencyAPIKey = "access_key=e21bb1b7b92000e2ab502fe0df559c47";
 
 //google map API
 var googleAPI = "https://www.google.com/maps/embed/v1/directions?";
@@ -127,12 +127,12 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
 
             //om man väljer USD som valuta
             currencyToConvert = Math.round(convertedAmount * $scope.currencyInfo.rates.USD);
-            resultAmount = currencyToConvert + " " + $scope.choosenCurrency;
+            resultAmount = "$" + currencyToConvert;
 
         } else {
 
             //om man väljer EUR som valuta
-            resultAmount = convertedAmount + " " + $scope.choosenCurrency;
+            resultAmount = "€" + convertedAmount;
 
         }
 
@@ -150,16 +150,24 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
         //hämtar resvägen man vill ha detaljer för
         var route = $scope.info.routes[index];
 
+        //resvägens namn
+        $scope.routeName = route.name;
+
         $scope.depCity = $scope.info.places[route.depPlace].longName;
 
         $scope.arrCity = $scope.info.places[route.arrPlace].longName;
 
-        $scope.cash = $scope.convertMoney(route.indicativePrices[0].priceLow);
+        $scope.lowestPrice = $scope.convertMoney(route.indicativePrices[0].priceLow);
+
+        $scope.highestPrice = $scope.convertMoney(route.indicativePrices[0].priceHigh);
 
         $scope.travelTime = $scope.timeConvert(route.totalDuration);
 
         //en array att lagra detalj informationen
         $scope.travelInfo = [];
+
+        //Skriver ut aktuell karta.     
+        let source = googleAPI + googleKey + googleFrom + $scope.depCity + googleTo + $scope.arrCity;
 
         //för varje segment i resvägen
         for (var i = 0; i < route.segments.length; i++) {
@@ -173,9 +181,6 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
             //tiden mellan stationerna
             var time = route.segments[i].transitDuration;
 
-            //resvägens namn
-            $scope.routeName = route.name;
-
             //antal segment
             $scope.segmentLength = route.segments.length;
 
@@ -185,19 +190,17 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
                 var lowPrice = route.segments[i].indicativePrices[0].priceLow;
                 //högsta pris för segment resan
                 var highPrice = route.segments[i].indicativePrices[0].priceHigh;
-                //currency
-                var currency = route.segments[i].indicativePrices[0].currency
 
                 //läger till allt i array
-                $scope.travelInfo.push({ 'depName': $scope.depName, 'arrName': $scope.arrName, 'transferTime': time, 'lowPrice': lowPrice, 'highPrice': highPrice, 'currency': currency });
+                $scope.travelInfo.push({ 'routeName': $scope.routeName, 'lowTotalPrice': $scope.lowestPrice, 'highTotalPrice': $scope.highestPrice, 'totalTravelTime': $scope.travelTime, 'googleSrc': source, 'depName': $scope.depName, 'arrName': $scope.arrName, 'transferTime': time, 'lowPrice': lowPrice, 'highPrice': highPrice });
             }
             else {
                 //lägg till i array
-                $scope.travelInfo.push({ 'depName': $scope.depName, 'arrName': $scope.arrName, 'transferTime': time });
+                $scope.travelInfo.push({ 'routeName': $scope.routeName, 'lowTotalPrice': $scope.lowestPrice, 'highTotalPrice': $scope.highestPrice, 'totalTravelTime': $scope.travelTime, 'googleSrc': source, 'depName': $scope.depName, 'arrName': $scope.arrName, 'transferTime': time });
             }
         }
-        $scope.googleUrl = googleAPI + googleKey + googleFrom + $scope.depCity + googleTo + $scope.arrCity;
-        document.getElementById("googleMap").src = $scope.googleUrl;
+
+        $scope.googleUrl = $sce.trustAsHtml("<iframe class='img-thumbnail' width='100%' height='400px' frameborder='0' style='border:0'  src='" + source + "' allowfullscreen></iframe>");
 
         
 
@@ -274,28 +277,36 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
             cookieString = key + "=" + savedInfo[key] + ";" + ending + ";";
             document.cookie = cookieString;
         }
-    }
-
-    $scope.loadData = function () {
-        savedInfo = {};
-        var kv = document.cookie.split(";");
-        for (var id in kv) {
-            var cookie = kv[id].split("=");
-            savedInfo[cookie[0].trim()] = cookie[1];
+        $scope.saveLocal = function () {
+            localStorage.setItem("arraydata", JSON.stringify($scope.travelInfo));
         }
-        document.getElementById("showRoute").innerHTML = "Resnamn: " + savedInfo["routeName"];
-        document.getElementById("showCities").innerHTML = "Resmål: " + savedInfo["cities"];
-        document.getElementById("showTime").innerHTML = "Tid: " + savedInfo["time"];
-        document.getElementById("showCost").innerHTML = "Kostnad: " + savedInfo["costLow"];
     }
 
+    $scope.loadLocal = function () {
+        $scope.localInfo = JSON.parse(localStorage.getItem("arraydata"));
+        if ($scope.localInfo != null) {
+            $scope.localName = $scope.localInfo[0].routeName;
 
+            $scope.localLowPrice = $scope.localInfo[0].lowTotalPrice;
+
+            $scope.localHighPrice = $scope.localInfo[0].highTotalPrice;
+
+            $scope.localTotalTime = $scope.localInfo[0].totalTravelTime;
+
+            $scope.localShow = true;
+            let localSrc = $scope.localInfo[0].googleSrc;
+            $scope.localMap = $sce.trustAsHtml("<iframe class='img-thumbnail' width='100%' height='400px' frameborder='0' style='border:0'  src='" + localSrc + "' allowfullscreen></iframe>");
+            //console.log($scope.localInfo);
+        }
+        else{
+            document.getElementById("warning").innerHTML = "Ingen sparad resa finns";
+        }
+    }
 
    
 
     /*LÄGG TILL ICON VID SÖKRESULTATEN */
     $scope.addIcon = function (travelText) {
-
 
         /*Omvandlar till små bokstäver*/
         var travel = travelText.toLowerCase();
@@ -367,6 +378,8 @@ app.controller('CitiesCtrl', function ($scope, $http, $location, $sce) {
             $scope.todo = response.data;
         });
 
+    $scope.toToType;
+
     $scope.breakStr = function (str) {
         return str.split("/n");
     }
@@ -374,14 +387,6 @@ app.controller('CitiesCtrl', function ($scope, $http, $location, $sce) {
     $scope.disBR = function (str1) {
         return $sce.trustAsHtml(str1);
     }
-});
-
-//Hämtar JSON för Recommended  i Recommended.php.
-app.controller('allToDo', function ($scope, $http) {
-    $http.get('http://steffo.info/toswe-api/toswe-todo.php')
-        .then(function (response) {
-            $scope.allToDo = response.data;
-        });
 });
 
 //Hämtar JSON för Recommended  i Recommended.php.
@@ -403,9 +408,6 @@ app.controller('HotelsCtrl', function ($scope, $http) {
     $scope.tabSelect2 = "yellow-bg navbar-black";
     $scope.tabSelect3 = "yellow-bg navbar-black";
 
-    // $scope.bgColor1 = "#ffcc00"; //#B18904
-    // $scope.bgColor2 = "#ffcc00"; 
-    // $scope.bgColor3 = "#ffcc00"; 
     var cSelected = [];
 
     var addRes = function (n) {
@@ -497,30 +499,3 @@ app.controller('HotelsCtrl', function ($scope, $http) {
     }
 
 });
-
-/*var myCookies = {};
-
-function saveCookies() {
-    myCookies["city"] = document.getElementById("inputCity").value;
-    var selectMenu = document.getElementById("selectCity");
-    myCookies["select"] = selectMenu.options[selectMenu.selectedIndex].value;
-    var expires = new Date(Date.now() + 60 * 1000).toString();
-    var cookieString = "";
-    for (var key in myCookies) {
-        cookieString = key + "=" + myCookies[key] + ";" + expires + ";";
-        document.cookie = cookieString;
-    }
-}
-
-function loadCookies() {
-    myCookies = {};
-    var kv = document.cookie.split(";");
-    for (var id in kv) {
-        var cookie = kv[id].split("=");
-        myCookies[cookie[0].trim()] = cookie[1];
-    }
-    document.getElementById("inputCity").value = myCookies["city"];
-    var selectMenu = document.getElementById("selectCity");
-    selectMenu.value = myCookies["select"];
-}*/
-

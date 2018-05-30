@@ -27,12 +27,9 @@
     </head>
     <body ng-app="myApp" ng-controller="HotelsCtrl">
             @include('includes.navbar')
-        <div class="position-ref full-height">
+        <div class="position-ref full-height imgBG">
               
             <div class="container">
-
-
-
                 
                 <!-- City tabs -->
                 <div class="row row-wrap  my-3" align="center">
@@ -59,7 +56,7 @@
 
                 <div ng-repeat="h in hotels | filter: filterFunction" class="mb-3">
                     
-                    <div class="row middle-grey-bg px-0 py-2 mb-3 tabBorder">
+                    <div class="row pale-grey-bg px-0 py-2 mb-3 tabBorder">
                         <div class="col col-5 my-auto">
                             <img ng-src="/img/hotels/@{{h.hotels_img01}}" alt="City" class="rounded img-fluid">
                         </div>

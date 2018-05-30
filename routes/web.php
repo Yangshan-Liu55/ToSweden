@@ -13,22 +13,33 @@
 
 Route::get('/', function () {
     return view('home');
+  //  $savedroutes = DB::table('shareroutes')->get();
+  //  return view('home', compact('savedroutes'));
 });
-Route::get('home', function () {
+Route::get('/home', function () {
     return view('home');
+  //  $savedroutes = DB::table('shareroutes')->get(); //Hämtar alla poster i db shareroutes
+  //  return view('home', compact('savedroutes')); //Retur till view home, variabledata skickas med.
 });
-Route::get('about', function () {
+
+Route::resource('socialmedia','shareroutesController');
+
+Route::get('/socialmedia/{id}', function () {
+    return view('socialmedia');
+});
+
+Route::get('/about', function () {
     return view('about');
 });
-Route::get('cities', function () {
+Route::get('/cities', function () {
     return view('cities');
 });
-Route::get('recommended', function () {
+Route::get('/recommended', function () {
     return view('recommended');
 });
-Route::get('scheduele', function () {
+Route::get('/scheduele', function () {
     return view('scheduele');
 });
-Route::get('city', function () {
+Route::get('/city', function () {
     return view('city');
 });

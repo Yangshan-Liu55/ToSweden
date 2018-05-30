@@ -3,6 +3,7 @@ body {
     color: white;
 
 }
+
 h1, h2, h3, h4, h5, h6{
     font-family: Raleway;
 }
@@ -46,8 +47,10 @@ p,
 .white-col{color: #fff;}
 .darkblue-bg{background: #00496d;}
 .darkblue-col{color: #00496d;}
+.darkblue-border{border: 1px solid #00496d;}
 .middleblue-bg{ background: #006699;} /*Sverigeblå*/
 .middleblue-col{ color: #006699;} /*Sverigeblå*/
+.middleblue-border{border: 1px solid #006699;}/*Sverigeblå*/
 .lightblue-bg{ background: #007cba;}
 .lightblue-col{ color: #007cba;}
 .lightblue-border{border: 1px solid #007cba;}
@@ -55,8 +58,9 @@ p,
 .white-col{color: #fff;}
 .light-grey-bg{background: #f3f2f2}
 .pale-grey-bg{ background: #dfdfdf ; }
+.even-paler-grey-bg{background: #f0f0f0}
 
-.middle-grey-bg{background: #dfdfdf }
+.remove-house-borders{border-width: 0 0 1px 0;}
 
 .navbar {
     background-color: #ffcc00 !important;
@@ -70,6 +74,16 @@ p,
 
     display: block;
     
+}
+
+.textcolor{
+
+    color:#00496d;
+}
+
+.imgBG{
+
+    background-image: url("../img/Paint/fademonster.png");
 }
 
 #homeimage{
@@ -282,6 +296,9 @@ p,
 .modal-footer button:hover {
     cursor: pointer;
 }
+
+/*Formaterar kartan */
+.img-thumbnail {height:400px !important;}
 
 /* Hide all class events in Modal on home.php */
 .eventsBody{display:none;}
