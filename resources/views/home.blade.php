@@ -116,46 +116,6 @@
     <p id="apiUrl"></p>
     -->
         <!-- START, visa RESULTATET vid respons från server -->
-<<<<<<< HEAD
-        <div ng-show="isResultOpen" class="container mt-4 table-responsive-sm middle-grey-bg nopadding">
-            <table class="container table ">
-                <thead class="lightblue-bg">
-                    <th ng-click="sortBy('name')"><h6>Färdmedel<h6></th>
-                    <!-- <th ng-click="sortBy('totalDuration')"><h5>Tid</h5></th> -->
-                    <th ng-click="sortBy('indicativePrices[0].priceLow')" width="100px">
-                
-                    <select class="form-control" ng-model="choosenCurrency">
-                            <option value="EUR">EUR</option>
-                            <option value="SEK">SEK</option>
-                            <option value="USD">USD</option>
-                        </select>
-                        
-                    </th>
-                    <th>
-                    <h6></h6>
-                        <!-- 
-                        <select class="form-control" ng-model="choosenCurrency">
-                            <option value="EUR">EUR</option>
-                            <option value="SEK">SEK</option>
-                            <option value="USD">USD</option>
-                        </select> flyttat till mitten -->
-                       
-                    </th>
-                </thead>
-                <tr id="search-row" class="pointer middleblue-col" ng-repeat="route in info.routes | orderBy: propertyName : reverse" ng-click="getDetails($index)" data-toggle="modal" data-target="#myModal">
-                    <td><span ng-bind-html="addIcon(route.name)"></span><span class="pl-1">@{{route.name}} <br> <i class="fas fa-clock"></i> @{{timeConvert(route.totalDuration)}}</span></td>
-                    <!-- <td>@{{timeConvert(route.totalDuration)}}</td> flyttat upp till samma kollum -->
-                    <td>@{{convertMoney(route.indicativePrices[0].priceLow)}} - @{{convertMoney(route.indicativePrices[0].priceHigh)}}</td> 
-                    <td align="center">
-                        <button class="btn pointer" >Detaljer</button>
-                        <!-- <button class="btn btn-primary" ng-click="getVeichle($index)">FORDON</button> -->
-                    </td>
-                </tr>
-            </table>
-            <div class="pb-4" align="center">
-                <button ng-click="closeResult()" class="btn btn-danger col-md-6 col-sm-12 btn-block pointer">Stäng</button>
-            </div>
-=======
         @include('includes.searchresult')
 
 
@@ -166,7 +126,6 @@
                 <h2 class="white-col">
                     <i class="far fa-calendar-alt yellow-col"></i> &nbsp;&nbsp;OS-schema</h2>
             </button>
->>>>>>> a98e71af9ef7243b167355f4df1a11e8764d5010
         </div>
 
         <div class="modal" id="eventsModal">
@@ -179,31 +138,11 @@
                     </div>
                     <!-- Modal body -->
                     <div class="modal-body">
-<<<<<<< HEAD
-                        <table class="table table-hover">
-                            <thead class="thead">
-                                <th>Plats</th>
-                                <th>Tid</th>
-                                <th>Pris</th>
-                            </thead>
-                            <tr  ng-repeat="infoResa in travelInfo">
-                                <td>@{{infoResa.depName}} - @{{infoResa.arrName}}</td>
-                                <td>@{{timeConvert(infoResa.transferTime)}}</td>
-                                <td>@{{convertMoney(infoResa.lowPrice)}} - @{{convertMoney(infoResa.highPrice)}}</td>
-                            </tr>
-                        </table>
-                        <iframe id="googleMap" width="100%" height="300" frameborder="0" style="border:0" src="" allowfullscreen>
-                        </iframe>
-                        <div style="color:black" ng-repeat="resa in travelInfo">@{{resa}}</div>
-=======
 
                         <!-- OS Schema -->
                         @include('includes.scheduele-table')
 
->>>>>>> a98e71af9ef7243b167355f4df1a11e8764d5010
                     </div>
-
-                    
                     <!-- Modal footer -->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Stäng</button>
