@@ -126,6 +126,7 @@ p,
     #home-welcome img{
         width:90%;  
         margin-left:20px;
+        margin-bottom: 25px;
     }
 }
 
@@ -304,8 +305,10 @@ p,
 
 
 /*Search field */
+
 .searchField {
-    background-color: #ffcc00;
+
+    background-color: #00000052;
     padding: 10px;
 }
 
@@ -346,6 +349,12 @@ p,
 .modal-footer button:hover {
     cursor: pointer;
 }
+
+.footerpositon{
+
+    margin-top: 10em;
+}
+
 
 /*Formaterar kartan */
 .img-thumbnail {height:400px !important;}
