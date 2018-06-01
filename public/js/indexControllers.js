@@ -287,22 +287,14 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
                 console.log("DU SKA TA TÅG V2");
             }
             if ($scope.vehicles == "Bus") {
-<<<<<<< HEAD
                 output = output + ' </img src="/img/travel/pos/bus.png" width ="20px" height="20px">';
-=======
-                output = output + ' <img src="/img/travel/pos/bus.png" width ="20px" height="20px">';
->>>>>>> 8d1c0bffcde0dd4f24585c7966eb739aab08464e
                 console.log("DU SKA TA BUSSEN");
             }
             if ($scope.vehicles == "Rideshar") {
                 console.log("Ride share");
             }
             if ($scope.vehicles == "Car") {
-<<<<<<< HEAD
                 output = output + ' </img src="/img/travel/pos/car.png" width ="20px" height="20px">';
-=======
-                output = output + ' <img src="/img/travel/pos/car.png" width ="20px" height="20px">';
->>>>>>> 8d1c0bffcde0dd4f24585c7966eb739aab08464e
                 console.log("DU SKA TA BILEN");
             }
             if ($scope.vehicles == "Eurotunne") {
@@ -313,19 +305,11 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
                     console.log("DU SKA TA BÅT FÄRGA");
             }
             if ($scope.vehicles == "Plane") {
-<<<<<<< HEAD
                 output = output + ' </img src="/img/travel/pos/air.png" width ="20px" height="20px">';
                 console.log("DU SKA TA PLANET ");
             }
             if ($scope.vehicles == "Walk") {
                 output = output + ' </img src="/img/travel/pos/walk.png" width ="20px" height="20px">';
-=======
-                output = output + ' <img src="/img/travel/pos/air.png" width ="20px" height="20px">';
-                console.log("DU SKA TA PLANET ");
-            }
-            if ($scope.vehicles == "Walk") {
-                output = output + ' <img src="/img/travel/pos/walk.png" width ="20px" height="20px">';
->>>>>>> 8d1c0bffcde0dd4f24585c7966eb739aab08464e
                 console.log("DU SKA Gå");
             }
             if ($scope.vehicles == "Taxi") {
