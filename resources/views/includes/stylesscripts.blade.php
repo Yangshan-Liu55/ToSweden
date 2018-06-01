@@ -19,3 +19,4 @@
        <script src="/js/indexControllers.js"></script>
        <script src="/js/jqueryFunctions.js"></script>
        <link rel="stylesheet" type="text/css" href="/css/index.css">
+       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAApIIpuOK_GeeYmYGiSp9DgvnWGRjPhR4&libraries=drawing,geometry,places"></script>
