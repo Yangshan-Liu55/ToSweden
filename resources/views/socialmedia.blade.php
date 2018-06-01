@@ -23,18 +23,18 @@
     @include('includes.stylesscripts')
 
     </head>
-    <body ng-app="myApp" ng-controller="HotelsCtrl">
+    <body ng-app="myApp" >
             @include('includes.navbar')
-            <div class="container">
-                <div class="p-3"><h2>Din resa till OS</h2></div>
-                <div class="p-2">
-                    <h1>ResID:  {{$sharepost->id}}</h1>
-                </div>
-                <div class="p-2">
-                <!--     Resväg: <BR>  {{$sharepost->saveroutes_travelInfo}} -->
+            <div class="container mt-4 mb-4 table-responsive-sm pale-grey-bg middleblue-col">
+                <div class="col-12 pt-3 "><h2 class="text-center">Din resa till OS</h2></div>
+
+                <div id="routeOut" class="p-4"></div>
+
+
+                <div >
+                   <!-- <h1>ResID:  {{$sharepost->id}}</h1> -->
                 </div>
        
-       <div id="demo" class="p-4"></div>
             </div>
     <!-- Footer -->
     @include('includes.footer')
@@ -61,7 +61,7 @@
 
     obj2 = '{"getroute": '+obj2 +"}";
 
-       console.log("obj2: "+obj2)
+      // console.log("obj2: "+obj2);
      //   obj2 = obj2.replace('},{','},{');
   
     //   obj = obj.replace('\\','');
@@ -69,7 +69,22 @@
 
       var objOut = JSON.parse(obj2);
        // console.log("objOut "+objOut.routeName)
-   document.getElementById("demo").innerHTML = objOut.getroute[0].depName +" -> "+objOut.getroute[1].depName;
+    //   console.log("objOut.getroute.length "+objOut.getroute.length);
+    let resultOut="<div class='row'>";
+            resultOut+="<div class='col-12 p-3'><h1>"+objOut.getroute[0].routeName+"</h1></div>";
+    resultOut+="<div class='col-12 pb-3'><iframe class='img-thumbnail' width='100%' height='400px' frameborder='0' style='border:0'  src='" + objOut.getroute[0].googleSrc + "' allowfullscreen></iframe></div>";  
+    for (x=0;x<objOut.getroute.length;x++)
+    {
+        resultOut+="<div class='col-12 p-2 middleblue-border remove-house-borders'>"+objOut.getroute[x].depName+" - "+objOut.getroute[x].arrName+"</div>";
+    }
+  
+    resultOut+="<div class='col-6 py-3 mt-2 white-col lightblue-bg'>Total restid: "+objOut.getroute[0].totalTravelTime+"</div>";
+    resultOut+="<div class='col-6 py-3 mt-2 white-col lightblue-bg'>Total summa: "+objOut.getroute[0].highTotalPrice+"</div>";
+    resultatOut="</div>";
+
+    console.log("resultOut "+ resultOut)
+
+   document.getElementById("routeOut").innerHTML = resultOut;
 
 
 
