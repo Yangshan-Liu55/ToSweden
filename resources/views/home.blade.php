@@ -89,7 +89,8 @@
                     </div>
                 </div>
                 <div id="" class="row">
-                    <div ng-bind-html="localMap" class="col-12 col-lg-6 "></div>
+                    <!--<div ng-bind-html="localMap" class="col-12 col-lg-6 "></div>-->
+                    <div id="localGoogleMap" class="googleMap"></div>
                     <!-- Skriver ut delarna i resrutt -->
                     <div class="col-12 col-lg-6 ">
                         <div class="row" ng-repeat="test in localInfo">
