@@ -78,8 +78,8 @@
             </div>
             <div class="yellowCard rounded" ng-repeat="t in todo | filter: {todo_cities_id:citynr} | filter: {todo_activity:toToType}">                
                 <div class="row row-wrap">
-                    <div class="col col-12 col-md-6">
-                        <img ng-src="img/todo/@{{t.todo_img01}}" alt="@{{t.todo_name}}" class="d-block w-100 h-60">
+                    <div class="col col-12 col-md-6 my-auto">
+                        <a href="img/todo/@{{t.todo_img01}}"><img ng-src="img/todo/@{{t.todo_img01}}" alt="@{{t.todo_name}}" class="d-block w-100 h-60"></a>
                     </div>
                     <div class="col col-12 col-md-6">
                             

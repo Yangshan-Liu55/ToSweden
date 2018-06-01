@@ -34,9 +34,9 @@
                 <!-- City tabs -->
                 <div class="row row-wrap  my-3" align="center">
 
-                        <button type="button" class="btn pointer btn-primary leftBtn rekoSelect yellow-bg yellow-border navbar-black text-uppercase @{{tabSelect1}} " ng-click="changeColor(1)">Stockholm</button
-                        ><button type="button" class="btn pointer btn-primary middleBtn rekoSelect yellow-bg yellow-border navbar-black text-uppercase @{{tabSelect2}} " ng-click="changeColor(2)">Falun</button
-                        ><button type="button" class="btn pointer btn-primary rightBtn rekoSelect yellow-bg yellow-border navbar-black text-uppercase @{{tabSelect3}} " ng-click="changeColor(3)" >Åre</button>
+                    <button type="button" class="btn pointer btn-primary leftBtn rekoSelect yellow-bg yellow-border navbar-black text-uppercase @{{tabSelect1}} " ng-click="changeColor(1)">Stockholm</button
+                    ><button type="button" class="btn pointer btn-primary middleBtn rekoSelect yellow-bg yellow-border navbar-black text-uppercase @{{tabSelect2}} " ng-click="changeColor(2)">Falun</button
+                    ><button type="button" class="btn pointer btn-primary rightBtn rekoSelect yellow-bg yellow-border navbar-black text-uppercase @{{tabSelect3}} " ng-click="changeColor(3)" >Åre</button>
 
                 </div>
 
@@ -56,9 +56,9 @@
 
                 <div ng-repeat="h in hotels | filter: filterFunction" class="mb-3">
                     
-                    <div class="row pale-grey-bg px-0 py-2 mb-3 tabBorder">
+                    <div class="row schedule-sports-bg px-0 py-2 mb-3 tabBorder">
                         <div class="col col-5 my-auto">
-                            <img ng-src="/img/hotels/@{{h.hotels_img01}}" alt="City" class="rounded img-fluid">
+                            <a href="/img/hotels/@{{h.hotels_img01}}"><img ng-src="/img/hotels/@{{h.hotels_img01}}" alt="City" class="rounded img-fluid"></a>
                         </div>
                         <div class="col col-7 px-auto" style="color:black">
                             <h3> @{{h.hotels_name}}</h3>
