@@ -32,7 +32,7 @@
 
 
                 <div >
-                   <!-- <h1>ResID:  {{$sharepost->id}}</h1> -->
+               
                 </div>
        
             </div>
@@ -45,28 +45,19 @@
 
     <script>
         //Hämtar den genererade json från shareroutesController function store
-        var sites = {!! json_encode($sharepost->toArray()) !!};
+      //  var sites = {!! json_encode($sharepost->toArray()) !!};
         
         //Byter ut adressen så att den får rätt format med id-nummer i slutet, 
         //så att den kan hämta info från databasen.
-        window.history.replaceState(null, null, "/socialmedia/"+sites.id);
+   //    window.history.replaceState(null, null, "/socialmedia/"+sites.id);
 
-        var obj2 = sites.saveroutes_travelInfo.toString();
+    //    var obj2 = sites.saveroutes_travelInfo.toString();
        
-       //obj = obj.replace('[','');obj = obj.replace(']','');
-     
 
-    //  obj2 = obj2.substring(0, obj2.length - 1)
-    //  obj2 = obj2.substring(1);
+   // obj2 = '{"getroute": '+obj2 +"}";
 
-    obj2 = '{"getroute": '+obj2 +"}";
 
-      // console.log("obj2: "+obj2);
-     //   obj2 = obj2.replace('},{','},{');
-  
-    //   obj = obj.replace('\\','');
-    //    console.log("obj "+obj)
-
+/*
       var objOut = JSON.parse(obj2);
        // console.log("objOut "+objOut.routeName)
     //   console.log("objOut.getroute.length "+objOut.getroute.length);
@@ -86,7 +77,7 @@
 
    document.getElementById("routeOut").innerHTML = resultOut;
 
-
+*/
 
         </script>
     </body>

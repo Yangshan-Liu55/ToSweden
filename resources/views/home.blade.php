@@ -79,6 +79,7 @@
                     <div class="col-4">Pris</div>
                     <div class="col-4">Tid</div>
                 </div>
+<<<<<<< HEAD
                 <div class="row">
                     <div class="col-4">@{{localName}}</div>
                     <div class="col-4">@{{localLowPrice}} - @{{localHighPrice}}</div>
@@ -98,6 +99,22 @@
                                     @{{convertMoney(test.lowPrice)}} - @{{convertMoney(test.highPrice)}}
                                 </div>
                                 <div class="col-12 middleblue-border remove-house-borders pb-2"></div>
+=======
+                <div id="" class="row">
+                    <!--<div ng-bind-html="localMap" class="col-12 col-lg-6 "></div>-->
+                    <div id="localGoogleMap" class="googleMap"></div>
+                    <!-- Skriver ut delarna i resrutt -->
+                    <div class="col-12 col-lg-6 ">
+                        <div class="row" ng-repeat="test in localInfo">
+                            <div class="col-12 pb-2 pt-2">
+                               @{{test.depName}} - @{{test.arrName}}
+                            </div>
+                            <div class="col-6 ">
+                                @{{timeConvert(test.transferTime)}}
+                            </div>
+                            <div class="col-6 ">
+                                @{{convertMoney(test.lowPrice)}} - @{{convertMoney(test.highPrice)}}
+>>>>>>> 1cd8a8c404a8a6a71754effa7377a4a212201291
                             </div>
                         </div>
                     </div>
@@ -155,6 +172,7 @@
         <div class="footerpositon">
         @include('includes.footer')
         </div>
+<script>console.log("jfjfjfjf")</script>
 </body>
 
 </html>

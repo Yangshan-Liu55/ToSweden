@@ -29,7 +29,7 @@
             </li>            
             <li >
               
-              <span class="nav-link" > <div id="google_translate_element" > Språk </div> </span>
+              <span class="nav-link m-0 p-0" > <div id="google_translate_element" ></div></span>
 
             </li>
           </ul>

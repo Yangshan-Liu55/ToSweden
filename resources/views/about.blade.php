@@ -25,6 +25,11 @@
 </head>
 <body>
         @include('includes.navbar')
+
+       
+
+
+
         <div  align ="center">
         <div class="center"> 
                 <img style="width:100%;" src="/img/foto/osrings.jpg" />
