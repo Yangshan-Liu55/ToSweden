@@ -480,9 +480,9 @@ app.controller('HotelsCtrl', function ($scope, $http) {
             $scope.hotels = response.data;
         });
 
-    $scope.tabSelect1 = "yellow-bg navbar-black";
-    $scope.tabSelect2 = "yellow-bg navbar-black";
-    $scope.tabSelect3 = "yellow-bg navbar-black";
+    $scope.tabSelect1 = "yellow-bg yellow-border navbar-black";
+    $scope.tabSelect2 = "yellow-bg yellow-border navbar-black";
+    $scope.tabSelect3 = "yellow-bg yellow-border navbar-black";
 
     var cSelected = [];
 
@@ -501,37 +501,37 @@ app.controller('HotelsCtrl', function ($scope, $http) {
     $scope.changeColor = function (n) {
         switch (n) {
             case 1:
-                if ($scope.tabSelect1 == "yellow-bg navbar-black") {
-                    $scope.tabSelect1 = "dark-yellew-bg white-col";
+                if ($scope.tabSelect1 == "yellow-bg yellow-border navbar-black") {
+                    $scope.tabSelect1 = "lightblue-bg lightblue-border white-col";
                     addRes(1);
                     break;
                 }
                 else {
-                    $scope.tabSelect1 = "yellow-bg navbar-black";
+                    $scope.tabSelect1 = "yellow-bg yellow-border navbar-black";
                     removeRes(1);
                     break;
                 }
 
             case 2:
-                if ($scope.tabSelect2 == "yellow-bg navbar-black") {
-                    $scope.tabSelect2 = "dark-yellew-bg white-col";
+                if ($scope.tabSelect2 == "yellow-bg yellow-border navbar-black") {
+                    $scope.tabSelect2 = "lightblue-bg lightblue-border white-col";
                     addRes(2);
                     break;
                 }
                 else {
-                    $scope.tabSelect2 = "yellow-bg navbar-black";
+                    $scope.tabSelect2 = "yellow-bg yellow-border navbar-black";
                     removeRes(2);
                     break;
                 }
 
             case 3:
-                if ($scope.tabSelect3 == "yellow-bg navbar-black") {
-                    $scope.tabSelect3 = "dark-yellew-bg white-col";
+                if ($scope.tabSelect3 == "yellow-bg yellow-border navbar-black") {
+                    $scope.tabSelect3 = "lightblue-bg lightblue-border white-col";
                     addRes(3);
                     break;
                 }
                 else {
-                    $scope.tabSelect3 = "yellow-bg navbar-black";
+                    $scope.tabSelect3 = "yellow-bg yellow-border navbar-black";
                     removeRes(3);
                     break;
                 }

@@ -550,3 +550,8 @@ p,
 .menuSelect:hover, .rekoSelect:hover{background: #007cba; border-color: #007cba;}
 .tabSelected:hover{background: #DBA901;}
 .tabBorder{border-radius: 5px 5px 5px 5px;}
+.hotelSelect:active{background: #0062cc; border-color: #0062cc; color: white}
+@media (hover: hover) {
+    .hotelSelect:hover{background: #007cba; border-color: #007cba; color: white}
+    .hotelSelect:active{background: #0062cc; border-color: #0062cc; color: white}
+}

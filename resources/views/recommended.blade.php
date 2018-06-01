@@ -34,9 +34,9 @@
                 <!-- City tabs -->
                 <div class="row row-wrap  my-3" align="center">
 
-                    <button type="button" class="btn pointer btn-primary leftBtn rekoSelect yellow-bg yellow-border navbar-black text-uppercase @{{tabSelect1}} " ng-click="changeColor(1)">Stockholm</button
-                    ><button type="button" class="btn pointer btn-primary middleBtn rekoSelect yellow-bg yellow-border navbar-black text-uppercase @{{tabSelect2}} " ng-click="changeColor(2)">Falun</button
-                    ><button type="button" class="btn pointer btn-primary rightBtn rekoSelect yellow-bg yellow-border navbar-black text-uppercase @{{tabSelect3}} " ng-click="changeColor(3)" >Åre</button>
+                    <button type="button" class="btn pointer leftBtn hotelSelect text-uppercase @{{tabSelect1}} " ng-click="changeColor(1)">Stockholm</button
+                    ><button type="button" class="btn pointer middleBtn hotelSelect text-uppercase @{{tabSelect2}} " ng-click="changeColor(2)">Falun</button
+                    ><button type="button" class="btn pointer rightBtn hotelSelect text-uppercase @{{tabSelect3}} " ng-click="changeColor(3)" >Åre</button>
 
                 </div>
 
