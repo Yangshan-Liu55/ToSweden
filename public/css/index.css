@@ -126,6 +126,7 @@ p,
     position:relative;
     margin-top:100px;
     margin-left:10%;
+    margin-bottom: 50px;
 }
 
 @media only screen and (max-width: 1000px) {
