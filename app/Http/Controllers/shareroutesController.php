@@ -42,16 +42,18 @@ class shareroutesController extends Controller
        
         //Lägger in värderna från formulär 
         $name = $request->input('textin');
-       DB::insert('insert into shareroutes (saveroutes_travelInfo) values (?)', [$name]);
+        return $name;
+      // DB::insert('insert into shareroutes (saveroutes_travelInfo) values (?)', [$name]);
         
        //Hämtar den senaste posten
-       $last_post = shareroute::orderBy('id', 'desc')->first();
+      // $last_post = shareroute::orderBy('id', 'desc')->first();
        
        //Hämtar informationen från databasen
-        $routeOut = shareroute::find($last_post->id);
+       // $routeOut = shareroute::find($last_post->id);
 
         //Går vidare till View Socialmedia med info från senast sparade post i databas
-        return view('socialmedia')->with('sharepost',$routeOut);
+        //$routeOut = 17 //Endast för test
+        //  return view('socialmedia')->with('sharepost',$routeOut);
         
     }
 

@@ -247,6 +247,8 @@ p,
     }
 }
 
+
+
 @media only screen and (max-width: 960px) {
     .googleMap {
         width: 100%;
@@ -515,6 +517,13 @@ p,
         color: transparent !important;
      }
 
+     .goog-te-banner-frame.skiptranslate {
+        display: none !important;
+        } 
+    body {
+        top: 0px !important; 
+        }
+
 
 /* Set own Button Group. Makes it possible to select multipel buttons. */
 .selectButtons{padding-bottom: 1em;}
@@ -525,5 +534,3 @@ p,
 .menuSelect:hover, .rekoSelect:hover{background: #007cba; border-color: #007cba;}
 .tabSelected:hover{background: #DBA901;}
 .tabBorder{border-radius: 5px 5px 5px 5px;}
-
-
