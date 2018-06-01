@@ -1,4 +1,4 @@
-@php session_start(); @endphp
+
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
 
@@ -33,7 +33,7 @@
     <div id="homeimage">
         <div id="home-welcome">
             <div id="home-welcome-center">
-                <img src="img/skrivstil/welcome.png">
+                <img src="/img/skrivstil/welcome.png">
                 <!-- SÖK RESA -->
                 <div class="test" ng-init="changeCurrency()">
                     <div class="searchField container">
