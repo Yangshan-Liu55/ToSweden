@@ -61,7 +61,7 @@
 
     obj2 = '{"getroute": '+obj2 +"}";
 
-       console.log("obj2: "+obj2)
+      // console.log("obj2: "+obj2);
      //   obj2 = obj2.replace('},{','},{');
   
     //   obj = obj.replace('\\','');
@@ -69,7 +69,7 @@
 
       var objOut = JSON.parse(obj2);
        // console.log("objOut "+objOut.routeName)
-       console.log("objOut.getroute.length "+objOut.getroute.length);
+    //   console.log("objOut.getroute.length "+objOut.getroute.length);
     let resultOut="<div class='row'>";
             resultOut+="<div class='col-12 p-3'><h1>"+objOut.getroute[0].routeName+"</h1></div>";
     resultOut+="<div class='col-12 pb-3'><iframe class='img-thumbnail' width='100%' height='400px' frameborder='0' style='border:0'  src='" + objOut.getroute[0].googleSrc + "' allowfullscreen></iframe></div>";  

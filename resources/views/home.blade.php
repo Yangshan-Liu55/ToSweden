@@ -33,7 +33,7 @@
     <div id="homeimage">
         <div id="home-welcome">
             <div id="home-welcome-center">
-                <img src="img/skrivstil/welcome.png">
+                <img src="/img/skrivstil/welcome.png">
             </div>
         </div>
         <!-- <div style="height:100%" class="container">

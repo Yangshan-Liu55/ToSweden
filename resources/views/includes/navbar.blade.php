@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-primary text-uppercase">
         <a class="navbar-brand" href="/home">
-                <img src="http://steffo.info/img/logotyp/logotyp.png" height="70" class="d-inline-block align-top" alt="">
+                <img src="/img/logotyp/logotyp.png" height="70" class="d-inline-block align-top" alt="">
                
               </a>
 
