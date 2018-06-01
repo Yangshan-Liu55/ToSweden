@@ -156,7 +156,7 @@
         <!-- Footer -->
         @include('includes.footer')
 
-
+<script>console.log("jfjfjfjf")</script>
 </body>
 
 </html>
