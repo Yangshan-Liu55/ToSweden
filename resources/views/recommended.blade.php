@@ -25,9 +25,9 @@
     @include('includes.stylesscripts')
 
     </head>
-    <body ng-app="myApp" ng-controller="HotelsCtrl">
+    <body ng-app="myApp" ng-controller="HotelsCtrl" class=" imgBG">
             @include('includes.navbar')
-        <div class="position-ref full-height imgBG">
+        <div class="position-ref full-height">
               
             <div class="container">
                 
