@@ -39,7 +39,7 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
 
     //när man söker resa
     $scope.search = function () {
-        
+
 
         //skapar jsonUrl för sökningen
         var jsonUrl = searchAPI + searchAPIKey + searchSpecify + searchFrom + $scope.fromCity + searchTo + $scope.toCity;
@@ -52,7 +52,7 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
             //lagrar datan från json
             $scope.info = response.data;
 
-            
+
             //visar api url
             //document.getElementById("apiUrl").innerHTML = jsonUrl;
 
@@ -65,7 +65,7 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
             //document.getElementById("apiUrl").innerHTML = "Ingen respons från servern!";
 
         });
-       
+
     }
     $scope.closeResult = function () {
         $scope.isResultOpen = false;
@@ -146,7 +146,12 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
 
     //visar detaljer om resan, avgångar, ankomster, restid, pris och valuta
     $scope.getDetails = function (index) {
-
+        removePolyline();
+        $scope.map = new google.maps.Map(document.getElementById(index), {
+            zoom: 4,
+            center: { lat: 61.72744, lng: 15.62597 },
+            mapTypeId: 'roadmap'
+        });
         //hämtar resvägen man vill ha detaljer för
         var route = $scope.info.routes[index];
 
@@ -184,6 +189,19 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
             //antal segment
             $scope.segmentLength = route.segments.length;
 
+            if (typeof route.segments[i].path !== 'undefined') {
+                setPolyline(google.maps.geometry.encoding.decodePath(route.segments[i].path));
+            } else {
+                setPolyline([{
+                    lat: $scope.info.places[route.segments[i].depPlace].lat,
+                    lng: $scope.info.places[route.segments[i].depPlace].lng
+                },
+                {
+                    lat: $scope.info.places[route.segments[i].arrPlace].lat,
+                    lng: $scope.info.places[route.segments[i].arrPlace].lng
+                }
+                ]);
+            }
             //om prices fältet inte är tomt
             if (route.segments[i].indicativePrices != null) {
                 //lägsta pris segment resan
@@ -202,68 +220,86 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
 
         $scope.googleUrl = $sce.trustAsHtml("<iframe class='img-thumbnail' width='100%' height='400px' frameborder='0' style='border:0'  src='" + source + "' allowfullscreen></iframe>");
 
-        
-
     };
 
-    $scope.getVeichle = function(index){
+    var polyLine = [];
+    function setPolyline(_path) {
+        polyLine.push(new google.maps.Polyline({
+            //map: map,
+            path: _path,
+            strokeColor: '#006699',
+            strokeOpacity: 1,
+            strokeWeight: 3
+        }));
+        polyLine[polyLine.length - 1].setMap($scope.map);
+    }
+    function removePolyline() {
+        if (typeof polyLine !== 'undefined') {
+            for (var index in polyLine) {
+                polyLine[index].setMap(null);
+            }
+            polyLine = [];
+        }
+    }
+
+    $scope.getVeichle = function (index) {
         var route = $scope.info.routes[index];
 
-        for (var i = 0; i < route.segments.length; i++){
-        $scope.vehicles = $scope.info.vehicles[route.segments[i].vehicle].name;
-        var output = "";
-       
-       
-        if($scope.vehicles == "Train"){
-            output = output + ' <img src="img/travel/pos/train.png" width ="20px" height="20px">';
-            console.log("DU SKA TA TÅGET");
+        for (var i = 0; i < route.segments.length; i++) {
+            $scope.vehicles = $scope.info.vehicles[route.segments[i].vehicle].name;
+            var output = "";
+
+
+            if ($scope.vehicles == "Train") {
+                output = output + ' <img src="img/travel/pos/train.png" width ="20px" height="20px">';
+                console.log("DU SKA TA TÅGET");
+            }
+            if ($scope.vehicles == "RER") {
+                console.log("DU SKA TA TÅG V2");
+            }
+            if ($scope.vehicles == "Bus") {
+                output = output + ' <img src="img/travel/pos/bus.png" width ="20px" height="20px">';
+                console.log("DU SKA TA BUSSEN");
+            }
+            if ($scope.vehicles == "Rideshar") {
+                console.log("Ride share");
+            }
+            if ($scope.vehicles == "Car") {
+                output = output + ' <img src="img/travel/pos/car.png" width ="20px" height="20px">';
+                console.log("DU SKA TA BILEN");
+            }
+            if ($scope.vehicles == "Eurotunne") {
+                console.log("DU SKA TA tåg eurotunnel");
+            }
+            if ($scope.vehicles == "car ferry") {
+                output = output +
+                    console.log("DU SKA TA BÅT FÄRGA");
+            }
+            if ($scope.vehicles == "Plane") {
+                output = output + ' <img src="img/travel/pos/air.png" width ="20px" height="20px">';
+                console.log("DU SKA TA PLANET ");
+            }
+            if ($scope.vehicles == "Walk") {
+                output = output + ' <img src="img/travel/pos/walk.png" width ="20px" height="20px">';
+                console.log("DU SKA Gå");
+            }
+            if ($scope.vehicles == "Taxi") {
+                console.log("DU SKA TA Taxi");
+            }
+            if ($scope.vehicles == "Uber") {
+                console.log("DU SKA TA EN UBER");
+            }
+            if ($scope.vehicles == "Shuttle") {
+                console.log("DU SKA TA EN SKÅPBIL");
+            }
+            if ($scope.vehicles == "Towncar") {
+                console.log("DU SKA TA STADSBIL");
+            }
         }
-        if($scope.vehicles == "RER"){
-            console.log("DU SKA TA TÅG V2");
-        }
-        if($scope.vehicles == "Bus"){
-            output = output + ' <img src="img/travel/pos/bus.png" width ="20px" height="20px">';
-            console.log("DU SKA TA BUSSEN");
-        }
-        if($scope.vehicles == "Rideshar"){
-            console.log("Ride share");
-        }
-        if($scope.vehicles == "Car"){
-            output = output + ' <img src="img/travel/pos/car.png" width ="20px" height="20px">';
-            console.log("DU SKA TA BILEN");
-        }
-        if($scope.vehicles == "Eurotunne"){
-            console.log("DU SKA TA tåg eurotunnel");
-        }
-        if($scope.vehicles == "car ferry"){
-            output = output + 
-            console.log("DU SKA TA BÅT FÄRGA");
-        }
-        if($scope.vehicles == "Plane"){
-            output = output + ' <img src="img/travel/pos/air.png" width ="20px" height="20px">';
-            console.log("DU SKA TA PLANET ");
-        }
-        if($scope.vehicles == "Walk"){
-            output = output + ' <img src="img/travel/pos/walk.png" width ="20px" height="20px">';
-            console.log("DU SKA Gå");
-        }
-        if($scope.vehicles == "Taxi"){
-            console.log("DU SKA TA Taxi");
-        }
-        if($scope.vehicles == "Uber"){
-            console.log("DU SKA TA EN UBER");
-        }
-        if($scope.vehicles == "Shuttle"){
-            console.log("DU SKA TA EN SKÅPBIL");
-        }
-        if($scope.vehicles == "Towncar"){
-            console.log("DU SKA TA STADSBIL");
-        }
-    }    
-    //End of for loop
+        //End of for loop
 
     }
-    
+
     $scope.saveLocal = function () {
         localStorage.setItem("arraydata", JSON.stringify($scope.travelInfo));
     }
@@ -284,12 +320,12 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
             $scope.localMap = $sce.trustAsHtml("<iframe class='img-thumbnail' width='100%' height='400px' frameborder='0' style='border:0'  src='" + localSrc + "' allowfullscreen></iframe>");
             //console.log($scope.localInfo);
         }
-        else{
+        else {
             document.getElementById("warning").innerHTML = "Ingen sparad resa finns";
         }
     }
 
-   
+
 
     /*LÄGG TILL ICON VID SÖKRESULTATEN */
     $scope.addIcon = function (travelText) {
