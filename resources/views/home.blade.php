@@ -26,7 +26,7 @@
     @include('includes.stylesscripts')
 </head>
 
-<body ng-app="myApp" class="imgBG">
+<body ng-app="myApp" ng-controller="searchCtrl" class="imgBG">
     @include('includes.navbar')
 
     <!-- NAVIGATION -->
@@ -35,7 +35,7 @@
             <div id="home-welcome-center">
                 <img src="img/skrivstil/welcome.png">
                 <!-- SÖK RESA -->
-                <div class="test" ng-controller="searchCtrl" ng-init="changeCurrency()">
+                <div class="test" ng-init="changeCurrency()">
                     <div class="searchField container">
                         <div id="navbar">
                             <form class="container" name="searchForm">
@@ -51,25 +51,25 @@
                                             <option value="Falun">Falun</option>
                                             <option value="Åre">Åre</option>
                                         </select>
-                                    <div align="right">
-                                <button ng-click="search()" type="submit" class="btn btn-lg mt-3">SÖK</button>
-                                <button ng-click="loadLocal()" class="btn btn-lg mt-3">Sparad Resa</button>
-                            </div>
+                                        <div align="right">
+                                            <button ng-click="search()" type="submit" class="btn btn-lg mt-3">SÖK</button>
+                                            <button ng-click="loadLocal()" class="btn btn-lg mt-3">Sparad Resa</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
-                </form>
-            </div>
-        </div>
-        <!-- SLUT på SÖK RESA -->
+                    <!-- SLUT på SÖK RESA -->
 
+                </div>
             </div>
-        </div>
-        <!-- <div style="height:100%" class="container">
+            <!-- <div style="height:100%" class="container">
             <h1 class="text-center" id="welcometext">WELCOME
                 <span class="highlight">TO SWEDEN</span>
             </h1>
         </div>-->
-    </div>
+        </div>
         <p id="warning"></p>
         <div ng-show="localShow" class="container">
 
@@ -86,7 +86,7 @@
                     <div class="col-12 col-lg-6 ">
                         <div class="row" ng-repeat="test in localInfo">
                             <div class="col-12 pb-2 pt-2">
-                               @{{test.depName}} - @{{test.arrName}}
+                                @{{test.depName}} - @{{test.arrName}}
                             </div>
                             <div class="col-6 ">
                                 @{{timeConvert(test.transferTime)}}
@@ -98,8 +98,8 @@
                     </div>
                 </div>
                 <div align="center">
-            <button ng-click="localShow=false" class="btn btn-danger col-6 pointer">Stäng</button>
-            </div>
+                    <button ng-click="localShow=false" class="btn btn-danger col-6 pointer">Stäng</button>
+                </div>
             </div>
         </div>
         <!-- 
@@ -148,9 +148,9 @@
 
         <!-- Footer -->
         <div class="footerpositon">
-        @include('includes.footer')
+            @include('includes.footer')
         </div>
-<script>console.log("jfjfjfjf")</script>
+        <script>console.log("jfjfjfjf")</script>
 </body>
 
 </html>
