@@ -25,6 +25,14 @@
 </head>
 <body>
         @include('includes.navbar')
+
+        <form action="{{ action('shareroutesController@store') }}">
+                <textarea  name="textin" rows="4" cols="50">@{{travelInfo}}</textarea>
+                <input type="submit" value="Dela resa" class="btn col-4 mt-2 pointer  btn-info">    
+            </form>
+
+
+
         <div  align ="center">
         <div class="center"> 
                 <img style="width:100%;" src="/img/foto/osrings.jpg" />

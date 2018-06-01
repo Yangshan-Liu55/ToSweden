@@ -66,10 +66,7 @@
                                 <button ng-click="saveLocal()" class="btn col-4 btn-success mt-2 pointer">Spara resa</button>
                                 </div>
                                 <div align="right">
-                                {!! Form::open(['action'=>'shareroutesController@store', 'method'=>'POST']) !!}
-                                <textarea hidden="hidden" name="textin" rows="4" cols="50">@{{travelInfo}}</textarea>
-                                {{Form::submit('Dela resa', ['class'=>'btn col-4 mt-2 pointer  btn-info'])}}
-                                {!! Form::close() !!}
+   
                                 </div>
                             </div>
                         </div>
