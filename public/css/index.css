@@ -4,6 +4,19 @@
 body {
     top: 0px !important; 
     }
+/* Disable google translate original text tooltips */
+.goog-tooltip {
+    display: none !important;
+}
+.goog-tooltip:hover {
+    display: none !important;
+}
+.goog-text-highlight {
+    background-color: transparent !important;
+    border: none !important; 
+    box-shadow: none !important;
+}
+/* End of disable google translate original text tooltips */
 body {
     background-color: #006699;
     color: white;
