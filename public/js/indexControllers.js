@@ -208,35 +208,35 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
 
     $scope.getVeichle = function(index){
         var route = $scope.info.routes[index];
+        var output = "";
 
         for (var i = 0; i < route.segments.length; i++){
         $scope.vehicles = $scope.info.vehicles[route.segments[i].vehicle].name;
-        var output = "";
-       
-       
+        
         if($scope.vehicles == "Train"){
             output = output + ' <img src="img/travel/pos/train.png" width ="20px" height="20px">';
             console.log("DU SKA TA TÅGET");
         }
         if($scope.vehicles == "RER"){
+            output = output + ' <img src="img/travel/pos/train.png" width ="20px" height="20px">';
             console.log("DU SKA TA TÅG V2");
         }
         if($scope.vehicles == "Bus"){
             output = output + ' <img src="img/travel/pos/bus.png" width ="20px" height="20px">';
             console.log("DU SKA TA BUSSEN");
         }
-        if($scope.vehicles == "Rideshar"){
+        if($scope.vehicles == "Rideshare"){
             console.log("Ride share");
         }
         if($scope.vehicles == "Car"){
             output = output + ' <img src="img/travel/pos/car.png" width ="20px" height="20px">';
             console.log("DU SKA TA BILEN");
         }
-        if($scope.vehicles == "Eurotunne"){
+        if($scope.vehicles == "Eurotunnel"){
             console.log("DU SKA TA tåg eurotunnel");
         }
         if($scope.vehicles == "car ferry"){
-            output = output + 
+            output = output + ' <img src="img/travel/pos/air.png" width ="20px" height="20px">';
             console.log("DU SKA TA BÅT FÄRGA");
         }
         if($scope.vehicles == "Plane"){
@@ -259,6 +259,7 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
         if($scope.vehicles == "Towncar"){
             console.log("DU SKA TA STADSBIL");
         }
+        return $sce.trustAsHtml(output);
     }    
     //End of for loop
 
