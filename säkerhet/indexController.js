@@ -227,13 +227,13 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
                 var shareLowPrice = $scope.convertMoney(lowPrice);
                 var shareHighPrice = $scope.convertMoney(highPrice);
 
-              //läger till allt i array
-              $scope.travelInfo.push({ 'routeName': $scope.routeName, 'shareLowPrice':shareLowPrice, 'shareHighPrice':shareHighPrice,'lowTotalPrice': $scope.lowestPrice, 'highTotalPrice': $scope.highestPrice, 'totalTravelTime': $scope.travelTime, 'depLat': $scope.depLat, 'depLng': $scope.depLng, 'arrLat': $scope.arrLat, 'arrLng': $scope.arrLng, 'path': $scope.googlePath, 'depName': $scope.depName, 'arrName': $scope.arrName, 'transferTime': time, 'lowPrice': lowPrice, 'highPrice': highPrice });
-                
+                //läger till allt i array
+                $scope.travelInfo.push({ 'routeName': $scope.routeName, 'lowTotalPrice': $scope.lowestPrice, 'highTotalPrice': $scope.highestPrice, 'totalTravelTime': $scope.travelTime, 'shareLowPrice': shareLowPrice, 'shareHighPrice': shareHighPrice, 'depLat': $scope.depLat, 'depLng': $scope.depLng, 'arrLat': $scope.arrLat, 'arrLng': $scope.arrLng,  'depName': $scope.depName, 'arrName': $scope.arrName, 'transferTime': time, 'lowPrice': lowPrice, 'highPrice': highPrice });
+               
             }
             else {
                 //lägg till i array
-                $scope.travelInfo.push({ 'routeName': $scope.routeName, 'shareLowPrice':shareLowPrice, 'shareHighPrice':shareHighPrice, 'lowTotalPrice': $scope.lowestPrice, 'highTotalPrice': $scope.highestPrice, 'totalTravelTime': $scope.travelTime, 'depLat': $scope.depLat, 'depLng': $scope.depLng, 'arrLat': $scope.arrLat, 'arrLng': $scope.arrLng, 'path': $scope.googlePath, 'depName': $scope.depName, 'arrName': $scope.arrName, 'transferTime': time });
+                $scope.travelInfo.push({ 'routeName': $scope.routeName, 'lowTotalPrice': $scope.lowestPrice, 'highTotalPrice': $scope.highestPrice, 'totalTravelTime': $scope.travelTime, 'depLat': $scope.depLat, 'depLng': $scope.depLng, 'arrLat': $scope.arrLat, 'arrLng': $scope.arrLng, 'depName': $scope.depName, 'arrName': $scope.arrName, 'transferTime': time });
             }
         }
 
