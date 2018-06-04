@@ -398,7 +398,11 @@ p,
     padding:3px;
     margin:10px;
  }
-
+ .greyCard{
+    background: #dfdfdf;
+    padding:3px;
+    margin:10px;
+ }
 /* Mouse Hover for cities */
 
 
@@ -560,11 +564,11 @@ p,
 .leftBtn {border-radius: 5px 0px 0px 5px;}
 .middleBtn {border-radius: 0;}
 .rightBtn {border-radius: 0px 5px 5px 0px;}
-.menuSelect:hover, .rekoSelect:hover{background: #007cba; border-color: #007cba;}
+.menuSelect:hover, .rekoSelect:hover{background: #1c8ec7; border-color: #1c8ec7;}
 .tabSelected:hover{background: #DBA901;}
 .tabBorder{border-radius: 5px 5px 5px 5px;}
 .hotelSelect:active{background: #0062cc; border-color: #0062cc; color: white}
 @media (hover: hover) {
-    .hotelSelect:hover{background: #007cba; border-color: #007cba; color: white}
+    .hotelSelect:hover{background: #1c8ec7; border-color: #1c8ec7; color: white}
     .hotelSelect:active{background: #0062cc; border-color: #0062cc; color: white}
 }
