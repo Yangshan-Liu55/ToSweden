@@ -9,7 +9,7 @@ var searchTo = "&dName=";
 
 //valuta api bas
 var currencyAPI = "http://data.fixer.io/api/latest?";
-var currencyAPIKey = "access_key=e21bb1b7b92000e2ab502fe0df559c47";
+var currencyAPIKey = "access_key=75c2d7067bea8674ce16c6a88eb10ccc";
 
 //google map API
 var googleAPI = "https://www.google.com/maps/embed/v1/directions?";
