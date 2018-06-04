@@ -36,7 +36,7 @@
                 <img src="/img/skrivstil/welcome.png">
                 <!-- SÖK RESA -->
                 <div class="test" ng-init="changeCurrency()">
-                    <div class="searchField container">
+                    <div class="p-1 searchField container">
                         <div id="navbar">
                             <form class="container" name="searchForm">
                                 <div class="col-sm-12" align="center">
