@@ -69,9 +69,9 @@
                                     <form method="POST" action="/share">
                                         {{ csrf_field() }}
                                         <div class="form-group" >
-                                            <textarea class="form-control"  name="body">@{{travelInfo[0]}}</textarea>
+                                            <textarea class="form-control" hidden="hidden" name="body">@{{travelInfo}}</textarea>
                                         </div>
-                                        <button type="submit" class="btn btn-default">Submit</button>
+                                        <button type="submit" class="btn col-4 mt-2 pointer  btn-info">Dela resa</button>
                                     </form>
                                 </div>
                             </div>
