@@ -339,7 +339,7 @@ p,
 .searchField {
 
     background-color: #00000052;
-    padding: 10px;
+    
 }
 
 .searchField button, .table button{
@@ -394,7 +394,8 @@ p,
 
 /*Background for text*/
  .yellowCard{
-    background: #ffcc00;
+    background: #dfdfdf;
+    color: black;
     padding:3px;
     margin:10px;
  }
