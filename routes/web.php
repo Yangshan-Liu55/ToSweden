@@ -22,15 +22,6 @@ Route::get('/home', function () {
   //  return view('home', compact('savedroutes')); //Retur till view home, variabledata skickas med.
 });
 
-//Route::resource('socialmedia','shareroutesController');
-
-Route::get('/socialmedia', function () {
-    return view('socialmedia');
-});
-
-Route::get('/socialmedia/{id}', function () {
-    return view('socialmedia');
-});
 
 Route::get('/about', function () {
     return view('about');
@@ -47,3 +38,7 @@ Route::get('/scheduele', function () {
 Route::get('/city', function () {
     return view('city');
 });
+
+Route::get('/create', 'TaskController@index'); //Om sidan create används, gå till TaskController@index
+Route::post('/share', 'TaskController@store');
+Route::get('/share/{task}', 'TaskController@show');

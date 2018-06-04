@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateShareroutesTable extends Migration
+class CreateTasksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateShareroutesTable extends Migration
      */
     public function up()
     {
-        Schema::create('shareroutes', function (Blueprint $table) {
+        Schema::create('tasks', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('saveroutes_travelInfo');
-            
+            $table->text('body');
         });
-
     }
 
     /**
@@ -28,6 +26,6 @@ class CreateShareroutesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shareroutes');
+        Schema::dropIfExists('tasks');
     }
 }
