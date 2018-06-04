@@ -36,8 +36,11 @@
                                         <div class="row">   
                                                 <div class="col-12 middleblue-bg white-col pt-3 pb-2 ">
                                                 <h4>@{{headline}}</h4>  
-                                                </div>    
-                                                <div class="row middleblue-border remove-house-borders px-4" ng-repeat="test in shareOut">
+                                                </div>
+                                                <div class="col-12">
+                                                        <div class="row middleblue-border remove-house-borders px-4" ng-repeat="test in shareOut">
+                                                        <div style="width:100%;" class="row">
+                                                        
                                                         <div class="col-12 pb-2 pt-2">
                                                                 
                                                         <h1>  @{{test.depName}} - @{{test.arrName}}</h1>
@@ -48,7 +51,11 @@
                                                         <div class="col-6 pb-2">
                                                                 @{{test.lowTotalPrice}} - @{{test.highTotalPrice}}
                                                         </div>
+
+                                                        </div>
+                                                        </div>
                                                 </div>
+                                                
                                         </div>
                                         </div>
                                 </div>

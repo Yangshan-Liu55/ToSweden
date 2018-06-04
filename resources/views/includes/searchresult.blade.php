@@ -66,7 +66,7 @@
                                 <button ng-click="saveLocal()" class="btn col-4 btn-success mt-2 pointer">Spara resa</button>
                                 </div>
                                 <div align="right">
-                                        <form method="POST" action="/toSweden/share">
+                                        <form method="POST" action="/share">
                                         {{ csrf_field() }}
                                         <div class="form-group" >
                                             <textarea class="form-control" hidden="hidden" name="body">@{{travelInfo}}</textarea>

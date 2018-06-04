@@ -20,7 +20,7 @@
         </ul>
 
 
-        <form method="POST" action="/toSweden/share">
+        <form method="POST" action="/share">
             {{ csrf_field() }}
             <div class="form-group">
 
