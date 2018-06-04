@@ -56,6 +56,9 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
             //visar api url
             //document.getElementById("apiUrl").innerHTML = jsonUrl;
 
+            if(!$scope.isResultOpen){
+                scrollDown();
+            }
             //visar true om man har klickat på sök och fått resultat
             $scope.isResultOpen = true;
 
@@ -401,7 +404,9 @@ app.controller('selectTabs', function ($scope) {
     };
 });
 
-
+function scrollDown() {
+    $('html, body').animate({scrollTop:500},'50');
+}
 
 //Hämtar JSON för Cities till schema i Cities.php.
 app.controller('CitiesCtrl', function ($scope, $http, $location, $sce) {
