@@ -48,6 +48,7 @@
             för att hitta de rätta vägarna till årets olympiska spel. <BR><BR>
                <span class="text-center">Välkommen till landet av snö och is!</span> 
         </p>
+        
      
         <div class="row " align="center">
         
@@ -91,6 +92,8 @@
     </div>
 <!-- Slut om OS -->
 
+ <!--START PÅ TEXT-->
+
 <h1 id="about" class="text-center mt-5">Ett svenskt vinter-OS ska bli den inspirationskälla vi vill att OS ska vara:</h1>
         <div class="container">         
         <hr class="hr" size=1   color="#ffcc00" style="border:2 solid #ffcc00">
@@ -132,8 +135,6 @@
         prova på aktiviteter för barn och ungdomar samt nya idrottsformer i icke idrottstraditionella miljöer och stadsdelar ges 
         ett sammanhang. Vinterspel på hemmaplan ger inte bara kraft åt Paralympics och paraidrottare med siktet inställt på att 
         delta själva, utan fäster uppmärksamhet på tillgänglighet både för idrott och ur ett större samhälleligt perspektiv.
-            
-            
         </p>
      
         <div class="row " align="center">
@@ -149,7 +150,16 @@
         </div>
         </div>
     </div>
+    <!--SLUT PÅ TEXT-->
 
+    <div class="container p-4  col-md-6 col-sm-12">
+            <button id="osschema-knapp" class="btn darkblue-bg btn-block pointer" data-toggle="modal" data-target="#eventsModal">
+            <a href="https://sok.se/" target="_blank">
+            <img src="/img/foto/sok.png" alt="2 Sweden">
+            <h2 style="color:white;">Sveriges Olympiska Kommitté</h2>
+            </a>
+            </button>
+        </div>
    <br>
    <div  align ="center" class=" pt-2 pb-4">
    <img src="/img/logotyp/logotyp.png" alt="2 Sweden">
