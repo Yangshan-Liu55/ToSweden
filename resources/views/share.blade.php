@@ -23,42 +23,38 @@
     @include('includes.stylesscripts')
 
     </head>
-    <body ng-app="myApp" ng-controller="ShareCtrl">
-            @include('includes.navbar')
-            <div class="container">
-                <div class="p-3"><h2>Din resa till OS</h2></div>
-
-       
+    <body ng-app="myApp" ng-controller="ShareCtrl" class="imgBG">
+        @include('includes.navbar')
+        <div class="container">
+               
                 <div  class="container">
-
-                                <div style="color: #006699" class="col-12 even-paler-grey-bg py-2  mt-3 ">
-                                    <div class="row">
-                                        <div class="col-4">Resnam</div>
-                                        <div class="col-4">Pris</div>
-                                        <div class="col-4">Tid</div>
-                                    </div>
-                                    <div id="" class="row">
-                                      
+                        <div class="p-3 middleblue-bg white-col shadow-bg rounded mt-3"><h2 class="text-center">Din resa till OS</h2></div>
+                        <div class="col-12 middleblue-col even-paler-grey-bg shadow-bg mb-4 mt-3 rounded">
+                                <div  class="row">                                    
                                         <!-- Skriver ut delarna i resrutt -->
-                                        <div class="col-12 col-lg-6 ">
-                                                      
-                                            <div class="row" ng-repeat="test in shareOut">
-                                                <div class="col-12 pb-2 pt-2">
-                                                                @{{test.routeName}}
-                                                    @{{test.depName}} - @{{test.arrName}}
+                                        <div class="col-12 ">
+                                        <div class="row">   
+                                                <div class="col-12 middleblue-bg white-col pt-3 pb-2 ">
+                                                <h4>@{{headline}}</h4>  
+                                                </div>    
+                                                <div class="row middleblue-border remove-house-borders px-4" ng-repeat="test in shareOut">
+                                                        <div class="col-12 pb-2 pt-2">
+                                                                
+                                                        <h1>  @{{test.depName}} - @{{test.arrName}}</h1>
+                                                        </div>
+                                                        <div class="col-6 pb-2">
+                                                                @{{timeConvert(test.transferTime)}}
+                                                        </div>
+                                                        <div class="col-6 pb-2">
+                                                                @{{test.lowTotalPrice}} - @{{test.highTotalPrice}}
+                                                        </div>
                                                 </div>
-                                                <div class="col-6 ">
-                                                    @{{timeConvert(test.transferTime)}}
-                                                </div>
-                                                <div class="col-6 ">
-                                                    @{{test.shareLowPrice}} - @{{test.shareHighPrice}}
-                                                </div>
-                                            </div>
                                         </div>
-                                    </div>
-                                    
+                                        </div>
                                 </div>
+                        </div>
             </div>
+        </div>
     <!-- Footer -->
     @include('includes.footer')
 
@@ -68,7 +64,6 @@
 
                 var sites = {!! json_encode($sharepost->toArray()) !!};
 
-                console.log("sites: "+sites)
 
                 //Byter ut adressen så att den får rätt format med id-nummer i slutet, 
                 //så att den kan hämta info från databasen.
@@ -76,6 +71,8 @@
                 var obj2 = sites.body.toString();
                 var objOut = JSON.parse(obj2);
                 $scope.shareOut = objOut;
+                $scope.headline = objOut[0].routeName;
+              
 
                 $scope.timeConvert = function (data) {
                         var minutes = data % 60;
@@ -92,52 +89,10 @@
                         return result;
                 }
 
-                });
-               
-
-
-
-
-
-
-
-
-     
-           /*
-            //Hämtar den genererade json från shareroutesController function store
-            var sites = {!! json_encode($sharepost->toArray()) !!};
-
-            console.log("sites: "+sites)
-            
-            //Byter ut adressen så att den får rätt format med id-nummer i slutet, 
-            //så att den kan hämta info från databasen.
-            window.history.replaceState(null, null, "/share/"+sites.id);
-            var obj2 = sites.body.toString();
-            var objOut = JSON.parse(obj2);
-            $scope.shareOut = objOut;
-            //obj2 = '{"getroute": '+obj2 +"}";
-           console.log("objOut: "+objOut)
-           console.log(objOut.routeName);
-       
-
-          
-           // console.log("objOut "+objOut.routeName)
-           console.log("objOut.getroute.length "+objOut.getroute.length);
-        let resultOut="<div class='row'>";
-        resultOut+="<div class='col-12 p-3'><h1>"+objOut.getroute[0].routeName[0]+"</h1></div>";
-        resultOut+="<div class='col-12 pb-3'><iframe class='img-thumbnail' width='100%' height='400px' frameborder='0' style='border:0'  src='" + objOut.getroute[0].googleSrc + "' allowfullscreen></iframe></div>";  
-        for (x=0;x<objOut.getroute.length;x++)
-        {
-            resultOut+="<div class='col-12 p-2 middleblue-border remove-house-borders'>"+objOut.getroute[x].depName+" - "+objOut.getroute[x].arrName+"</div>";
-        }
       
-        resultOut+="<div class='col-6 py-3 mt-2 white-col lightblue-bg'>Total restid: "+objOut.getroute[0].totalTravelTime+"</div>";
-        resultOut+="<div class='col-6 py-3 mt-2 white-col lightblue-bg'>Total summa: "+objOut.getroute[0].highTotalPrice+"</div>";
-        resultatOut="</div>";
-        console.log("resultOut "+ resultOut)
-       document.getElementById("routeOut").innerHTML = resultOut;
+        });
 
-       */
+
             </script>
     </body>
 </html>
