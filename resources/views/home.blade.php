@@ -150,7 +150,7 @@
         <div class="footerpositon">
             @include('includes.footer')
         </div>
-        <script>console.log("jfjfjfjf")</script>
+        
 </body>
 
 </html>
