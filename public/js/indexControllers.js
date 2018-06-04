@@ -230,54 +230,6 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
 
     };
 
-<<<<<<< HEAD
-    $scope.getVeichle = function(index){
-        var route = $scope.info.routes[index];
-        var output = "";
-
-        for (var i = 0; i < route.segments.length; i++){
-        $scope.vehicles = $scope.info.vehicles[route.segments[i].vehicle].name;
-        
-        if($scope.vehicles == "Train"){
-            output = output + ' <img src="img/travel/pos/train.png" width ="20px" height="20px">';
-            console.log("DU SKA TA TÅGET");
-        }
-        if($scope.vehicles == "RER"){
-            output = output + ' <img src="img/travel/pos/train.png" width ="20px" height="20px">';
-            console.log("DU SKA TA TÅG V2");
-        }
-        if($scope.vehicles == "Bus"){
-            output = output + ' <img src="img/travel/pos/bus.png" width ="20px" height="20px">';
-            console.log("DU SKA TA BUSSEN");
-        }
-        if($scope.vehicles == "Rideshare"){
-            console.log("Ride share");
-        }
-        if($scope.vehicles == "Car"){
-            output = output + ' <img src="img/travel/pos/car.png" width ="20px" height="20px">';
-            console.log("DU SKA TA BILEN");
-        }
-        if($scope.vehicles == "Eurotunnel"){
-            console.log("DU SKA TA tåg eurotunnel");
-        }
-        if($scope.vehicles == "car ferry"){
-            output = output + ' <img src="img/travel/pos/air.png" width ="20px" height="20px">';
-            console.log("DU SKA TA BÅT FÄRGA");
-        }
-        if($scope.vehicles == "Plane"){
-            output = output + ' <img src="img/travel/pos/air.png" width ="20px" height="20px">';
-            console.log("DU SKA TA PLANET ");
-        }
-        if($scope.vehicles == "Walk"){
-            output = output + ' <img src="img/travel/pos/walk.png" width ="20px" height="20px">';
-            console.log("DU SKA Gå");
-        }
-        if($scope.vehicles == "Taxi"){
-            console.log("DU SKA TA Taxi");
-        }
-        if($scope.vehicles == "Uber"){
-            console.log("DU SKA TA EN UBER");
-=======
     var polyLine = [];
     function setPolyline(_path) {
         polyLine.push(new google.maps.Polyline({
@@ -296,7 +248,6 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
                 polyLine[index].setMap(null);
             }
             polyLine = [];
->>>>>>> 61c4155825020c108538edda217387901565cb4a
         }
     }
 
@@ -373,14 +324,9 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
             if ($scope.vehicles == "Towncar") {
                 console.log("DU SKA TA STADSBIL");
             }
+            return $sce.trustAsHtml(output);
         }
-<<<<<<< HEAD
-        return $sce.trustAsHtml(output);
-    }    
-    //End of for loop
-=======
         //End of for loop
->>>>>>> 61c4155825020c108538edda217387901565cb4a
 
     }
 
