@@ -162,9 +162,16 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
 
         $scope.arrCity = $scope.info.places[route.arrPlace].longName;
 
-        $scope.lowestPrice = $scope.convertMoney(route.indicativePrices[0].priceLow);
 
-        $scope.highestPrice = $scope.convertMoney(route.indicativePrices[0].priceHigh);
+        if (route.indicativePrices !== undefined) {
+            $scope.lowestPrice = $scope.convertMoney(route.indicativePrices[0].priceLow);
+
+            $scope.highestPrice = $scope.convertMoney(route.indicativePrices[0].priceHigh);
+        }else{
+            
+            $scope.lowestPrice = "Ingen info";
+            $scope.highestPrice = "Ingen info";
+        }
 
         $scope.travelTime = $scope.timeConvert(route.totalDuration);
 
