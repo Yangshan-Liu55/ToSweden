@@ -95,6 +95,11 @@ p,
     
 }
 
+.fadeBGcolor{
+
+    background-color: rgba(0, 0, 0, 0.555);
+}
+
 .textcolor{
 
     color:#00496d;
