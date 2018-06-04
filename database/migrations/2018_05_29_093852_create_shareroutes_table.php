@@ -16,6 +16,7 @@ class CreateShareroutesTable extends Migration
         Schema::create('shareroutes', function (Blueprint $table) {
             $table->increments('id');
             $table->text('saveroutes_travelInfo');
+            
         });
 
     }

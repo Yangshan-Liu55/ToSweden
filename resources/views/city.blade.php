@@ -41,10 +41,10 @@
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
                 <div class="carousel-item active">
-                <img class="d-block w-100 h-60" ng-src="img/foto/@{{c.cities_img01}}" alt="City image 1">
+                <img class="d-block w-100 h-60" ng-src="/img/foto/@{{c.cities_img01}}" alt="City image 1">
                 </div>     
                 <div class="carousel-item">
-                <img class="d-block w-100 h-60" ng-src="img/foto/@{{c.cities_img02}}" alt="City image 2"> 
+                <img class="d-block w-100 h-60" ng-src="/img/foto/@{{c.cities_img02}}" alt="City image 2"> 
                 </div>                
                 </div>     
                 <!-- Left and right controls -->
@@ -78,8 +78,8 @@
             </div>
             <div class="yellowCard rounded" ng-repeat="t in todo | filter: {todo_cities_id:citynr} | filter: {todo_activity:toToType}">                
                 <div class="row row-wrap">
-                    <div class="col col-12 col-md-6">
-                        <img ng-src="img/todo/@{{t.todo_img01}}" alt="@{{t.todo_name}}" class="d-block w-100 h-60">
+                    <div class="col col-12 col-md-6 my-auto">
+                        <a href="/img/todo/@{{t.todo_img01}}"><img ng-src="/img/todo/@{{t.todo_img01}}" alt="@{{t.todo_name}}" class="d-block w-100 h-60"></a>
                     </div>
                     <div class="col col-12 col-md-6">
                             

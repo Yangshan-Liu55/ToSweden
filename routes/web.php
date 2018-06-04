@@ -22,7 +22,11 @@ Route::get('/home', function () {
   //  return view('home', compact('savedroutes')); //Retur till view home, variabledata skickas med.
 });
 
-Route::resource('socialmedia','shareroutesController');
+//Route::resource('socialmedia','shareroutesController');
+
+Route::get('/socialmedia', function () {
+    return view('socialmedia');
+});
 
 Route::get('/socialmedia/{id}', function () {
     return view('socialmedia');

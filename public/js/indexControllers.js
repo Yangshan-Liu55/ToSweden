@@ -9,7 +9,7 @@ var searchTo = "&dName=";
 
 //valuta api bas
 var currencyAPI = "http://data.fixer.io/api/latest?";
-var currencyAPIKey = "access_key=e21bb1b7b92000e2ab502fe0df559c47";
+var currencyAPIKey = "access_key=75c2d7067bea8674ce16c6a88eb10ccc";
 
 //google map API
 var googleAPI = "https://www.google.com/maps/embed/v1/directions?";
@@ -39,7 +39,7 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
 
     //när man söker resa
     $scope.search = function () {
-        
+
 
         //skapar jsonUrl för sökningen
         var jsonUrl = searchAPI + searchAPIKey + searchSpecify + searchFrom + $scope.fromCity + searchTo + $scope.toCity;
@@ -52,7 +52,7 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
             //lagrar datan från json
             $scope.info = response.data;
 
-            
+
             //visar api url
             //document.getElementById("apiUrl").innerHTML = jsonUrl;
 
@@ -65,7 +65,7 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
             //document.getElementById("apiUrl").innerHTML = "Ingen respons från servern!";
 
         });
-       
+
     }
     $scope.closeResult = function () {
         $scope.isResultOpen = false;
@@ -146,7 +146,12 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
 
     //visar detaljer om resan, avgångar, ankomster, restid, pris och valuta
     $scope.getDetails = function (index) {
-
+        removePolyline();
+        $scope.map = new google.maps.Map(document.getElementById(index), {
+            zoom: 4,
+            center: { lat: 61.72744, lng: 15.62597 },
+            mapTypeId: 'roadmap'
+        });
         //hämtar resvägen man vill ha detaljer för
         var route = $scope.info.routes[index];
 
@@ -184,6 +189,27 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
             //antal segment
             $scope.segmentLength = route.segments.length;
 
+            $scope.googlePath = route.segments[i].path;
+
+            if (typeof route.segments[i].path !== 'undefined') {
+                setPolyline(google.maps.geometry.encoding.decodePath($scope.googlePath));
+            } else {
+                $scope.depLat = $scope.info.places[route.segments[i].depPlace].lat;
+                $scope.depLng = $scope.info.places[route.segments[i].depPlace].lng;
+
+                $scope.arrLat = $scope.info.places[route.segments[i].arrPlace].lat;
+                $scope.arrLng = $scope.info.places[route.segments[i].arrPlace].lng;
+
+                setPolyline([{
+                    lat: $scope.depLat,
+                    lng: $scope.depLng
+                },
+                {
+                    lat: $scope.arrLat,
+                    lng: $scope.arrLng
+                }
+                ]);
+            }
             //om prices fältet inte är tomt
             if (route.segments[i].indicativePrices != null) {
                 //lägsta pris segment resan
@@ -192,20 +218,19 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
                 var highPrice = route.segments[i].indicativePrices[0].priceHigh;
 
                 //läger till allt i array
-                $scope.travelInfo.push({ 'routeName': $scope.routeName, 'lowTotalPrice': $scope.lowestPrice, 'highTotalPrice': $scope.highestPrice, 'totalTravelTime': $scope.travelTime, 'googleSrc': source, 'depName': $scope.depName, 'arrName': $scope.arrName, 'transferTime': time, 'lowPrice': lowPrice, 'highPrice': highPrice });
+                $scope.travelInfo.push({ 'routeName': $scope.routeName, 'lowTotalPrice': $scope.lowestPrice, 'highTotalPrice': $scope.highestPrice, 'totalTravelTime': $scope.travelTime, 'depLat': $scope.depLat, 'depLng': $scope.depLng, 'arrLat': $scope.arrLat, 'arrLng': $scope.arrLng, 'path': $scope.googlePath, 'depName': $scope.depName, 'arrName': $scope.arrName, 'transferTime': time, 'lowPrice': lowPrice, 'highPrice': highPrice });
             }
             else {
                 //lägg till i array
-                $scope.travelInfo.push({ 'routeName': $scope.routeName, 'lowTotalPrice': $scope.lowestPrice, 'highTotalPrice': $scope.highestPrice, 'totalTravelTime': $scope.travelTime, 'googleSrc': source, 'depName': $scope.depName, 'arrName': $scope.arrName, 'transferTime': time });
+                $scope.travelInfo.push({ 'routeName': $scope.routeName, 'lowTotalPrice': $scope.lowestPrice, 'highTotalPrice': $scope.highestPrice, 'totalTravelTime': $scope.travelTime, 'depLat': $scope.depLat, 'depLng': $scope.depLng, 'arrLat': $scope.arrLat, 'arrLng': $scope.arrLng, 'path': $scope.googlePath, 'depName': $scope.depName, 'arrName': $scope.arrName, 'transferTime': time });
             }
         }
 
         $scope.googleUrl = $sce.trustAsHtml("<iframe class='img-thumbnail' width='100%' height='400px' frameborder='0' style='border:0'  src='" + source + "' allowfullscreen></iframe>");
 
-        
-
     };
 
+<<<<<<< HEAD
     $scope.getVeichle = function(index){
         var route = $scope.info.routes[index];
         var output = "";
@@ -252,25 +277,120 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
         }
         if($scope.vehicles == "Uber"){
             console.log("DU SKA TA EN UBER");
+=======
+    var polyLine = [];
+    function setPolyline(_path) {
+        polyLine.push(new google.maps.Polyline({
+            //map: map,
+            path: _path,
+            strokeColor: '#006699',
+            strokeOpacity: 1,
+            strokeWeight: 3
+        }));
+        polyLine[polyLine.length - 1].setMap($scope.map);
+    }
+
+    function removePolyline() {
+        if (typeof polyLine !== 'undefined') {
+            for (var index in polyLine) {
+                polyLine[index].setMap(null);
+            }
+            polyLine = [];
+>>>>>>> 61c4155825020c108538edda217387901565cb4a
         }
-        if($scope.vehicles == "Shuttle"){
-            console.log("DU SKA TA EN SKÅPBIL");
+    }
+
+    var localPolyLine = [];
+    function setLocalPolyline(localpath) {
+        localPolyLine.push(new google.maps.Polyline({
+            //map: map,
+            path: localpath,
+            strokeColor: '#006699',
+            strokeOpacity: 1,
+            strokeWeight: 3
+        }));
+        localPolyLine[localPolyLine.length - 1].setMap($scope.localGoogleMap);
+    }
+    function removeLocalPolyline() {
+        if (typeof localPolyLine !== 'undefined') {
+            for (var index in localPolyLine) {
+                localPolyLine[index].setMap(null);
+            }
+            localPolyLine = [];
         }
-        if($scope.vehicles == "Towncar"){
-            console.log("DU SKA TA STADSBIL");
+    }
+
+    $scope.getVeichle = function (index) {
+        var route = $scope.info.routes[index];
+
+        for (var i = 0; i < route.segments.length; i++) {
+            $scope.vehicles = $scope.info.vehicles[route.segments[i].vehicle].name;
+            var output = "";
+
+
+            if ($scope.vehicles == "Train") {
+                output = output + ' <img src="/img/travel/pos/train.png" width ="20px" height="20px">';
+                console.log("DU SKA TA TÅGET");
+            }
+            if ($scope.vehicles == "RER") {
+                console.log("DU SKA TA TÅG V2");
+            }
+            if ($scope.vehicles == "Bus") {
+                output = output + ' </img src="/img/travel/pos/bus.png" width ="20px" height="20px">';
+                console.log("DU SKA TA BUSSEN");
+            }
+            if ($scope.vehicles == "Rideshar") {
+                console.log("Ride share");
+            }
+            if ($scope.vehicles == "Car") {
+                output = output + ' </img src="/img/travel/pos/car.png" width ="20px" height="20px">';
+                console.log("DU SKA TA BILEN");
+            }
+            if ($scope.vehicles == "Eurotunne") {
+                console.log("DU SKA TA tåg eurotunnel");
+            }
+            if ($scope.vehicles == "car ferry") {
+                output = output +
+                    console.log("DU SKA TA BÅT FÄRGA");
+            }
+            if ($scope.vehicles == "Plane") {
+                output = output + ' </img src="/img/travel/pos/air.png" width ="20px" height="20px">';
+                console.log("DU SKA TA PLANET ");
+            }
+            if ($scope.vehicles == "Walk") {
+                output = output + ' </img src="/img/travel/pos/walk.png" width ="20px" height="20px">';
+                console.log("DU SKA Gå");
+            }
+            if ($scope.vehicles == "Taxi") {
+                console.log("DU SKA TA Taxi");
+            }
+            if ($scope.vehicles == "Uber") {
+                console.log("DU SKA TA EN UBER");
+            }
+            if ($scope.vehicles == "Shuttle") {
+                console.log("DU SKA TA EN SKÅPBIL");
+            }
+            if ($scope.vehicles == "Towncar") {
+                console.log("DU SKA TA STADSBIL");
+            }
         }
+<<<<<<< HEAD
         return $sce.trustAsHtml(output);
     }    
     //End of for loop
+=======
+        //End of for loop
+>>>>>>> 61c4155825020c108538edda217387901565cb4a
 
     }
-    
+
     $scope.saveLocal = function () {
         localStorage.setItem("arraydata", JSON.stringify($scope.travelInfo));
     }
 
     $scope.loadLocal = function () {
         $scope.localInfo = JSON.parse(localStorage.getItem("arraydata"));
+        removeLocalPolyline();
         if ($scope.localInfo != null) {
             $scope.localName = $scope.localInfo[0].routeName;
 
@@ -281,16 +401,40 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
             $scope.localTotalTime = $scope.localInfo[0].totalTravelTime;
 
             $scope.localShow = true;
-            let localSrc = $scope.localInfo[0].googleSrc;
-            $scope.localMap = $sce.trustAsHtml("<iframe class='img-thumbnail' width='100%' height='400px' frameborder='0' style='border:0'  src='" + localSrc + "' allowfullscreen></iframe>");
+
+            $scope.localGoogleMap = new google.maps.Map(document.getElementById('localGoogleMap'), {
+                zoom: 4,
+                center: { lat: 61.72744, lng: 15.62597 },
+                mapTypeId: 'roadmap'
+            });
+
+            for (var i = 0; i < $scope.localInfo.length; i++) {
+                if (typeof $scope.localInfo[i].path !== 'undefined') {
+
+                    setLocalPolyline(google.maps.geometry.encoding.decodePath($scope.localInfo[i].path));
+
+                } else {
+                    setLocalPolyline([{
+                        lat: $scope.localInfo[i].depLat,
+                        lng: $scope.localInfo[i].depLng
+                    },
+                    {
+                        lat: $scope.localInfo[i].arrLat,
+                        lng: $scope.localInfo[i].arrLng
+                    }
+                    ]);
+                }
+            }
+            //let localSrc = $scope.localInfo[0].googleSrc;
+            //$scope.localMap = $sce.trustAsHtml("<iframe class='img-thumbnail' width='100%' height='400px' frameborder='0' style='border:0'  src='" + localSrc + "' allowfullscreen></iframe>");
             //console.log($scope.localInfo);
         }
-        else{
+        else {
             document.getElementById("warning").innerHTML = "Ingen sparad resa finns";
         }
     }
 
-   
+
 
     /*LÄGG TILL ICON VID SÖKRESULTATEN */
     $scope.addIcon = function (travelText) {
@@ -303,25 +447,25 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
 
         /*Om det ingår att flyga */
         if (travel.indexOf("fly") >= 0) {
-            output = output + ' <img src="img/travel/pos/air.png" width ="20px" height="20px">';
+            output = output + ' <img src="/img/travel/pos/air.png" width ="20px" height="20px">';
         }
         /*Om det ingår att åka buss */
         if (travel.indexOf("bus") >= 0) {
-            output = output + ' <img src="img/travel/pos/bus.png" width ="20px" height="20px" >';
+            output = output + ' <img src="/img/travel/pos/bus.png" width ="20px" height="20px" >';
         }
         /*Om det ingår att åka tåg */
         if (travel.indexOf("train") >= 0) {
-            output = output + ' <img src="img/travel/pos/train.png" width ="20px" height="20px">';
+            output = output + ' <img src="/img/travel/pos/train.png" width ="20px" height="20px">';
         }
         if (travel.indexOf("walk") >= 0) {
-            output = output + ' <img src="img/travel/pos/walk.png" width ="20px" height="20px">';
+            output = output + ' <img src="/img/travel/pos/walk.png" width ="20px" height="20px">';
         }
 
         if (travel.indexOf("drive") >= 0) {
-            output = output + ' <img src="img/travel/pos/car.png" width ="20px" height="20px">';
+            output = output + ' <img src="/img/travel/pos/car.png" width ="20px" height="20px">';
         }
         if (travel.indexOf("ferry") >= 0) {
-            output = output + ' <img src="img/travel/pos/boat.png" width ="20px" height="20px">';
+            output = output + ' <img src="/img/travel/pos/boat.png" width ="20px" height="20px">';
         }
         return $sce.trustAsHtml(output);
 
@@ -391,9 +535,9 @@ app.controller('HotelsCtrl', function ($scope, $http) {
             $scope.hotels = response.data;
         });
 
-    $scope.tabSelect1 = "yellow-bg navbar-black";
-    $scope.tabSelect2 = "yellow-bg navbar-black";
-    $scope.tabSelect3 = "yellow-bg navbar-black";
+    $scope.tabSelect1 = "yellow-bg yellow-border navbar-black";
+    $scope.tabSelect2 = "yellow-bg yellow-border navbar-black";
+    $scope.tabSelect3 = "yellow-bg yellow-border navbar-black";
 
     var cSelected = [];
 
@@ -412,37 +556,37 @@ app.controller('HotelsCtrl', function ($scope, $http) {
     $scope.changeColor = function (n) {
         switch (n) {
             case 1:
-                if ($scope.tabSelect1 == "yellow-bg navbar-black") {
-                    $scope.tabSelect1 = "dark-yellew-bg white-col";
+                if ($scope.tabSelect1 == "yellow-bg yellow-border navbar-black") {
+                    $scope.tabSelect1 = "lightblue-bg lightblue-border white-col";
                     addRes(1);
                     break;
                 }
                 else {
-                    $scope.tabSelect1 = "yellow-bg navbar-black";
+                    $scope.tabSelect1 = "yellow-bg yellow-border navbar-black";
                     removeRes(1);
                     break;
                 }
 
             case 2:
-                if ($scope.tabSelect2 == "yellow-bg navbar-black") {
-                    $scope.tabSelect2 = "dark-yellew-bg white-col";
+                if ($scope.tabSelect2 == "yellow-bg yellow-border navbar-black") {
+                    $scope.tabSelect2 = "lightblue-bg lightblue-border white-col";
                     addRes(2);
                     break;
                 }
                 else {
-                    $scope.tabSelect2 = "yellow-bg navbar-black";
+                    $scope.tabSelect2 = "yellow-bg yellow-border navbar-black";
                     removeRes(2);
                     break;
                 }
 
             case 3:
-                if ($scope.tabSelect3 == "yellow-bg navbar-black") {
-                    $scope.tabSelect3 = "dark-yellew-bg white-col";
+                if ($scope.tabSelect3 == "yellow-bg yellow-border navbar-black") {
+                    $scope.tabSelect3 = "lightblue-bg lightblue-border white-col";
                     addRes(3);
                     break;
                 }
                 else {
-                    $scope.tabSelect3 = "yellow-bg navbar-black";
+                    $scope.tabSelect3 = "yellow-bg yellow-border navbar-black";
                     removeRes(3);
                     break;
                 }

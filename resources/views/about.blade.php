@@ -25,6 +25,11 @@
 </head>
 <body>
         @include('includes.navbar')
+
+       
+
+
+
         <div  align ="center">
         <div class="center"> 
                 <img style="width:100%;" src="/img/foto/osrings.jpg" />
@@ -44,13 +49,13 @@
         <div class="row " align="center">
         
         <div class="col col-1 m-0 p-0">
-            <p><img  src="img/Paint/squer.png" alt="">
+            <p><img  src="/img/Paint/squer.png" alt="">
         </div>
 
         <div class="col "> <hr class="yellow-bg" size="5"> </div>
         
         <div class="col col-1 m-0 p-0">
-            <img  src="img/Paint/squer.png" alt=""></p>
+            <img  src="/img/Paint/squer.png" alt=""></p>
         </div>
         </div>
     </div>
@@ -67,13 +72,13 @@
         <div class="row " align="center">
         
         <div class="col col-1 m-0 p-0">
-            <p><img  src="img/Paint/squer.png" alt="">
+            <p><img  src="/img/Paint/squer.png" alt="">
         </div>
 
         <div class="col "> <hr class="yellow-bg" size="5"> </div>
         
         <div class="col col-1 m-0 p-0">
-            <img  src="img/Paint/squer.png" alt=""></p>
+            <img  src="/img/Paint/squer.png" alt=""></p>
         </div>
         </div>
     </div>
@@ -81,7 +86,7 @@
 
    <br>
    <div  align ="center" class=" pt-2 pb-4">
-   <img src="img/logotyp/logotyp.png" alt="2 Sweden">
+   <img src="/img/logotyp/logotyp.png" alt="2 Sweden">
    </div>
 
        <!-- Footer -->

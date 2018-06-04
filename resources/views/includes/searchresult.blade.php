@@ -45,7 +45,8 @@
                     <div class="col-12 eventsBody even-paler-grey-bg py-2  mt-3 ">
                         <div id="post@{{$index}}" class="row" > 
                             <!-- Skriver ut karta -->
-                            <div ng-bind-html="googleUrl" class="col-12 col-lg-6 "></div>
+                            <!--<div ng-bind-html="googleUrl" class="col-12 col-lg-6 "></div>-->
+                            <div class="googleMap" id="@{{$index}}"></div>
                             <!-- Skriver ut delarna i resrutt -->
                             <div  class="col-12 col-lg-6 ">
                                 <div class="row" ng-repeat="infoResa in travelInfo" >
@@ -65,10 +66,7 @@
                                 <button ng-click="saveLocal()" class="btn col-4 btn-success mt-2 pointer">Spara resa</button>
                                 </div>
                                 <div align="right">
-                                {!! Form::open(['action'=>'shareroutesController@store', 'method'=>'POST']) !!}
-                                <textarea hidden="hidden" name="textin" rows="4" cols="50">@{{travelInfo}}</textarea>
-                                {{Form::submit('Dela resa', ['class'=>'btn col-4 mt-2 pointer  btn-info'])}}
-                                {!! Form::close() !!}
+   
                                 </div>
                             </div>
                         </div>
@@ -80,8 +78,6 @@
             <button ng-click="closeResult()" class="btn btn-danger col-6  pointer">Stäng</button>
         </div>  
     </div>
-
-
     <!-- GAMMAL 
     <div ng-show="isResultOpen" class="container mt-4 table-responsive-sm pale-grey-bg nopadding">
             <table class="container table ">
