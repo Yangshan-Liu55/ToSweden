@@ -95,11 +95,6 @@ p,
     
 }
 
-.fadeBGcolor{
-
-    background-color: rgba(0, 0, 0, 0.555);
-}
-
 .textcolor{
 
     color:#00496d;
@@ -344,7 +339,7 @@ p,
 .searchField {
 
     background-color: #00000052;
-    padding: 10px;
+    
 }
 
 .searchField button, .table button{
