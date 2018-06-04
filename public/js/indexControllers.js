@@ -56,6 +56,9 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
             //visar api url
             //document.getElementById("apiUrl").innerHTML = jsonUrl;
 
+            if(!$scope.isResultOpen){
+                scrollDown();
+            }
             //visar true om man har klickat på sök och fått resultat
             $scope.isResultOpen = true;
 
@@ -324,6 +327,7 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
                     ]);
                 }
             }
+            scrollDown();
             //let localSrc = $scope.localInfo[0].googleSrc;
             //$scope.localMap = $sce.trustAsHtml("<iframe class='img-thumbnail' width='100%' height='400px' frameborder='0' style='border:0'  src='" + localSrc + "' allowfullscreen></iframe>");
             //console.log($scope.localInfo);
@@ -401,7 +405,9 @@ app.controller('selectTabs', function ($scope) {
     };
 });
 
-
+function scrollDown() {
+    $('html, body').animate({scrollTop:500},'50');
+}
 
 //Hämtar JSON för Cities till schema i Cities.php.
 app.controller('CitiesCtrl', function ($scope, $http, $location, $sce) {
