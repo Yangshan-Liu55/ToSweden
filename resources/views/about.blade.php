@@ -152,11 +152,13 @@
     </div>
     <!--SLUT PÅ TEXT-->
 
-    <div class="container p-4  col-md-6 col-sm-12">
+    <div style="width:100%" class="container p-4  col-md-6 col-sm-12">
             <button id="osschema-knapp" class="btn darkblue-bg btn-block pointer" data-toggle="modal" data-target="#eventsModal">
             <a href="https://sok.se/" target="_blank">
             <img src="/img/foto/sok.png" alt="2 Sweden">
-            <h2 style="color:white;">Sveriges Olympiska Kommitté</h2>
+            <br><br>
+            <p style="color:white">Sveriges Olympiska Kommitté <hr> </p>
+            
             </a>
             </button>
         </div>
