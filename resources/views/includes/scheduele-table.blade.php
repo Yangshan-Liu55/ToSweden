@@ -1,8 +1,8 @@
 <div ng-controller="selectTabs">
         <!-- Attention! Special breaks. Do not re-format! -->
-        <button type="button" class=" btn pointer btn-primary leftBtn menuSelect yellow-bg yellow-border navbar-black text-uppercase" ng-click="click(1)">Stockholm</button
-        ><button type="button" class="btn pointer btn-primary middleBtn menuSelect yellow-bg yellow-border navbar-black text-uppercase" ng-click="click(2)">Falun</button
-        ><button type="button" class="btn pointer btn-primary rightBtn menuSelect yellow-bg yellow-border navbar-black text-uppercase" ng-click="click(3)" >Åre</button>
+        <button type="button" class=" btn btn-font-size pointer btn-primary leftBtn menuSelect yellow-bg yellow-border navbar-black text-uppercase" ng-click="click(1)">Stockholm</button
+        ><button type="button" class="btn btn-font-size pointer btn-primary middleBtn menuSelect yellow-bg yellow-border navbar-black text-uppercase" ng-click="click(2)">Falun</button
+        ><button type="button" class="btn btn-font-size pointer btn-primary rightBtn menuSelect yellow-bg yellow-border navbar-black text-uppercase" ng-click="click(3)" >Åre</button>
  <div class="py-2"></div>   
 <!-- Filter för att plocka ut rätt sporter till rätt städer -->
 <!-- Loopar igenom alla Städer -->

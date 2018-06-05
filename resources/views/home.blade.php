@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
 
@@ -34,6 +33,7 @@
         <div id="home-welcome">
             <div id="home-welcome-center">
                 <img src="/img/skrivstil/welcome.png">
+
                 <!-- SÖK RESA -->
                 <div class="test searchFieldBG" ng-init="changeCurrency()">
                     <div class="p-1 searchField container">
@@ -73,44 +73,12 @@
 
                 </div>
             </div>
-            <!-- <div style="height:100%" class="container">
-            <h1 class="text-center" id="welcometext">WELCOME
-                <span class="highlight">TO SWEDEN</span>
-            </h1>
-        </div>-->
         </div>
-        <p id="warning"></p>
-        <div ng-show="localShow" class="container">
 
-            <div style="color: #006699" class="col-12 even-paler-grey-bg py-2  mt-3 ">
-                <div class="row">
-                    <div class="col-4">Resnam</div>
-                    <div class="col-4">Pris</div>
-                    <div class="col-4">Tid</div>
-                </div>
-                <div id="" class="row">
-                    <!--<div ng-bind-html="localMap" class="col-12 col-lg-6 "></div>-->
-                    <div id="localGoogleMap" class="googleMap"></div>
-                    <!-- Skriver ut delarna i resrutt -->
-                    <div class="col-12 col-lg-6 ">
-                        <div class="row" ng-repeat="test in localInfo">
-                            <div class="col-12 pb-2 pt-2">
-                                @{{test.depName}} - @{{test.arrName}}
-                            </div>
-                            <div class="col-6 ">
-                                @{{timeConvert(test.transferTime)}}
-                            </div>
-                            <div class="col-6 ">
-                                @{{convertMoney(test.lowPrice)}} - @{{convertMoney(test.highPrice)}}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div align="center">
-                    <button ng-click="localShow=false" class="btn btn-danger col-6 pointer">Stäng</button>
-                </div>
-            </div>
-        </div>
+        <p id="warning"></p>
+        <!-- START på visa SPARAD DATA -->
+        @include('includes.localStorageResult')
+        <!-- SLUT på visa SPARAD DATA -->
         <!-- 
     visar URL eller FEL meddelande 
     <p id="apiUrl"></p>
@@ -149,7 +117,7 @@
         <div class="footerpositon">
             @include('includes.footer')
         </div>
-        <script>console.log("jfjfjfjf")</script>
+
 </body>
 
 </html>
