@@ -148,6 +148,10 @@ p,
     margin-bottom: 50px;
 }
 
+.btn-font-size {
+    font-size: 100%;
+}
+
 @media only screen and (max-width: 1000px) {
     #home-welcome img{
         width:90%;  
@@ -286,7 +290,9 @@ p,
     .aboutpic{
         display: none;
     }
-    
+    .btn-font-size {
+        font-size: 77%;
+    }
 }
 
 /* mobile action */
@@ -611,5 +617,6 @@ p,
         transform: translateY(-10px);
     }
 }
+
 
 
