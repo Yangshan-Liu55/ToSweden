@@ -4,16 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Socialmedia</title>
+
+        <!-- Styles and Scripts -->
+        @include('includes.stylesscripts')
 </head>
 <body>
-    <h1>Skapa</h1>
-    {!! Form::open(['action'=>'shareroutesController@store', 'method'=>'POST']) !!}
-        <div class="form-group">
-            {{Form::label('title','title')}}
-            {{Form::textarea('textin','',['class'=>'form-controll'])}}
-        </div>
-        {{Form::submit('submit')}}
-    {!! Form::close() !!}
+    <div class="container">
+        <ul>
+        @foreach ($tasks as $task)
+        <li>
+            <a href="/share/{{$task->id}}">{{$task->body}}</a>
+        </li>
+        @endforeach
+        </ul>
+
+
+        <form method="POST" action="/share">
+            {{ csrf_field() }}
+            <div class="form-group">
+
+              <input type="text" class="form-control"  name="body">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+    </div>
 </body>
 </html>

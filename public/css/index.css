@@ -23,6 +23,34 @@ body {
 
 }
 
+#button-row{
+
+    text-align: right;
+}
+
+#button-row>button:last-child{
+    
+    background-color:transparent;
+    border:none;
+}
+
+@media (max-width: 767px){
+
+
+    #button-row>button{
+
+        font-size:15px;
+    }
+    #button-row>button>i{
+
+        font-size: 40px;
+        background-color:transparent;
+        border:none;
+        margin-top: 5px;
+    }
+}
+
+
 h1, h2, h3, h4, h5, h6{
     font-family: Raleway;
 }
@@ -35,8 +63,6 @@ h5:first-letter,
 h6:first-letter{
     text-transform: uppercase;
 }
-
-
 
 h1 {
     font-size: 20px;
@@ -80,6 +106,12 @@ p,
 .even-paler-grey-bg{background: #f0f0f0}
 
 .remove-house-borders{border-width: 0 0 1px 0;}
+
+.shadow-bg{
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
 .navbar {
     background-color: #ffcc00 !important;
@@ -143,11 +175,16 @@ p,
     margin-bottom: 50px;
 }
 
+.btn-font-size {
+    font-size: 100%;
+}
+
 @media only screen and (max-width: 1000px) {
     #home-welcome img{
         width:90%;  
         margin-left:20px;
         margin-bottom: 25px;
+        
     }
 }
 
@@ -258,9 +295,13 @@ p,
         display: block;
         color: white;
     }
+<<<<<<< HEAD
+    
+=======
     .aboutpic {
         display: none;
     }
+>>>>>>> 2aacbece62e9a1ce3eeea206fef9736a2ab3f320
 }
 
 @media only screen and (max-width: 550px) {
@@ -277,11 +318,17 @@ p,
         display: block;
         color: white;
     }
+<<<<<<< HEAD
+   
+=======
 
     .aboutpic{
         display: none;
     }
-    
+    .btn-font-size {
+        font-size: 77%;
+    }
+>>>>>>> 2aacbece62e9a1ce3eeea206fef9736a2ab3f320
 }
 
 /* mobile action */
@@ -311,7 +358,7 @@ p,
 
 /*Search field */
 
-.searchField {
+.searchFieldBG {
 
     background-color: #00000052;
     
@@ -503,6 +550,10 @@ p,
     vertical-align: baseline;
 }
 
+.left{
+    float:left;
+    font-size: 40px;
+}
 
 
 /* Formating Google Translate */
@@ -606,5 +657,6 @@ p,
         transform: translateY(-10px);
     }
 }
+
 
 

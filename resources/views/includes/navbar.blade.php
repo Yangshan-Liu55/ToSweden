@@ -12,25 +12,23 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
-            <li class="nav-item ">
-              <a class="nav-link" href="/home">Home</a>
+            <li class="nav-item my-auto">
+              <a class="nav-link py-0" href="/home">Hem</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/about">Om To Sweden</a>
+            <li class="nav-item my-auto">
+              <a class="nav-link py-0" href="/about">Om To Sweden</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/cities">Städer</a>
+            <li class="nav-item my-auto">
+              <a class="nav-link py-0" href="/cities">Städer</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/recommended">Hotell</a>
+            <li class="nav-item my-auto">
+                <a class="nav-link py-0" href="/recommended">Hotell</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/scheduele">OS-schema</a>
+            <li class="nav-item my-auto">
+                <a class="nav-link py-0" href="/scheduele">OS-schema</a>
             </li>            
-            <li >
-              
-              <span class="nav-link m-0 p-0" > <div id="google_translate_element" ></div></span>
-
+            <li class="nav-item my-auto">             
+              <div class="nav-link py-0" id="google_translate_element"></div>
             </li>
           </ul>
         </div>
@@ -40,7 +38,7 @@
         function googleTranslateElementInit() {
           var userLang = navigator.language || navigator.userLanguage; 
          
-          new google.translate.TranslateElement({pageLanguage: 'sv', layout: google.translate.TranslateElement}, 'google_translate_element');
+          new google.translate.TranslateElement({pageLanguage: 'sv', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
         }
         </script>
         <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>  

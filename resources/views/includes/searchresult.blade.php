@@ -66,7 +66,13 @@
                                 <button ng-click="saveLocal()" class="btn col-4 btn-success mt-2 pointer">Spara resa</button>
                                 </div>
                                 <div align="right">
-   
+                                        <form method="POST" action="/share">
+                                        {{ csrf_field() }}
+                                        <div class="form-group" >
+                                            <textarea class="form-control" hidden="hidden" name="body">@{{travelInfo}}</textarea>
+                                        </div>
+                                        <button type="submit" class="btn col-4 mt-2 pointer  btn-info">Dela resa</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -78,35 +84,4 @@
             <button ng-click="closeResult()" class="btn btn-danger col-6  pointer">Stäng</button>
         </div>  
     </div>
-    <!-- GAMMAL 
-    <div ng-show="isResultOpen" class="container mt-4 table-responsive-sm pale-grey-bg nopadding">
-            <table class="container table ">
-                <thead class="lightblue-bg">
-                    <th ng-click="sortBy('name')"><h5>Färdmedel<h5></th>
-                    <th ng-click="sortBy('totalDuration')"><h5>Tid</h5></th>
-                    <th ng-click="sortBy('indicativePrices[0].priceLow')"><h5>Pris</h5></th>
-                    <th>
-                        <h5>Valutan</h5>
-                        <select class="form-control" ng-model="choosenCurrency">
-                            <option value="EUR">EUR</option>
-                            <option value="SEK">SEK</option>
-                            <option value="USD">USD</option>
-                        </select>
-                    </th>
-                </thead>
-          
-                <tr id="search-row" class="pointer middleblue-col" ng-repeat="route in info.routes | orderBy: propertyName : reverse">
-                    <td>@{{route.name}}</td>
-                    <td>@{{timeConvert(route.totalDuration)}}</td>
-                    <td>@{{convertMoney(route.indicativePrices[0].priceLow)}} - @{{convertMoney(route.indicativePrices[0].priceHigh)}}</td>
-                    <td align="center">
-                        <button class="btn pointer" ng-click="getDetails($index)" data-toggle="modal" data-target="#myModal">Detaljer</button>
-                    </td>
-                </tr>
-            </table>
-            <div class="pb-4" align="center">
-                <button ng-click="closeResult()" class="btn btn-danger col-md-6 col-sm-12  pointer">Stäng</button>
-            </div>
-        </div>
-       --> 
-        
+  
