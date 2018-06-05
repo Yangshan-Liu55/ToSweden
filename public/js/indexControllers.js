@@ -147,7 +147,7 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
         return resultAmount;
     }
 
-    //visar detaljer om resan, avgångar, ankomster, restid, pris och valuta
+    //visar detaljer om resan, resrutt i google maps, avgångar, ankomster, restid, pris och valuta
     $scope.getDetails = function (index) {
         removePolyline();
         $scope.map = new google.maps.Map(document.getElementById(index), {
@@ -239,11 +239,9 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
                 $scope.travelInfo.push({ 'routeName': $scope.routeName, 'shareLowPrice':shareLowPrice, 'shareHighPrice':shareHighPrice, 'lowTotalPrice': $scope.lowestPrice, 'highTotalPrice': $scope.highestPrice, 'totalTravelTime': $scope.travelTime, 'depLat': $scope.depLat, 'depLng': $scope.depLng, 'arrLat': $scope.arrLat, 'arrLng': $scope.arrLng, 'path': $scope.googlePath, 'depName': $scope.depName, 'arrName': $scope.arrName, 'transferTime': time });
             }
         }
-
-        $scope.googleUrl = $sce.trustAsHtml("<iframe class='img-thumbnail' width='100%' height='400px' frameborder='0' style='border:0'  src='" + source + "' allowfullscreen></iframe>");
-
     };
 
+    /* Resvägen som visas på google maps */
     var polyLine = [];
     function setPolyline(_path) {
         polyLine.push(new google.maps.Polyline({
@@ -256,6 +254,7 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
         polyLine[polyLine.length - 1].setMap($scope.map);
     }
 
+    /* Tömmer den tidigare valda resvägen */
     function removePolyline() {
         if (typeof polyLine !== 'undefined') {
             for (var index in polyLine) {
@@ -265,6 +264,7 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
         }
     }
 
+    /* Resvägen i google maps som är sparad i localstorage */
     var localPolyLine = [];
     function setLocalPolyline(localpath) {
         localPolyLine.push(new google.maps.Polyline({
@@ -286,10 +286,12 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
     }
     
     
+    /* Spara detaljer om vald resa i localstorage */
     $scope.saveLocal = function () {
         localStorage.setItem("arraydata", JSON.stringify($scope.travelInfo));
     }
 
+    /* Ladda lokala datan som sparats i localstorage */
     $scope.loadLocal = function () {
         $scope.localInfo = JSON.parse(localStorage.getItem("arraydata"));
         removeLocalPolyline();
@@ -304,11 +306,13 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
 
             $scope.localShow = true;
 
+            /* Kartan som visas i localstorage */
             $scope.localGoogleMap = new google.maps.Map(document.getElementById('localGoogleMap'), {
                 zoom: 4,
                 center: { lat: 61.72744, lng: 15.62597 },
                 mapTypeId: 'roadmap'
             });
+
 
             for (var i = 0; i < $scope.localInfo.length; i++) {
                 if (typeof $scope.localInfo[i].path !== 'undefined') {
@@ -327,10 +331,8 @@ app.controller("searchCtrl", function ($scope, $http, $sce) {
                     ]);
                 }
             }
+
             scrollDown();
-            //let localSrc = $scope.localInfo[0].googleSrc;
-            //$scope.localMap = $sce.trustAsHtml("<iframe class='img-thumbnail' width='100%' height='400px' frameborder='0' style='border:0'  src='" + localSrc + "' allowfullscreen></iframe>");
-            //console.log($scope.localInfo);
         }
         else {
             document.getElementById("warning").innerHTML = "Ingen sparad resa finns";
