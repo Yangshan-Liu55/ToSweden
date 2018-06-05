@@ -23,6 +23,34 @@ body {
 
 }
 
+#button-row{
+
+    text-align: right;
+}
+
+#button-row>button:last-child{
+    
+    background-color:transparent;
+    border:none;
+}
+
+@media (max-width: 767px){
+
+
+    #button-row>button{
+
+        font-size:15px;
+    }
+    #button-row>button>i{
+
+        font-size: 40px;
+        background-color:transparent;
+        border:none;
+        margin-top: 5px;
+    }
+}
+
+
 h1, h2, h3, h4, h5, h6{
     font-family: Raleway;
 }
@@ -35,8 +63,6 @@ h5:first-letter,
 h6:first-letter{
     text-transform: uppercase;
 }
-
-
 
 h1 {
     font-size: 20px;
@@ -147,6 +173,7 @@ p,
         width:90%;  
         margin-left:20px;
         margin-bottom: 25px;
+        
     }
 }
 
@@ -254,6 +281,7 @@ p,
         display: block;
         color: white;
     }
+    
 }
 
 @media only screen and (max-width: 550px) {
@@ -270,6 +298,7 @@ p,
         display: block;
         color: white;
     }
+   
 }
 
 /* mobile action */
@@ -299,7 +328,7 @@ p,
 
 /*Search field */
 
-.searchField {
+.searchFieldBG {
 
     background-color: #00000052;
     
@@ -491,6 +520,10 @@ p,
     vertical-align: baseline;
 }
 
+.left{
+    float:left;
+    font-size: 40px;
+}
 
 
 /* Formating Google Translate */

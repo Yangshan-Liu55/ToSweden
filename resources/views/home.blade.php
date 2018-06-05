@@ -35,7 +35,7 @@
             <div id="home-welcome-center">
                 <img src="/img/skrivstil/welcome.png">
                 <!-- SÖK RESA -->
-                <div class="test" ng-init="changeCurrency()">
+                <div class="test searchFieldBG" ng-init="changeCurrency()">
                     <div class="p-1 searchField container">
                         <div id="navbar">
                             <form class="container" name="searchForm">
@@ -51,9 +51,18 @@
                                             <option value="Falun">Falun</option>
                                             <option value="Åre">Åre</option>
                                         </select>
-                                        <div align="right">
+                                        <div id="button-row">
+
                                             <button ng-click="search()" type="submit" class="btn btn-lg mt-3">SÖK</button>
                                             <button ng-click="loadLocal()" class="btn btn-lg mt-3">Sparad Resa</button>
+
+                                            <!-- Modal för OS-SCHEMA -->
+                                           
+                                                <button class="left m-2 test56" id="osschema-knapp" data-toggle="modal" data-target="#eventsModal">
+                                                 <i class=" far fa-calendar-alt"></i>
+                                                </button>
+                                                
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -108,16 +117,6 @@
     -->
         <!-- START, visa RESULTATET vid respons från server -->
         @include('includes.searchresult')
-
-
-        <!-- Modal för OS-SCHEMA -->
-
-        <div class="container p-4  col-md-6 col-sm-12">
-            <button id="osschema-knapp" class="btn darkblue-bg btn-block pointer" data-toggle="modal" data-target="#eventsModal">
-                <h2 class="white-col">
-                    <i class="far fa-calendar-alt yellow-col"></i> &nbsp;&nbsp;OS-schema</h2>
-            </button>
-        </div>
 
         <div class="modal" id="eventsModal">
             <div class="modal-dialog">
