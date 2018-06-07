@@ -267,6 +267,9 @@ p,
         display: block;
         color: white;
     }
+    .aboutpic, #dArrow {
+        display: none;
+    }
 }
 
 
@@ -278,6 +281,7 @@ p,
       .zup img{
         display: none;
     }
+
 }
 
 @media only screen and (max-width: 768px) {
@@ -295,13 +299,7 @@ p,
         display: block;
         color: white;
     }
-<<<<<<< HEAD
-    
-=======
-    .aboutpic {
-        display: none;
-    }
->>>>>>> 2aacbece62e9a1ce3eeea206fef9736a2ab3f320
+
 }
 
 @media only screen and (max-width: 550px) {
